@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TackmodularMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tackmodular" >
+    <id column="moid" property="moid" jdbcType="INTEGER" />
+    <result column="mtitle" property="mtitle" jdbcType="VARCHAR" />
+    <result column="modularmiaoshu" property="modularmiaoshu" jdbcType="VARCHAR" />
+    <result column="accessoryname" property="accessoryname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="publicity" property="publicity" jdbcType="VARCHAR" />
+    <result column="courseId" property="courseid" jdbcType="VARCHAR" />
+    <result column="courseName" property="coursename" jdbcType="VARCHAR" />
+    <result column="sectionId" property="sectionid" jdbcType="VARCHAR" />
+    <result column="sectionName" property="sectionname" jdbcType="VARCHAR" />
+    <result column="publishAmount" property="publishamount" jdbcType="INTEGER" />
+    <result column="accessoryAmount" property="accessoryamount" jdbcType="INTEGER" />
+    <result column="moState" property="mostate" jdbcType="INTEGER" />
+    <result column="creationpersonId" property="creationpersonid" jdbcType="VARCHAR" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    moid, mtitle, modularmiaoshu, accessoryname, gradeid, gradename, publicity, courseId, 
+    courseName, sectionId, sectionName, publishAmount, accessoryAmount, moState, creationpersonId, 
+    creationperson, creationdate, usestatus, standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tackmodular
+    where moid = #{moid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tackmodular
+    where moid = #{moid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tackmodular" >
+    insert into tackmodular (moid, mtitle, modularmiaoshu, 
+      accessoryname, gradeid, gradename, 
+      publicity, courseId, courseName, 
+      sectionId, sectionName, publishAmount, 
+      accessoryAmount, moState, creationpersonId, 
+      creationperson, creationdate, usestatus, 
+      standbyyi, standbyer, standbysan
+      )
+    values (#{moid,jdbcType=INTEGER}, #{mtitle,jdbcType=VARCHAR}, #{modularmiaoshu,jdbcType=VARCHAR}, 
+      #{accessoryname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, 
+      #{publicity,jdbcType=VARCHAR}, #{courseid,jdbcType=VARCHAR}, #{coursename,jdbcType=VARCHAR}, 
+      #{sectionid,jdbcType=VARCHAR}, #{sectionname,jdbcType=VARCHAR}, #{publishamount,jdbcType=INTEGER}, 
+      #{accessoryamount,jdbcType=INTEGER}, #{mostate,jdbcType=INTEGER}, #{creationpersonid,jdbcType=VARCHAR}, 
+      #{creationperson,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{usestatus,jdbcType=VARCHAR}, 
+      #{standbyyi,jdbcType=VARCHAR}, #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tackmodular" >
+    insert into tackmodular
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="moid != null" >
+        moid,
+      </if>
+      <if test="mtitle != null" >
+        mtitle,
+      </if>
+      <if test="modularmiaoshu != null" >
+        modularmiaoshu,
+      </if>
+      <if test="accessoryname != null" >
+        accessoryname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="publicity != null" >
+        publicity,
+      </if>
+      <if test="courseid != null" >
+        courseId,
+      </if>
+      <if test="coursename != null" >
+        courseName,
+      </if>
+      <if test="sectionid != null" >
+        sectionId,
+      </if>
+      <if test="sectionname != null" >
+        sectionName,
+      </if>
+      <if test="publishamount != null" >
+        publishAmount,
+      </if>
+      <if test="accessoryamount != null" >
+        accessoryAmount,
+      </if>
+      <if test="mostate != null" >
+        moState,
+      </if>
+      <if test="creationpersonid != null" >
+        creationpersonId,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="moid != null" >
+        #{moid,jdbcType=INTEGER},
+      </if>
+      <if test="mtitle != null" >
+        #{mtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="modularmiaoshu != null" >
+        #{modularmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryname != null" >
+        #{accessoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="publicity != null" >
+        #{publicity,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null" >
+        #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursename != null" >
+        #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionname != null" >
+        #{sectionname,jdbcType=VARCHAR},
+      </if>
+      <if test="publishamount != null" >
+        #{publishamount,jdbcType=INTEGER},
+      </if>
+      <if test="accessoryamount != null" >
+        #{accessoryamount,jdbcType=INTEGER},
+      </if>
+      <if test="mostate != null" >
+        #{mostate,jdbcType=INTEGER},
+      </if>
+      <if test="creationpersonid != null" >
+        #{creationpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tackmodular" >
+    update tackmodular
+    <set >
+      <if test="mtitle != null" >
+        mtitle = #{mtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="modularmiaoshu != null" >
+        modularmiaoshu = #{modularmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryname != null" >
+        accessoryname = #{accessoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="publicity != null" >
+        publicity = #{publicity,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null" >
+        courseId = #{courseid,jdbcType=VARCHAR},
+      </if>
+      <if test="coursename != null" >
+        courseName = #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionid != null" >
+        sectionId = #{sectionid,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionname != null" >
+        sectionName = #{sectionname,jdbcType=VARCHAR},
+      </if>
+      <if test="publishamount != null" >
+        publishAmount = #{publishamount,jdbcType=INTEGER},
+      </if>
+      <if test="accessoryamount != null" >
+        accessoryAmount = #{accessoryamount,jdbcType=INTEGER},
+      </if>
+      <if test="mostate != null" >
+        moState = #{mostate,jdbcType=INTEGER},
+      </if>
+      <if test="creationpersonid != null" >
+        creationpersonId = #{creationpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where moid = #{moid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tackmodular" >
+    update tackmodular
+    set mtitle = #{mtitle,jdbcType=VARCHAR},
+      modularmiaoshu = #{modularmiaoshu,jdbcType=VARCHAR},
+      accessoryname = #{accessoryname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      publicity = #{publicity,jdbcType=VARCHAR},
+      courseId = #{courseid,jdbcType=VARCHAR},
+      courseName = #{coursename,jdbcType=VARCHAR},
+      sectionId = #{sectionid,jdbcType=VARCHAR},
+      sectionName = #{sectionname,jdbcType=VARCHAR},
+      publishAmount = #{publishamount,jdbcType=INTEGER},
+      accessoryAmount = #{accessoryamount,jdbcType=INTEGER},
+      moState = #{mostate,jdbcType=INTEGER},
+      creationpersonId = #{creationpersonid,jdbcType=VARCHAR},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where moid = #{moid,jdbcType=INTEGER}
+  </update>
+</mapper>

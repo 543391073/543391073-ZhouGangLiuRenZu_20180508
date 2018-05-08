@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Course" >
+    <id column="courseid" property="courseid" jdbcType="INTEGER" />
+    <result column="coursename" property="coursename" jdbcType="VARCHAR" />
+    <result column="planerid" property="planerid" jdbcType="INTEGER" />
+    <result column="planername" property="planername" jdbcType="VARCHAR" />
+    <result column="editionName" property="editionname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="sumhour" property="sumhour" jdbcType="DOUBLE" />
+    <result column="courseintro" property="courseintro" jdbcType="VARCHAR" />
+    <result column="adddatetime" property="adddatetime" jdbcType="DATE" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="DATE" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    courseid, coursename, planerid, planername, editionName, gradeid, sumhour, courseintro, 
+    adddatetime, creationperson, creationdate, usestatus, standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where courseid = #{courseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course
+    where courseid = #{courseid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Course" >
+    insert into course (courseid, coursename, planerid, 
+      planername, editionName, gradeid, 
+      sumhour, courseintro, adddatetime, 
+      creationperson, creationdate, usestatus, 
+      standbyyi, standbyer, standbysan
+      )
+    values (#{courseid,jdbcType=INTEGER}, #{coursename,jdbcType=VARCHAR}, #{planerid,jdbcType=INTEGER}, 
+      #{planername,jdbcType=VARCHAR}, #{editionname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, 
+      #{sumhour,jdbcType=DOUBLE}, #{courseintro,jdbcType=VARCHAR}, #{adddatetime,jdbcType=DATE}, 
+      #{creationperson,jdbcType=VARCHAR}, #{creationdate,jdbcType=DATE}, #{usestatus,jdbcType=VARCHAR}, 
+      #{standbyyi,jdbcType=VARCHAR}, #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Course" >
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courseid != null" >
+        courseid,
+      </if>
+      <if test="coursename != null" >
+        coursename,
+      </if>
+      <if test="planerid != null" >
+        planerid,
+      </if>
+      <if test="planername != null" >
+        planername,
+      </if>
+      <if test="editionname != null" >
+        editionName,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="sumhour != null" >
+        sumhour,
+      </if>
+      <if test="courseintro != null" >
+        courseintro,
+      </if>
+      <if test="adddatetime != null" >
+        adddatetime,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courseid != null" >
+        #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="coursename != null" >
+        #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="planerid != null" >
+        #{planerid,jdbcType=INTEGER},
+      </if>
+      <if test="planername != null" >
+        #{planername,jdbcType=VARCHAR},
+      </if>
+      <if test="editionname != null" >
+        #{editionname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="sumhour != null" >
+        #{sumhour,jdbcType=DOUBLE},
+      </if>
+      <if test="courseintro != null" >
+        #{courseintro,jdbcType=VARCHAR},
+      </if>
+      <if test="adddatetime != null" >
+        #{adddatetime,jdbcType=DATE},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=DATE},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Course" >
+    update course
+    <set >
+      <if test="coursename != null" >
+        coursename = #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="planerid != null" >
+        planerid = #{planerid,jdbcType=INTEGER},
+      </if>
+      <if test="planername != null" >
+        planername = #{planername,jdbcType=VARCHAR},
+      </if>
+      <if test="editionname != null" >
+        editionName = #{editionname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="sumhour != null" >
+        sumhour = #{sumhour,jdbcType=DOUBLE},
+      </if>
+      <if test="courseintro != null" >
+        courseintro = #{courseintro,jdbcType=VARCHAR},
+      </if>
+      <if test="adddatetime != null" >
+        adddatetime = #{adddatetime,jdbcType=DATE},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=DATE},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseid = #{courseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Course" >
+    update course
+    set coursename = #{coursename,jdbcType=VARCHAR},
+      planerid = #{planerid,jdbcType=INTEGER},
+      planername = #{planername,jdbcType=VARCHAR},
+      editionName = #{editionname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      sumhour = #{sumhour,jdbcType=DOUBLE},
+      courseintro = #{courseintro,jdbcType=VARCHAR},
+      adddatetime = #{adddatetime,jdbcType=DATE},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=DATE},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where courseid = #{courseid,jdbcType=INTEGER}
+  </update>
+</mapper>

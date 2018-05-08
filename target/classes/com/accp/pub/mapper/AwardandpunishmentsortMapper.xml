@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.AwardandpunishmentsortMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Awardandpunishmentsort" >
+    <id column="asortId" property="asortid" jdbcType="INTEGER" />
+    <result column="asortName" property="asortname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    asortId, asortName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishmentsort
+    where asortId = #{asortid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from awardandpunishmentsort
+    where asortId = #{asortid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Awardandpunishmentsort" >
+    insert into awardandpunishmentsort (asortId, asortName)
+    values (#{asortid,jdbcType=INTEGER}, #{asortname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Awardandpunishmentsort" >
+    insert into awardandpunishmentsort
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="asortid != null" >
+        asortId,
+      </if>
+      <if test="asortname != null" >
+        asortName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="asortid != null" >
+        #{asortid,jdbcType=INTEGER},
+      </if>
+      <if test="asortname != null" >
+        #{asortname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Awardandpunishmentsort" >
+    update awardandpunishmentsort
+    <set >
+      <if test="asortname != null" >
+        asortName = #{asortname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where asortId = #{asortid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Awardandpunishmentsort" >
+    update awardandpunishmentsort
+    set asortName = #{asortname,jdbcType=VARCHAR}
+    where asortId = #{asortid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAwardandpunishmentsortAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishmentsort
+  </select>
+</mapper>

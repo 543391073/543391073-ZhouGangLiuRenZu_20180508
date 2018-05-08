@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.DareportformsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Dareportforms" >
+    <id column="darfId" property="darfid" jdbcType="INTEGER" />
+    <result column="domain" property="domain" jdbcType="VARCHAR" />
+    <result column="dormID" property="dormid" jdbcType="INTEGER" />
+    <result column="Count" property="count" jdbcType="INTEGER" />
+    <result column="regularCount" property="regularcount" jdbcType="INTEGER" />
+    <result column="LateReturnCount" property="latereturncount" jdbcType="INTEGER" />
+    <result column="LateReturnname" property="latereturnname" jdbcType="VARCHAR" />
+    <result column="OpenBedCount" property="openbedcount" jdbcType="INTEGER" />
+    <result column="OpenBedname" property="openbedname" jdbcType="VARCHAR" />
+    <result column="KqTime" property="kqtime" jdbcType="TIMESTAMP" />
+    <result column="sendTime" property="sendtime" jdbcType="TIMESTAMP" />
+    <result column="operatorId" property="operatorid" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="beiyong1" property="beiyong1" jdbcType="INTEGER" />
+    <result column="beiyong2" property="beiyong2" jdbcType="VARCHAR" />
+    <result column="beiyong3" property="beiyong3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    darfId, domain, dormID, Count, regularCount, LateReturnCount, LateReturnname, OpenBedCount, 
+    OpenBedname, KqTime, sendTime, operatorId, operator, operatorTime, state, beiyong1, 
+    beiyong2, beiyong3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dareportforms
+    where darfId = #{darfid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dareportforms
+    where darfId = #{darfid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Dareportforms" >
+    insert into dareportforms (darfId, domain, dormID, 
+      Count, regularCount, LateReturnCount, 
+      LateReturnname, OpenBedCount, OpenBedname, 
+      KqTime, sendTime, operatorId, 
+      operator, operatorTime, state, 
+      beiyong1, beiyong2, beiyong3
+      )
+    values (#{darfid,jdbcType=INTEGER}, #{domain,jdbcType=VARCHAR}, #{dormid,jdbcType=INTEGER}, 
+      #{count,jdbcType=INTEGER}, #{regularcount,jdbcType=INTEGER}, #{latereturncount,jdbcType=INTEGER}, 
+      #{latereturnname,jdbcType=VARCHAR}, #{openbedcount,jdbcType=INTEGER}, #{openbedname,jdbcType=VARCHAR}, 
+      #{kqtime,jdbcType=TIMESTAMP}, #{sendtime,jdbcType=TIMESTAMP}, #{operatorid,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{operatortime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{beiyong1,jdbcType=INTEGER}, #{beiyong2,jdbcType=VARCHAR}, #{beiyong3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Dareportforms" >
+    insert into dareportforms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="darfid != null" >
+        darfId,
+      </if>
+      <if test="domain != null" >
+        domain,
+      </if>
+      <if test="dormid != null" >
+        dormID,
+      </if>
+      <if test="count != null" >
+        Count,
+      </if>
+      <if test="regularcount != null" >
+        regularCount,
+      </if>
+      <if test="latereturncount != null" >
+        LateReturnCount,
+      </if>
+      <if test="latereturnname != null" >
+        LateReturnname,
+      </if>
+      <if test="openbedcount != null" >
+        OpenBedCount,
+      </if>
+      <if test="openbedname != null" >
+        OpenBedname,
+      </if>
+      <if test="kqtime != null" >
+        KqTime,
+      </if>
+      <if test="sendtime != null" >
+        sendTime,
+      </if>
+      <if test="operatorid != null" >
+        operatorId,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatorTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1,
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2,
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="darfid != null" >
+        #{darfid,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dormid != null" >
+        #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="regularcount != null" >
+        #{regularcount,jdbcType=INTEGER},
+      </if>
+      <if test="latereturncount != null" >
+        #{latereturncount,jdbcType=INTEGER},
+      </if>
+      <if test="latereturnname != null" >
+        #{latereturnname,jdbcType=VARCHAR},
+      </if>
+      <if test="openbedcount != null" >
+        #{openbedcount,jdbcType=INTEGER},
+      </if>
+      <if test="openbedname != null" >
+        #{openbedname,jdbcType=VARCHAR},
+      </if>
+      <if test="kqtime != null" >
+        #{kqtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Dareportforms" >
+    update dareportforms
+    <set >
+      <if test="domain != null" >
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dormid != null" >
+        dormID = #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        Count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="regularcount != null" >
+        regularCount = #{regularcount,jdbcType=INTEGER},
+      </if>
+      <if test="latereturncount != null" >
+        LateReturnCount = #{latereturncount,jdbcType=INTEGER},
+      </if>
+      <if test="latereturnname != null" >
+        LateReturnname = #{latereturnname,jdbcType=VARCHAR},
+      </if>
+      <if test="openbedcount != null" >
+        OpenBedCount = #{openbedcount,jdbcType=INTEGER},
+      </if>
+      <if test="openbedname != null" >
+        OpenBedname = #{openbedname,jdbcType=VARCHAR},
+      </if>
+      <if test="kqtime != null" >
+        KqTime = #{kqtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtime != null" >
+        sendTime = #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        operatorId = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3 = #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where darfId = #{darfid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Dareportforms" >
+    update dareportforms
+    set domain = #{domain,jdbcType=VARCHAR},
+      dormID = #{dormid,jdbcType=INTEGER},
+      Count = #{count,jdbcType=INTEGER},
+      regularCount = #{regularcount,jdbcType=INTEGER},
+      LateReturnCount = #{latereturncount,jdbcType=INTEGER},
+      LateReturnname = #{latereturnname,jdbcType=VARCHAR},
+      OpenBedCount = #{openbedcount,jdbcType=INTEGER},
+      OpenBedname = #{openbedname,jdbcType=VARCHAR},
+      KqTime = #{kqtime,jdbcType=TIMESTAMP},
+      sendTime = #{sendtime,jdbcType=TIMESTAMP},
+      operatorId = #{operatorid,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      beiyong3 = #{beiyong3,jdbcType=VARCHAR}
+    where darfId = #{darfid,jdbcType=INTEGER}
+  </update>
+</mapper>

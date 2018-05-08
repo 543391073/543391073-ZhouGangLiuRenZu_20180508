@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.KaoqingyichangMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Kaoqingyichang" >
+    <id column="did" property="did" jdbcType="INTEGER" />
+    <result column="kid" property="kid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="MakeProple" property="makeprople" jdbcType="VARCHAR" />
+    <result column="MakeId" property="makeid" jdbcType="INTEGER" />
+    <result column="MakeTime" property="maketime" jdbcType="TIMESTAMP" />
+    <result column="b1" property="b1" jdbcType="INTEGER" />
+    <result column="b2" property="b2" jdbcType="VARCHAR" />
+    <result column="b3" property="b3" jdbcType="VARCHAR" />
+    <result column="state1" property="state1" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    did, kid, uid, uname, gradeid, gradename, state, MakeProple, MakeId, MakeTime, b1, 
+    b2, b3, state1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from kaoqingyichang
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from kaoqingyichang
+    where did = #{did,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Kaoqingyichang" >
+    insert into kaoqingyichang (did, kid, uid, 
+      uname, gradeid, gradename, 
+      state, MakeProple, MakeId, 
+      MakeTime, b1, b2, 
+      b3, state1)
+    values (#{did,jdbcType=INTEGER}, #{kid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+      #{uname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{makeprople,jdbcType=VARCHAR}, #{makeid,jdbcType=INTEGER}, 
+      #{maketime,jdbcType=TIMESTAMP}, #{b1,jdbcType=INTEGER}, #{b2,jdbcType=VARCHAR}, 
+      #{b3,jdbcType=VARCHAR}, #{state1,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Kaoqingyichang" >
+    insert into kaoqingyichang
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="kid != null" >
+        kid,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="makeprople != null" >
+        MakeProple,
+      </if>
+      <if test="makeid != null" >
+        MakeId,
+      </if>
+      <if test="maketime != null" >
+        MakeTime,
+      </if>
+      <if test="b1 != null" >
+        b1,
+      </if>
+      <if test="b2 != null" >
+        b2,
+      </if>
+      <if test="b3 != null" >
+        b3,
+      </if>
+      <if test="state1 != null" >
+        state1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="kid != null" >
+        #{kid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="makeprople != null" >
+        #{makeprople,jdbcType=VARCHAR},
+      </if>
+      <if test="makeid != null" >
+        #{makeid,jdbcType=INTEGER},
+      </if>
+      <if test="maketime != null" >
+        #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="b1 != null" >
+        #{b1,jdbcType=INTEGER},
+      </if>
+      <if test="b2 != null" >
+        #{b2,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null" >
+        #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="state1 != null" >
+        #{state1,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Kaoqingyichang" >
+    update kaoqingyichang
+    <set >
+      <if test="kid != null" >
+        kid = #{kid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="makeprople != null" >
+        MakeProple = #{makeprople,jdbcType=VARCHAR},
+      </if>
+      <if test="makeid != null" >
+        MakeId = #{makeid,jdbcType=INTEGER},
+      </if>
+      <if test="maketime != null" >
+        MakeTime = #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="b1 != null" >
+        b1 = #{b1,jdbcType=INTEGER},
+      </if>
+      <if test="b2 != null" >
+        b2 = #{b2,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null" >
+        b3 = #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="state1 != null" >
+        state1 = #{state1,jdbcType=INTEGER},
+      </if>
+    </set>
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Kaoqingyichang" >
+    update kaoqingyichang
+    set kid = #{kid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      uname = #{uname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      MakeProple = #{makeprople,jdbcType=VARCHAR},
+      MakeId = #{makeid,jdbcType=INTEGER},
+      MakeTime = #{maketime,jdbcType=TIMESTAMP},
+      b1 = #{b1,jdbcType=INTEGER},
+      b2 = #{b2,jdbcType=VARCHAR},
+      b3 = #{b3,jdbcType=VARCHAR},
+      state1 = #{state1,jdbcType=INTEGER}
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+</mapper>

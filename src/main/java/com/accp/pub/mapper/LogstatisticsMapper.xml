@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.LogstatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Logstatistics" >
+    <id column="tjid" property="tjid" jdbcType="INTEGER" />
+    <result column="logitems" property="logitems" jdbcType="VARCHAR" />
+    <result column="logtype" property="logtype" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradername" property="gradername" jdbcType="VARCHAR" />
+    <result column="zjsum" property="zjsum" jdbcType="INTEGER" />
+    <result column="sjsum" property="sjsum" jdbcType="INTEGER" />
+    <result column="cjsum" property="cjsum" jdbcType="INTEGER" />
+    <result column="cjname" property="cjname" jdbcType="VARCHAR" />
+    <result column="cjpercentage" property="cjpercentage" jdbcType="DOUBLE" />
+    <result column="wjsum" property="wjsum" jdbcType="INTEGER" />
+    <result column="wjname" property="wjname" jdbcType="VARCHAR" />
+    <result column="wjpercentage" property="wjpercentage" jdbcType="DOUBLE" />
+    <result column="tjdate" property="tjdate" jdbcType="TIMESTAMP" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+    <result column="bz4" property="bz4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tjid, logitems, logtype, classid, classname, gradeid, gradername, zjsum, sjsum, cjsum, 
+    cjname, cjpercentage, wjsum, wjname, wjpercentage, tjdate, addtime, bz, bz1, bz2, 
+    bz3, bz4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from logstatistics
+    where tjid = #{tjid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from logstatistics
+    where tjid = #{tjid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Logstatistics" >
+    insert into logstatistics (tjid, logitems, logtype, 
+      classid, classname, gradeid, 
+      gradername, zjsum, sjsum, 
+      cjsum, cjname, cjpercentage, 
+      wjsum, wjname, wjpercentage, 
+      tjdate, addtime, bz, 
+      bz1, bz2, bz3, bz4
+      )
+    values (#{tjid,jdbcType=INTEGER}, #{logitems,jdbcType=VARCHAR}, #{logtype,jdbcType=VARCHAR}, 
+      #{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, 
+      #{gradername,jdbcType=VARCHAR}, #{zjsum,jdbcType=INTEGER}, #{sjsum,jdbcType=INTEGER}, 
+      #{cjsum,jdbcType=INTEGER}, #{cjname,jdbcType=VARCHAR}, #{cjpercentage,jdbcType=DOUBLE}, 
+      #{wjsum,jdbcType=INTEGER}, #{wjname,jdbcType=VARCHAR}, #{wjpercentage,jdbcType=DOUBLE}, 
+      #{tjdate,jdbcType=TIMESTAMP}, #{addtime,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, #{bz4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Logstatistics" >
+    insert into logstatistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tjid != null" >
+        tjid,
+      </if>
+      <if test="logitems != null" >
+        logitems,
+      </if>
+      <if test="logtype != null" >
+        logtype,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradername != null" >
+        gradername,
+      </if>
+      <if test="zjsum != null" >
+        zjsum,
+      </if>
+      <if test="sjsum != null" >
+        sjsum,
+      </if>
+      <if test="cjsum != null" >
+        cjsum,
+      </if>
+      <if test="cjname != null" >
+        cjname,
+      </if>
+      <if test="cjpercentage != null" >
+        cjpercentage,
+      </if>
+      <if test="wjsum != null" >
+        wjsum,
+      </if>
+      <if test="wjname != null" >
+        wjname,
+      </if>
+      <if test="wjpercentage != null" >
+        wjpercentage,
+      </if>
+      <if test="tjdate != null" >
+        tjdate,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+      <if test="bz4 != null" >
+        bz4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tjid != null" >
+        #{tjid,jdbcType=INTEGER},
+      </if>
+      <if test="logitems != null" >
+        #{logitems,jdbcType=VARCHAR},
+      </if>
+      <if test="logtype != null" >
+        #{logtype,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradername != null" >
+        #{gradername,jdbcType=VARCHAR},
+      </if>
+      <if test="zjsum != null" >
+        #{zjsum,jdbcType=INTEGER},
+      </if>
+      <if test="sjsum != null" >
+        #{sjsum,jdbcType=INTEGER},
+      </if>
+      <if test="cjsum != null" >
+        #{cjsum,jdbcType=INTEGER},
+      </if>
+      <if test="cjname != null" >
+        #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="cjpercentage != null" >
+        #{cjpercentage,jdbcType=DOUBLE},
+      </if>
+      <if test="wjsum != null" >
+        #{wjsum,jdbcType=INTEGER},
+      </if>
+      <if test="wjname != null" >
+        #{wjname,jdbcType=VARCHAR},
+      </if>
+      <if test="wjpercentage != null" >
+        #{wjpercentage,jdbcType=DOUBLE},
+      </if>
+      <if test="tjdate != null" >
+        #{tjdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz4 != null" >
+        #{bz4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Logstatistics" >
+    update logstatistics
+    <set >
+      <if test="logitems != null" >
+        logitems = #{logitems,jdbcType=VARCHAR},
+      </if>
+      <if test="logtype != null" >
+        logtype = #{logtype,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradername != null" >
+        gradername = #{gradername,jdbcType=VARCHAR},
+      </if>
+      <if test="zjsum != null" >
+        zjsum = #{zjsum,jdbcType=INTEGER},
+      </if>
+      <if test="sjsum != null" >
+        sjsum = #{sjsum,jdbcType=INTEGER},
+      </if>
+      <if test="cjsum != null" >
+        cjsum = #{cjsum,jdbcType=INTEGER},
+      </if>
+      <if test="cjname != null" >
+        cjname = #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="cjpercentage != null" >
+        cjpercentage = #{cjpercentage,jdbcType=DOUBLE},
+      </if>
+      <if test="wjsum != null" >
+        wjsum = #{wjsum,jdbcType=INTEGER},
+      </if>
+      <if test="wjname != null" >
+        wjname = #{wjname,jdbcType=VARCHAR},
+      </if>
+      <if test="wjpercentage != null" >
+        wjpercentage = #{wjpercentage,jdbcType=DOUBLE},
+      </if>
+      <if test="tjdate != null" >
+        tjdate = #{tjdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz4 != null" >
+        bz4 = #{bz4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tjid = #{tjid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Logstatistics" >
+    update logstatistics
+    set logitems = #{logitems,jdbcType=VARCHAR},
+      logtype = #{logtype,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradername = #{gradername,jdbcType=VARCHAR},
+      zjsum = #{zjsum,jdbcType=INTEGER},
+      sjsum = #{sjsum,jdbcType=INTEGER},
+      cjsum = #{cjsum,jdbcType=INTEGER},
+      cjname = #{cjname,jdbcType=VARCHAR},
+      cjpercentage = #{cjpercentage,jdbcType=DOUBLE},
+      wjsum = #{wjsum,jdbcType=INTEGER},
+      wjname = #{wjname,jdbcType=VARCHAR},
+      wjpercentage = #{wjpercentage,jdbcType=DOUBLE},
+      tjdate = #{tjdate,jdbcType=TIMESTAMP},
+      addtime = #{addtime,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR},
+      bz4 = #{bz4,jdbcType=VARCHAR}
+    where tjid = #{tjid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.StudentinfoMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Studentinfo">
+		<id column="stuid" property="stuid" jdbcType="INTEGER" />
+		<result column="stunumber" property="stunumber" jdbcType="VARCHAR" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="stuname" property="stuname" jdbcType="VARCHAR" />
+		<result column="stusex" property="stusex" jdbcType="VARCHAR" />
+		<result column="stubirthday" property="stubirthday" jdbcType="TIMESTAMP" />
+		<result column="nation" property="nation" jdbcType="VARCHAR" />
+		<result column="identityNo" property="identityno" jdbcType="VARCHAR" />
+		<result column="stuphone" property="stuphone" jdbcType="VARCHAR" />
+		<result column="stuculture" property="stuculture" jdbcType="VARCHAR" />
+		<result column="gdSchool" property="gdschool" jdbcType="VARCHAR" />
+		<result column="province" property="province" jdbcType="VARCHAR" />
+		<result column="city" property="city" jdbcType="VARCHAR" />
+		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="fname" property="fname" jdbcType="VARCHAR" />
+		<result column="fphone" property="fphone" jdbcType="VARCHAR" />
+		<result column="mname" property="mname" jdbcType="VARCHAR" />
+		<result column="mphone" property="mphone" jdbcType="VARCHAR" />
+		<result column="elsename" property="elsename" jdbcType="VARCHAR" />
+		<result column="elsePhone" property="elsephone" jdbcType="VARCHAR" />
+		<result column="Email" property="email" jdbcType="VARCHAR" />
+		<result column="isStay" property="isstay" jdbcType="VARCHAR" />
+		<result column="isAddress" property="isaddress" jdbcType="VARCHAR" />
+		<result column="operator" property="operator" jdbcType="VARCHAR" />
+		<result column="operatortime" property="operatortime" jdbcType="TIMESTAMP" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+		<result column="bz4" property="bz4" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		stuid, stunumber, userid, stuname, stusex, stubirthday,
+		nation, identityNo,
+		stuphone,
+		stuculture, gdSchool, province, city,
+		area, fname, fphone, mname, mphone,
+		elsename,
+		elsePhone, Email, isStay,
+		isAddress, operator, operatortime, bz1, bz2, bz3, bz4
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from studentinfo
+		where stuid = #{stuid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		studentinfo
+		where stuid = #{stuid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Studentinfo">
+		insert into studentinfo
+		(stuid, stunumber, userid,
+		stuname, stusex, stubirthday,
+		nation,
+		identityNo, stuphone,
+		stuculture, gdSchool, province,
+		city, area, fname,
+		fphone, mname, mphone,
+		elsename, elsePhone, Email,
+		isStay, isAddress,
+		operator,
+		operatortime, bz1, bz2,
+		bz3, bz4)
+		values
+		(#{stuid,jdbcType=INTEGER}, #{stunumber,jdbcType=VARCHAR},
+		#{userid,jdbcType=INTEGER},
+		#{stuname,jdbcType=VARCHAR},
+		#{stusex,jdbcType=VARCHAR}, #{stubirthday,jdbcType=TIMESTAMP},
+		#{nation,jdbcType=VARCHAR}, #{identityno,jdbcType=VARCHAR},
+		#{stuphone,jdbcType=VARCHAR},
+		#{stuculture,jdbcType=VARCHAR},
+		#{gdschool,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR},
+		#{fname,jdbcType=VARCHAR},
+		#{fphone,jdbcType=VARCHAR},
+		#{mname,jdbcType=VARCHAR}, #{mphone,jdbcType=VARCHAR},
+		#{elsename,jdbcType=VARCHAR}, #{elsephone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{isstay,jdbcType=VARCHAR},
+		#{isaddress,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR},
+		#{operatortime,jdbcType=TIMESTAMP}, #{bz1,jdbcType=VARCHAR},
+		#{bz2,jdbcType=VARCHAR},
+		#{bz3,jdbcType=VARCHAR},
+		#{bz4,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Studentinfo">
+		insert into studentinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="stuid != null">
+				stuid,
+			</if>
+			<if test="stunumber != null">
+				stunumber,
+			</if>
+			<if test="userid != null">
+				userid,
+			</if>
+			<if test="stuname != null">
+				stuname,
+			</if>
+			<if test="stusex != null">
+				stusex,
+			</if>
+			<if test="stubirthday != null">
+				stubirthday,
+			</if>
+			<if test="nation != null">
+				nation,
+			</if>
+			<if test="identityno != null">
+				identityNo,
+			</if>
+			<if test="stuphone != null">
+				stuphone,
+			</if>
+			<if test="stuculture != null">
+				stuculture,
+			</if>
+			<if test="gdschool != null">
+				gdSchool,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="area != null">
+				area,
+			</if>
+			<if test="fname != null">
+				fname,
+			</if>
+			<if test="fphone != null">
+				fphone,
+			</if>
+			<if test="mname != null">
+				mname,
+			</if>
+			<if test="mphone != null">
+				mphone,
+			</if>
+			<if test="elsename != null">
+				elsename,
+			</if>
+			<if test="elsephone != null">
+				elsePhone,
+			</if>
+			<if test="email != null">
+				Email,
+			</if>
+			<if test="isstay != null">
+				isStay,
+			</if>
+			<if test="isaddress != null">
+				isAddress,
+			</if>
+			<if test="operator != null">
+				operator,
+			</if>
+			<if test="operatortime != null">
+				operatortime,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+			<if test="bz4 != null">
+				bz4,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="stuid != null">
+				#{stuid,jdbcType=INTEGER},
+			</if>
+			<if test="stunumber != null">
+				#{stunumber,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=INTEGER},
+			</if>
+			<if test="stuname != null">
+				#{stuname,jdbcType=VARCHAR},
+			</if>
+			<if test="stusex != null">
+				#{stusex,jdbcType=VARCHAR},
+			</if>
+			<if test="stubirthday != null">
+				#{stubirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nation != null">
+				#{nation,jdbcType=VARCHAR},
+			</if>
+			<if test="identityno != null">
+				#{identityno,jdbcType=VARCHAR},
+			</if>
+			<if test="stuphone != null">
+				#{stuphone,jdbcType=VARCHAR},
+			</if>
+			<if test="stuculture != null">
+				#{stuculture,jdbcType=VARCHAR},
+			</if>
+			<if test="gdschool != null">
+				#{gdschool,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				#{area,jdbcType=VARCHAR},
+			</if>
+			<if test="fname != null">
+				#{fname,jdbcType=VARCHAR},
+			</if>
+			<if test="fphone != null">
+				#{fphone,jdbcType=VARCHAR},
+			</if>
+			<if test="mname != null">
+				#{mname,jdbcType=VARCHAR},
+			</if>
+			<if test="mphone != null">
+				#{mphone,jdbcType=VARCHAR},
+			</if>
+			<if test="elsename != null">
+				#{elsename,jdbcType=VARCHAR},
+			</if>
+			<if test="elsephone != null">
+				#{elsephone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isstay != null">
+				#{isstay,jdbcType=VARCHAR},
+			</if>
+			<if test="isaddress != null">
+				#{isaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				#{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				#{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				#{bz4,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Studentinfo">
+		update studentinfo
+		<set>
+			<if test="stunumber != null">
+				stunumber = #{stunumber,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				userid = #{userid,jdbcType=INTEGER},
+			</if>
+			<if test="stuname != null">
+				stuname = #{stuname,jdbcType=VARCHAR},
+			</if>
+			<if test="stusex != null">
+				stusex = #{stusex,jdbcType=VARCHAR},
+			</if>
+			<if test="stubirthday != null">
+				stubirthday = #{stubirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nation != null">
+				nation = #{nation,jdbcType=VARCHAR},
+			</if>
+			<if test="identityno != null">
+				identityNo = #{identityno,jdbcType=VARCHAR},
+			</if>
+			<if test="stuphone != null">
+				stuphone = #{stuphone,jdbcType=VARCHAR},
+			</if>
+			<if test="stuculture != null">
+				stuculture = #{stuculture,jdbcType=VARCHAR},
+			</if>
+			<if test="gdschool != null">
+				gdSchool = #{gdschool,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				area = #{area,jdbcType=VARCHAR},
+			</if>
+			<if test="fname != null">
+				fname = #{fname,jdbcType=VARCHAR},
+			</if>
+			<if test="fphone != null">
+				fphone = #{fphone,jdbcType=VARCHAR},
+			</if>
+			<if test="mname != null">
+				mname = #{mname,jdbcType=VARCHAR},
+			</if>
+			<if test="mphone != null">
+				mphone = #{mphone,jdbcType=VARCHAR},
+			</if>
+			<if test="elsename != null">
+				elsename = #{elsename,jdbcType=VARCHAR},
+			</if>
+			<if test="elsephone != null">
+				elsePhone = #{elsephone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				Email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isstay != null">
+				isStay = #{isstay,jdbcType=VARCHAR},
+			</if>
+			<if test="isaddress != null">
+				isAddress = #{isaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				operator = #{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				operatortime = #{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				bz4 = #{bz4,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where stuid = #{stuid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Studentinfo">
+		update studentinfo
+		set stunumber = #{stunumber,jdbcType=VARCHAR},
+		userid =
+		#{userid,jdbcType=INTEGER},
+		stuname = #{stuname,jdbcType=VARCHAR},
+		stusex = #{stusex,jdbcType=VARCHAR},
+		stubirthday =
+		#{stubirthday,jdbcType=TIMESTAMP},
+		nation = #{nation,jdbcType=VARCHAR},
+		identityNo = #{identityno,jdbcType=VARCHAR},
+		stuphone =
+		#{stuphone,jdbcType=VARCHAR},
+		stuculture =
+		#{stuculture,jdbcType=VARCHAR},
+		gdSchool =
+		#{gdschool,jdbcType=VARCHAR},
+		province = #{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		area = #{area,jdbcType=VARCHAR},
+		fname
+		= #{fname,jdbcType=VARCHAR},
+		fphone = #{fphone,jdbcType=VARCHAR},
+		mname
+		= #{mname,jdbcType=VARCHAR},
+		mphone = #{mphone,jdbcType=VARCHAR},
+		elsename = #{elsename,jdbcType=VARCHAR},
+		elsePhone =
+		#{elsephone,jdbcType=VARCHAR},
+		Email = #{email,jdbcType=VARCHAR},
+		isStay = #{isstay,jdbcType=VARCHAR},
+		isAddress =
+		#{isaddress,jdbcType=VARCHAR},
+		operator = #{operator,jdbcType=VARCHAR},
+		operatortime = #{operatortime,jdbcType=TIMESTAMP},
+		bz1 =
+		#{bz1,jdbcType=VARCHAR},
+		bz2 = #{bz2,jdbcType=VARCHAR},
+		bz3 =
+		#{bz3,jdbcType=VARCHAR},
+		bz4 = #{bz4,jdbcType=VARCHAR}
+		where stuid =
+		#{stuid,jdbcType=INTEGER}
+	</update>
+
+	<!-- 自定义sql -->
+
+	<select id="selectGradeStudentinfo" resultMap="BaseResultMap">
+
+		SELECT
+		s.stuid,s.stuname,s.stusex,s.stuphone,g.`gradename` bz1,g.`cmmName`
+		bz2,u.userimg bz3 FROM `gradeorganizationuser` g
+		INNER JOIN
+		`classmanagementmodel` c ON g.cmmid=c.cmmid
+		INNER JOIN `usertable`
+		u ON
+		u.`userid`=g.`userid`
+		INNER JOIN `studentinfo` s ON
+		s.userid=u.userid
+		WHERE g.roleid=#{roleid} AND
+		g.`jurisdiction`&lt;&gt;#{jurisdiction}
+		AND c.classid=#{graderid} AND c.`cmmPid`=0
+		AND
+		s.stuname LIKE '%${studentNameLike}%'
+
+	</select>
+
+	<select id="selectGradeStudentinfoCaoZuo" resultMap="BaseResultMap">
+
+		SELECT
+		s.stuid,s.stuname,s.stusex,s.stuphone,g.`gradename` bz1,g.`cmmName`
+		bz2,
+		ROUND(((((YEAR(NOW())-YEAR(s.`stubirthday`))*12)+(MONTH(NOW())-MONTH(s.`stubirthday`)))/12),2)
+		bz3
+		FROM `studentinfo` s
+		INNER JOIN `usertable` u ON
+		s.`userid`=u.`userid`
+		INNER JOIN `gradeorganizationuser` g ON
+		u.`userid`=g.`userid`
+		INNER JOIN `classmanagementmodel` c ON g.cmmid=c.cmmid
+		WHERE s.stuid=#{stuid}
+		AND c.classid=#{graderid} AND c.`cmmPid`=0
+		AND g.`jurisdiction`&lt;&gt;#{jurisdiction}
+
+	</select>
+
+</mapper>

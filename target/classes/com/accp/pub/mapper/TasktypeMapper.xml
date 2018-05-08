@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TasktypeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tasktype" >
+    <id column="taskTypeid" property="tasktypeid" jdbcType="INTEGER" />
+    <result column="TasktypeName" property="tasktypename" jdbcType="VARCHAR" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatortime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    taskTypeid, TasktypeName, operator, operatortime, bz, bz1, bz2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tasktype
+    where taskTypeid = #{tasktypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tasktype
+    where taskTypeid = #{tasktypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tasktype" >
+    insert into tasktype (taskTypeid, TasktypeName, operator, 
+      operatortime, bz, bz1, 
+      bz2)
+    values (#{tasktypeid,jdbcType=INTEGER}, #{tasktypename,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operatortime,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR}, 
+      #{bz2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tasktype" >
+    insert into tasktype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tasktypeid != null" >
+        taskTypeid,
+      </if>
+      <if test="tasktypename != null" >
+        TasktypeName,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatortime,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tasktypeid != null" >
+        #{tasktypeid,jdbcType=INTEGER},
+      </if>
+      <if test="tasktypename != null" >
+        #{tasktypename,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tasktype" >
+    update tasktype
+    <set >
+      <if test="tasktypename != null" >
+        TasktypeName = #{tasktypename,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatortime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where taskTypeid = #{tasktypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tasktype" >
+    update tasktype
+    set TasktypeName = #{tasktypename,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatortime = #{operatortime,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR}
+    where taskTypeid = #{tasktypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

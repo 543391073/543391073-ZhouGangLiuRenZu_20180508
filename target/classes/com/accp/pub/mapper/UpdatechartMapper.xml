@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.UpdatechartMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Updatechart" >
+    <id column="schid" property="schid" jdbcType="INTEGER" />
+    <result column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="grid" property="grid" jdbcType="INTEGER" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="schschedule" property="schschedule" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="uName" property="uname" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    schid, rid, taskid, grid, tname, schschedule, uid, uName, time, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from updatechart
+    where schid = #{schid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from updatechart
+    where schid = #{schid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Updatechart" >
+    insert into updatechart (schid, rid, taskid, 
+      grid, tname, schschedule, 
+      uid, uName, time, 
+      remark)
+    values (#{schid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
+      #{grid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{schschedule,jdbcType=VARCHAR}, 
+      #{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Updatechart" >
+    insert into updatechart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="schid != null" >
+        schid,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="grid != null" >
+        grid,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="schschedule != null" >
+        schschedule,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uName,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="schid != null" >
+        #{schid,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="grid != null" >
+        #{grid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="schschedule != null" >
+        #{schschedule,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Updatechart" >
+    update updatechart
+    <set >
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="grid != null" >
+        grid = #{grid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="schschedule != null" >
+        schschedule = #{schschedule,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        uName = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where schid = #{schid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Updatechart" >
+    update updatechart
+    set rid = #{rid,jdbcType=INTEGER},
+      taskid = #{taskid,jdbcType=INTEGER},
+      grid = #{grid,jdbcType=INTEGER},
+      tname = #{tname,jdbcType=VARCHAR},
+      schschedule = #{schschedule,jdbcType=VARCHAR},
+      uid = #{uid,jdbcType=INTEGER},
+      uName = #{uname,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where schid = #{schid,jdbcType=INTEGER}
+  </update>
+</mapper>

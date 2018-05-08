@@ -1,0 +1,339 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    isELIgnored="false"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>学生详情</title>
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/AdminLTE.min.css">
+	<script src="/20180409XiangMuYiZuStudentManage/static/js/jquery.min.js"></script>
+	<script src="/20180409XiangMuYiZuStudentManage/static/js/bootstrap.min.js"></script>
+	<style>
+		.table th,
+		.table .text-light-blue {
+			text-align: center;
+			vertical-align: middle!important;
+		}
+		
+		#tablekey td {
+			border: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		var stuid='${stuid}';//学生id
+		//查询指定学生信息
+		selectStudent(stuid);
+		
+	});
+	
+	//查询指定学生详细信息
+	function selectStudent(stuid){
+		if(stuid==null||stuid=="")return;
+		
+		$.ajax({
+			"url":"",
+			"data":{"stuid",stuid},
+			"dataType":"json",
+			"type":"post",
+			"success":function(result){
+				
+			}
+		});
+	}
+	
+	</script>
+</head>
+<body>
+	<section class="content-header">
+			<h1>查看学员详细信息<small>Optional description</small></h1>
+			<ol class="breadcrumb">
+				<li class="active">学生管理</li>
+				<li class="active">学生详情</li>
+			</ol>
+		</section>
+		
+		<hr style="margin-bottom: 0;">
+		
+		<section class="content container-fluid">
+
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#studentInfo" data-toggle="tab" aria-expanded="true">基本信息</a>
+					</li>
+					<li class="">
+						<a href="#stuXSFT" data-toggle="tab" aria-expanded="false">学生访谈</a>
+					</li>
+					<li class="">
+						<a href="#stuJZFT" data-toggle="tab" aria-expanded="false">家长访谈</a>
+					</li>
+					<li class="">
+						<a href="#stuJC" data-toggle="tab" aria-expanded="false">奖惩信息</a>
+					</li>
+					<li class="">
+						<a href="#stuLS" data-toggle="tab" aria-expanded="false">风险系数</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="studentInfo">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">所属阶段</td>
+								<td>ACCP8.0_S1</td>
+								<td rowspan="6" class="text-light-blue">照片</td>
+								<td rowspan="6" style="text-align: center;vertical-align: middle!important;">
+									<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user7-128x128.jpg" alt="">
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">学号</td>
+								<td>163201</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">所属班级</td>
+								<td>AT1632</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">学生姓名</td>
+								<td>龙游浅水遭虾戏</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">出生年月</td>
+								<td>2018-8-8</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">性别</td>
+								<td>男</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">状态</td>
+								<td>在读</td>
+								<td class="text-light-blue"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">职务</td>
+								<td></td>
+								<td class="text-light-blue">分类</td>
+								<td>未分类</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">邮箱</td>
+								<td></td>
+								<td class="text-light-blue">QQ号码</td>
+								<td>3838438</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">身份证</td>
+								<td>430224199511032972</td>
+								<td class="text-light-blue">学历</td>
+								<td>研究生</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">本人联系电话</td>
+								<td>18570413456</td>
+								<td class="text-light-blue">婚姻状况</td>
+								<td>未婚</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">父亲姓名</td>
+								<td>帅哥</td>
+								<td class="text-light-blue">父亲电话</td>
+								<td>18570413456</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">母亲姓名</td>
+								<td>美女</td>
+								<td class="text-light-blue">母亲电话</td>
+								<td>18570413456</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">家庭状况</td>
+								<td>和睦</td>
+								<td class="text-light-blue">学习态度</td>
+								<td>一般</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">情商</td>
+								<td>正常</td>
+								<td class="text-light-blue">智商</td>
+								<td>正常</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">班主任</td>
+								<td>贺艳</td>
+								<td class="text-light-blue">以前毕业学校</td>
+								<td>株洲建坤北大青鸟</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">宿舍地址</td>
+								<td colspan="3">家家乐402</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">家庭地址</td>
+								<td colspan="3">湖南省株洲市建坤北大青鸟</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">备注信息</td>
+								<td colspan="3">万般皆下等，唯有和为贵</td>
+							</tr>
+
+						</table>
+					</div>
+
+					<div class="tab-pane" id="stuXSFT">
+
+						<div class="alert alert-info alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<div>
+								<table class="table" id="tablekey" style="margin: 0px;">
+									<tr>
+										<td>班主任：贺艳</td>
+										<td>所在阶段：ACCP8.0_Y2_JAVA13</td>
+										<td>访谈时间：2018-1-18</td>
+										<td>录入时间：2018-2-2</td>
+									</tr>
+									<tr>
+										<td colspan="4">访谈结果：你想资产过亿吗？你想豪车无数吗？你想开着兰博基尼泡妞吗？那还再等什么，洗洗睡吧！</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+						<div class="alert alert-info alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<div>
+								<table class="table" id="tablekey" style="margin: 0px;">
+									<tr>
+										<td>班主任：贺艳</td>
+										<td>所在阶段：ACCP8.0_Y2_JAVA13</td>
+										<td>访谈时间：2018-1-18</td>
+										<td>录入时间：2018-2-2</td>
+									</tr>
+									<tr>
+										<td colspan="4">访谈结果：你想资产过亿吗？你想豪车无数吗？你想开着兰博基尼泡妞吗？那还再等什么，洗洗睡吧！</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane" id="stuJZFT">
+
+						<div class="alert alert-info alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<div>
+								<table class="table" id="tablekey" style="margin: 0px;">
+									<tr>
+										<td>班主任：贺艳</td>
+										<td>所在阶段：ACCP8.0_Y2_JAVA13</td>
+										<td>访谈类型：电话</td>
+										<td>访谈对象：母亲</td>
+										<td>访谈时间：2018-1-18</td>
+										<td>录入时间：2018-2-2</td>
+									</tr>
+									<tr>
+										<td colspan="6">访谈结果：你想资产过亿吗？你想豪车无数吗？你想开着兰博基尼泡妞吗？那还再等什么，洗洗睡吧！</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane" id="stuJC">
+
+						<div class="alert alert-info alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<div>
+								<table class="table" id="tablekey" style="margin: 0px;">
+									<tr>
+										<td>班主任：贺艳</td>
+										<td>所在阶段：ACCP8.0_Y2_JAVA13</td>
+										<td>奖惩类型：奖励</td>
+										<td>访谈时间：2018-1-18</td>
+										<td>录入时间：2018-2-2</td>
+									</tr>
+									<tr>
+										<td colspan="6">等我发财，每年给你20万，你就天天给我呆在网吧上网打游戏，什么都不要干。不然我就是发脾的</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane" id="stuLS">
+
+						<div style="margin: 5px;color: blue;">
+							<h4>备注信息</h4>
+							<p>风险值（硬性）：分析时间段、考试平均成绩、违纪次数、作业完成度、旷寝次数、考勤异常、日志异常</p>
+							<p>风险系数（软性）：年龄、性别、家庭状况、学习态度、情商、智商、性格</p>
+						</div>
+
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<td>分析时间段</td>
+									<td>考试平均成绩</td>
+									<td>违纪次数</td>
+									<td>作业完成度</td>
+									<td>旷寝次数</td>
+									<td>考勤异常</td>
+									<td>日志异常</td>
+									<td>年龄</td>
+									<td>性别</td>
+									<td>家庭状况</td>
+									<td>学习态度</td>
+									<td>情商</td>
+									<td>智商</td>
+									<td>性格</td>
+									<td>流失概率</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2018-02-18至2018-03-18</td>
+									<td>78(20%</td>
+									<td>7(5%)</td>
+									<td>70%(10%)</td>
+									<td>7(5%)</td>
+									<td>7(5%)</td>
+									<td>7(5%)</td>
+									<td>18(20%)</td>
+									<td>男(10%)</td>
+									<td>和睦(2%)</td>
+									<td>一般(30%)</td>
+									<td>高(10%)</td>
+									<td>高(20%)</td>
+									<td>活泼、开朗(10%)</td>
+									<td>40%</td>
+								</tr>
+								<tr>
+									<td>2018-03-18至2018-04-18</td>
+									<td>78(20%</td>
+									<td>7(5%)</td>
+									<td>70%(10%)</td>
+									<td>7(5%)</td>
+									<td>7(5%)</td>
+									<td>7(5%)</td>
+									<td>18(20%)</td>
+									<td>男(10%)</td>
+									<td>和睦(2%)</td>
+									<td>一般(30%)</td>
+									<td>高(10%)</td>
+									<td>高(20%)</td>
+									<td>活泼、开朗(10%)</td>
+									<td>50%</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</section>
+</body>
+</html>

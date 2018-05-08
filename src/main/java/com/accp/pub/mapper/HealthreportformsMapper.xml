@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.HealthreportformsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Healthreportforms" >
+    <id column="HrfID" property="hrfid" jdbcType="INTEGER" />
+    <result column="domain" property="domain" jdbcType="VARCHAR" />
+    <result column="dormID" property="dormid" jdbcType="INTEGER" />
+    <result column="commonlyCount" property="commonlycount" jdbcType="INTEGER" />
+    <result column="GoodCount" property="goodcount" jdbcType="INTEGER" />
+    <result column="excellenceCount" property="excellencecount" jdbcType="INTEGER" />
+    <result column="noExcellenceCount" property="noexcellencecount" jdbcType="INTEGER" />
+    <result column="sendTime" property="sendtime" jdbcType="TIMESTAMP" />
+    <result column="operatorId" property="operatorid" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="beiyong1" property="beiyong1" jdbcType="INTEGER" />
+    <result column="beiyong2" property="beiyong2" jdbcType="VARCHAR" />
+    <result column="beiyong3" property="beiyong3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    HrfID, domain, dormID, commonlyCount, GoodCount, excellenceCount, noExcellenceCount, 
+    sendTime, operatorId, operator, operatorTime, state, beiyong1, beiyong2, beiyong3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from healthreportforms
+    where HrfID = #{hrfid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from healthreportforms
+    where HrfID = #{hrfid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Healthreportforms" >
+    insert into healthreportforms (HrfID, domain, dormID, 
+      commonlyCount, GoodCount, excellenceCount, 
+      noExcellenceCount, sendTime, operatorId, 
+      operator, operatorTime, state, 
+      beiyong1, beiyong2, beiyong3
+      )
+    values (#{hrfid,jdbcType=INTEGER}, #{domain,jdbcType=VARCHAR}, #{dormid,jdbcType=INTEGER}, 
+      #{commonlycount,jdbcType=INTEGER}, #{goodcount,jdbcType=INTEGER}, #{excellencecount,jdbcType=INTEGER}, 
+      #{noexcellencecount,jdbcType=INTEGER}, #{sendtime,jdbcType=TIMESTAMP}, #{operatorid,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{operatortime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{beiyong1,jdbcType=INTEGER}, #{beiyong2,jdbcType=VARCHAR}, #{beiyong3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Healthreportforms" >
+    insert into healthreportforms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hrfid != null" >
+        HrfID,
+      </if>
+      <if test="domain != null" >
+        domain,
+      </if>
+      <if test="dormid != null" >
+        dormID,
+      </if>
+      <if test="commonlycount != null" >
+        commonlyCount,
+      </if>
+      <if test="goodcount != null" >
+        GoodCount,
+      </if>
+      <if test="excellencecount != null" >
+        excellenceCount,
+      </if>
+      <if test="noexcellencecount != null" >
+        noExcellenceCount,
+      </if>
+      <if test="sendtime != null" >
+        sendTime,
+      </if>
+      <if test="operatorid != null" >
+        operatorId,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatorTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1,
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2,
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hrfid != null" >
+        #{hrfid,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dormid != null" >
+        #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="commonlycount != null" >
+        #{commonlycount,jdbcType=INTEGER},
+      </if>
+      <if test="goodcount != null" >
+        #{goodcount,jdbcType=INTEGER},
+      </if>
+      <if test="excellencecount != null" >
+        #{excellencecount,jdbcType=INTEGER},
+      </if>
+      <if test="noexcellencecount != null" >
+        #{noexcellencecount,jdbcType=INTEGER},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Healthreportforms" >
+    update healthreportforms
+    <set >
+      <if test="domain != null" >
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dormid != null" >
+        dormID = #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="commonlycount != null" >
+        commonlyCount = #{commonlycount,jdbcType=INTEGER},
+      </if>
+      <if test="goodcount != null" >
+        GoodCount = #{goodcount,jdbcType=INTEGER},
+      </if>
+      <if test="excellencecount != null" >
+        excellenceCount = #{excellencecount,jdbcType=INTEGER},
+      </if>
+      <if test="noexcellencecount != null" >
+        noExcellenceCount = #{noexcellencecount,jdbcType=INTEGER},
+      </if>
+      <if test="sendtime != null" >
+        sendTime = #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        operatorId = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3 = #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HrfID = #{hrfid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Healthreportforms" >
+    update healthreportforms
+    set domain = #{domain,jdbcType=VARCHAR},
+      dormID = #{dormid,jdbcType=INTEGER},
+      commonlyCount = #{commonlycount,jdbcType=INTEGER},
+      GoodCount = #{goodcount,jdbcType=INTEGER},
+      excellenceCount = #{excellencecount,jdbcType=INTEGER},
+      noExcellenceCount = #{noexcellencecount,jdbcType=INTEGER},
+      sendTime = #{sendtime,jdbcType=TIMESTAMP},
+      operatorId = #{operatorid,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      beiyong3 = #{beiyong3,jdbcType=VARCHAR}
+    where HrfID = #{hrfid,jdbcType=INTEGER}
+  </update>
+</mapper>

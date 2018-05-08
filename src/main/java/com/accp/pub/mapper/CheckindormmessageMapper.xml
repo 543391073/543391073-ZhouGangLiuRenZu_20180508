@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CheckindormmessageMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Checkindormmessage" >
+    <id column="cdmId" property="cdmid" jdbcType="INTEGER" />
+    <result column="dormId" property="dormid" jdbcType="INTEGER" />
+    <result column="UserID" property="userid" jdbcType="INTEGER" />
+    <result column="ClassId" property="classid" jdbcType="INTEGER" />
+    <result column="GradeId" property="gradeid" jdbcType="INTEGER" />
+    <result column="berthId" property="berthid" jdbcType="INTEGER" />
+    <result column="operatorId" property="operatorid" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="beiyong1" property="beiyong1" jdbcType="INTEGER" />
+    <result column="beiyong2" property="beiyong2" jdbcType="VARCHAR" />
+    <result column="beiyong3" property="beiyong3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cdmId, dormId, UserID, ClassId, GradeId, berthId, operatorId, operator, operatorTime, 
+    state, beiyong1, beiyong2, beiyong3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from checkindormmessage
+    where cdmId = #{cdmid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from checkindormmessage
+    where cdmId = #{cdmid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Checkindormmessage" >
+    insert into checkindormmessage (cdmId, dormId, UserID, 
+      ClassId, GradeId, berthId, 
+      operatorId, operator, operatorTime, 
+      state, beiyong1, beiyong2, 
+      beiyong3)
+    values (#{cdmid,jdbcType=INTEGER}, #{dormid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{classid,jdbcType=INTEGER}, #{gradeid,jdbcType=INTEGER}, #{berthid,jdbcType=INTEGER}, 
+      #{operatorid,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, #{operatortime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=INTEGER}, #{beiyong1,jdbcType=INTEGER}, #{beiyong2,jdbcType=VARCHAR}, 
+      #{beiyong3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Checkindormmessage" >
+    insert into checkindormmessage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cdmid != null" >
+        cdmId,
+      </if>
+      <if test="dormid != null" >
+        dormId,
+      </if>
+      <if test="userid != null" >
+        UserID,
+      </if>
+      <if test="classid != null" >
+        ClassId,
+      </if>
+      <if test="gradeid != null" >
+        GradeId,
+      </if>
+      <if test="berthid != null" >
+        berthId,
+      </if>
+      <if test="operatorid != null" >
+        operatorId,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatorTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1,
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2,
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cdmid != null" >
+        #{cdmid,jdbcType=INTEGER},
+      </if>
+      <if test="dormid != null" >
+        #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="berthid != null" >
+        #{berthid,jdbcType=INTEGER},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Checkindormmessage" >
+    update checkindormmessage
+    <set >
+      <if test="dormid != null" >
+        dormId = #{dormid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        UserID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        ClassId = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        GradeId = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="berthid != null" >
+        berthId = #{berthid,jdbcType=INTEGER},
+      </if>
+      <if test="operatorid != null" >
+        operatorId = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3 = #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cdmId = #{cdmid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Checkindormmessage" >
+    update checkindormmessage
+    set dormId = #{dormid,jdbcType=INTEGER},
+      UserID = #{userid,jdbcType=INTEGER},
+      ClassId = #{classid,jdbcType=INTEGER},
+      GradeId = #{gradeid,jdbcType=INTEGER},
+      berthId = #{berthid,jdbcType=INTEGER},
+      operatorId = #{operatorid,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      beiyong3 = #{beiyong3,jdbcType=VARCHAR}
+    where cdmId = #{cdmid,jdbcType=INTEGER}
+  </update>
+</mapper>

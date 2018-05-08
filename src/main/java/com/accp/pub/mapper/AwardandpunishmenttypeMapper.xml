@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.AwardandpunishmenttypeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Awardandpunishmenttype" >
+    <id column="aaypeId" property="aaypeid" jdbcType="INTEGER" />
+    <result column="atypeName" property="atypename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aaypeId, atypeName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishmenttype
+    where aaypeId = #{aaypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from awardandpunishmenttype
+    where aaypeId = #{aaypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Awardandpunishmenttype" >
+    insert into awardandpunishmenttype (aaypeId, atypeName)
+    values (#{aaypeid,jdbcType=INTEGER}, #{atypename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Awardandpunishmenttype" >
+    insert into awardandpunishmenttype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aaypeid != null" >
+        aaypeId,
+      </if>
+      <if test="atypename != null" >
+        atypeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aaypeid != null" >
+        #{aaypeid,jdbcType=INTEGER},
+      </if>
+      <if test="atypename != null" >
+        #{atypename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Awardandpunishmenttype" >
+    update awardandpunishmenttype
+    <set >
+      <if test="atypename != null" >
+        atypeName = #{atypename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aaypeId = #{aaypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Awardandpunishmenttype" >
+    update awardandpunishmenttype
+    set atypeName = #{atypename,jdbcType=VARCHAR}
+    where aaypeId = #{aaypeid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectAwardandpunishmenttypeAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishmenttype
+  </select>
+</mapper>

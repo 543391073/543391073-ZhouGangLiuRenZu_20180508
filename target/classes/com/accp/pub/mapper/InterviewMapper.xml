@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.InterviewMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Interview" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="stuname" property="stuname" jdbcType="VARCHAR" />
+    <result column="stuphone" property="stuphone" jdbcType="VARCHAR" />
+    <result column="iclassgrade" property="iclassgrade" jdbcType="VARCHAR" />
+    <result column="ivisitMan" property="ivisitman" jdbcType="VARCHAR" />
+    <result column="iobject" property="iobject" jdbcType="VARCHAR" />
+    <result column="imodeid" property="imodeid" jdbcType="INTEGER" />
+    <result column="imodename" property="imodename" jdbcType="VARCHAR" />
+    <result column="interviewTypeid" property="interviewtypeid" jdbcType="INTEGER" />
+    <result column="interviewTypeName" property="interviewtypename" jdbcType="VARCHAR" />
+    <result column="ititle" property="ititle" jdbcType="VARCHAR" />
+    <result column="icontent" property="icontent" jdbcType="VARCHAR" />
+    <result column="iftime" property="iftime" jdbcType="TIMESTAMP" />
+    <result column="ioperatDate" property="ioperatdate" jdbcType="TIMESTAMP" />
+    <result column="ioperator" property="ioperator" jdbcType="VARCHAR" />
+    <result column="ibz1" property="ibz1" jdbcType="VARCHAR" />
+    <result column="ibz2" property="ibz2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, sid, stuname, stuphone, iclassgrade, ivisitMan, iobject, imodeid, imodename, 
+    interviewTypeid, interviewTypeName, ititle, icontent, iftime, ioperatDate, ioperator, 
+    ibz1, ibz2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from interview
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from interview
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Interview" >
+    insert into interview (iid, sid, stuname, 
+      stuphone, iclassgrade, ivisitMan, 
+      iobject, imodeid, imodename, 
+      interviewTypeid, interviewTypeName, ititle, 
+      icontent, iftime, ioperatDate, 
+      ioperator, ibz1, ibz2
+      )
+    values (#{iid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, 
+      #{stuphone,jdbcType=VARCHAR}, #{iclassgrade,jdbcType=VARCHAR}, #{ivisitman,jdbcType=VARCHAR}, 
+      #{iobject,jdbcType=VARCHAR}, #{imodeid,jdbcType=INTEGER}, #{imodename,jdbcType=VARCHAR}, 
+      #{interviewtypeid,jdbcType=INTEGER}, #{interviewtypename,jdbcType=VARCHAR}, #{ititle,jdbcType=VARCHAR}, 
+      #{icontent,jdbcType=VARCHAR}, #{iftime,jdbcType=TIMESTAMP}, #{ioperatdate,jdbcType=TIMESTAMP}, 
+      #{ioperator,jdbcType=VARCHAR}, #{ibz1,jdbcType=VARCHAR}, #{ibz2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Interview" >
+    insert into interview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        iid,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="stuname != null" >
+        stuname,
+      </if>
+      <if test="stuphone != null" >
+        stuphone,
+      </if>
+      <if test="iclassgrade != null" >
+        iclassgrade,
+      </if>
+      <if test="ivisitman != null" >
+        ivisitMan,
+      </if>
+      <if test="iobject != null" >
+        iobject,
+      </if>
+      <if test="imodeid != null" >
+        imodeid,
+      </if>
+      <if test="imodename != null" >
+        imodename,
+      </if>
+      <if test="interviewtypeid != null" >
+        interviewTypeid,
+      </if>
+      <if test="interviewtypename != null" >
+        interviewTypeName,
+      </if>
+      <if test="ititle != null" >
+        ititle,
+      </if>
+      <if test="icontent != null" >
+        icontent,
+      </if>
+      <if test="iftime != null" >
+        iftime,
+      </if>
+      <if test="ioperatdate != null" >
+        ioperatDate,
+      </if>
+      <if test="ioperator != null" >
+        ioperator,
+      </if>
+      <if test="ibz1 != null" >
+        ibz1,
+      </if>
+      <if test="ibz2 != null" >
+        ibz2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuphone != null" >
+        #{stuphone,jdbcType=VARCHAR},
+      </if>
+      <if test="iclassgrade != null" >
+        #{iclassgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="ivisitman != null" >
+        #{ivisitman,jdbcType=VARCHAR},
+      </if>
+      <if test="iobject != null" >
+        #{iobject,jdbcType=VARCHAR},
+      </if>
+      <if test="imodeid != null" >
+        #{imodeid,jdbcType=INTEGER},
+      </if>
+      <if test="imodename != null" >
+        #{imodename,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewtypeid != null" >
+        #{interviewtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="interviewtypename != null" >
+        #{interviewtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="ititle != null" >
+        #{ititle,jdbcType=VARCHAR},
+      </if>
+      <if test="icontent != null" >
+        #{icontent,jdbcType=VARCHAR},
+      </if>
+      <if test="iftime != null" >
+        #{iftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperatdate != null" >
+        #{ioperatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperator != null" >
+        #{ioperator,jdbcType=VARCHAR},
+      </if>
+      <if test="ibz1 != null" >
+        #{ibz1,jdbcType=VARCHAR},
+      </if>
+      <if test="ibz2 != null" >
+        #{ibz2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Interview" >
+    update interview
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        stuname = #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuphone != null" >
+        stuphone = #{stuphone,jdbcType=VARCHAR},
+      </if>
+      <if test="iclassgrade != null" >
+        iclassgrade = #{iclassgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="ivisitman != null" >
+        ivisitMan = #{ivisitman,jdbcType=VARCHAR},
+      </if>
+      <if test="iobject != null" >
+        iobject = #{iobject,jdbcType=VARCHAR},
+      </if>
+      <if test="imodeid != null" >
+        imodeid = #{imodeid,jdbcType=INTEGER},
+      </if>
+      <if test="imodename != null" >
+        imodename = #{imodename,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewtypeid != null" >
+        interviewTypeid = #{interviewtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="interviewtypename != null" >
+        interviewTypeName = #{interviewtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="ititle != null" >
+        ititle = #{ititle,jdbcType=VARCHAR},
+      </if>
+      <if test="icontent != null" >
+        icontent = #{icontent,jdbcType=VARCHAR},
+      </if>
+      <if test="iftime != null" >
+        iftime = #{iftime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperatdate != null" >
+        ioperatDate = #{ioperatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperator != null" >
+        ioperator = #{ioperator,jdbcType=VARCHAR},
+      </if>
+      <if test="ibz1 != null" >
+        ibz1 = #{ibz1,jdbcType=VARCHAR},
+      </if>
+      <if test="ibz2 != null" >
+        ibz2 = #{ibz2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Interview" >
+    update interview
+    set sid = #{sid,jdbcType=INTEGER},
+      stuname = #{stuname,jdbcType=VARCHAR},
+      stuphone = #{stuphone,jdbcType=VARCHAR},
+      iclassgrade = #{iclassgrade,jdbcType=VARCHAR},
+      ivisitMan = #{ivisitman,jdbcType=VARCHAR},
+      iobject = #{iobject,jdbcType=VARCHAR},
+      imodeid = #{imodeid,jdbcType=INTEGER},
+      imodename = #{imodename,jdbcType=VARCHAR},
+      interviewTypeid = #{interviewtypeid,jdbcType=INTEGER},
+      interviewTypeName = #{interviewtypename,jdbcType=VARCHAR},
+      ititle = #{ititle,jdbcType=VARCHAR},
+      icontent = #{icontent,jdbcType=VARCHAR},
+      iftime = #{iftime,jdbcType=TIMESTAMP},
+      ioperatDate = #{ioperatdate,jdbcType=TIMESTAMP},
+      ioperator = #{ioperator,jdbcType=VARCHAR},
+      ibz1 = #{ibz1,jdbcType=VARCHAR},
+      ibz2 = #{ibz2,jdbcType=VARCHAR}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 自定义sql -->
+  
+  <select id="selectByInterviewWhenSidAndImodeid" resultMap="BaseResultMap">
+    SELECT * FROM `interview` WHERE sid=#{sid} AND imodeid=#{imodeid} ORDER BY `ioperatDate` DESC
+  </select>
+  
+</mapper>

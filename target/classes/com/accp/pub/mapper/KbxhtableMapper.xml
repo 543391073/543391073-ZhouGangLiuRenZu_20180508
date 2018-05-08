@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.KbxhtableMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Kbxhtable" >
+    <id column="cnumberid" property="cnumberid" jdbcType="INTEGER" />
+    <result column="courtableid" property="courtableid" jdbcType="INTEGER" />
+    <result column="serialnumber" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="kbdate" property="kbdate" jdbcType="TIMESTAMP" />
+    <result column="week" property="week" jdbcType="VARCHAR" />
+    <result column="timequantum" property="timequantum" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="teachid" property="teachid" jdbcType="INTEGER" />
+    <result column="teachname" property="teachname" jdbcType="VARCHAR" />
+    <result column="room" property="room" jdbcType="VARCHAR" />
+    <result column="coursename" property="coursename" jdbcType="VARCHAR" />
+    <result column="foundid" property="foundid" jdbcType="VARCHAR" />
+    <result column="founddate" property="founddate" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cnumberid, courtableid, serialnumber, kbdate, week, timequantum, classid, classname, 
+    teachid, teachname, room, coursename, foundid, founddate, state, remark, remark1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from kbxhtable
+    where cnumberid = #{cnumberid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from kbxhtable
+    where cnumberid = #{cnumberid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Kbxhtable" >
+    insert into kbxhtable (cnumberid, courtableid, serialnumber, 
+      kbdate, week, timequantum, 
+      classid, classname, teachid, 
+      teachname, room, coursename, 
+      foundid, founddate, state, 
+      remark, remark1)
+    values (#{cnumberid,jdbcType=INTEGER}, #{courtableid,jdbcType=INTEGER}, #{serialnumber,jdbcType=VARCHAR}, 
+      #{kbdate,jdbcType=TIMESTAMP}, #{week,jdbcType=VARCHAR}, #{timequantum,jdbcType=VARCHAR}, 
+      #{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{teachid,jdbcType=INTEGER}, 
+      #{teachname,jdbcType=VARCHAR}, #{room,jdbcType=VARCHAR}, #{coursename,jdbcType=VARCHAR}, 
+      #{foundid,jdbcType=VARCHAR}, #{founddate,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Kbxhtable" >
+    insert into kbxhtable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cnumberid != null" >
+        cnumberid,
+      </if>
+      <if test="courtableid != null" >
+        courtableid,
+      </if>
+      <if test="serialnumber != null" >
+        serialnumber,
+      </if>
+      <if test="kbdate != null" >
+        kbdate,
+      </if>
+      <if test="week != null" >
+        week,
+      </if>
+      <if test="timequantum != null" >
+        timequantum,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="teachid != null" >
+        teachid,
+      </if>
+      <if test="teachname != null" >
+        teachname,
+      </if>
+      <if test="room != null" >
+        room,
+      </if>
+      <if test="coursename != null" >
+        coursename,
+      </if>
+      <if test="foundid != null" >
+        foundid,
+      </if>
+      <if test="founddate != null" >
+        founddate,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remark1 != null" >
+        remark1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cnumberid != null" >
+        #{cnumberid,jdbcType=INTEGER},
+      </if>
+      <if test="courtableid != null" >
+        #{courtableid,jdbcType=INTEGER},
+      </if>
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="kbdate != null" >
+        #{kbdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="week != null" >
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="timequantum != null" >
+        #{timequantum,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="teachid != null" >
+        #{teachid,jdbcType=INTEGER},
+      </if>
+      <if test="teachname != null" >
+        #{teachname,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null" >
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="coursename != null" >
+        #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Kbxhtable" >
+    update kbxhtable
+    <set >
+      <if test="courtableid != null" >
+        courtableid = #{courtableid,jdbcType=INTEGER},
+      </if>
+      <if test="serialnumber != null" >
+        serialnumber = #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="kbdate != null" >
+        kbdate = #{kbdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="week != null" >
+        week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="timequantum != null" >
+        timequantum = #{timequantum,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="teachid != null" >
+        teachid = #{teachid,jdbcType=INTEGER},
+      </if>
+      <if test="teachname != null" >
+        teachname = #{teachname,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null" >
+        room = #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="coursename != null" >
+        coursename = #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        foundid = #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        founddate = #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cnumberid = #{cnumberid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Kbxhtable" >
+    update kbxhtable
+    set courtableid = #{courtableid,jdbcType=INTEGER},
+      serialnumber = #{serialnumber,jdbcType=VARCHAR},
+      kbdate = #{kbdate,jdbcType=TIMESTAMP},
+      week = #{week,jdbcType=VARCHAR},
+      timequantum = #{timequantum,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      teachid = #{teachid,jdbcType=INTEGER},
+      teachname = #{teachname,jdbcType=VARCHAR},
+      room = #{room,jdbcType=VARCHAR},
+      coursename = #{coursename,jdbcType=VARCHAR},
+      foundid = #{foundid,jdbcType=VARCHAR},
+      founddate = #{founddate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR}
+    where cnumberid = #{cnumberid,jdbcType=INTEGER}
+  </update>
+</mapper>

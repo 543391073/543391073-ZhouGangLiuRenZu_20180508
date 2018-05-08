@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.AccessoryMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Accessory" >
+    <id column="fujianid" property="fujianid" jdbcType="INTEGER" />
+    <result column="fujianname" property="fujianname" jdbcType="VARCHAR" />
+    <result column="fujianUrl" property="fujianurl" jdbcType="VARCHAR" />
+    <result column="fujianbianhao" property="fujianbianhao" jdbcType="VARCHAR" />
+    <result column="daxiao" property="daxiao" jdbcType="REAL" />
+    <result column="fujiantate" property="fujiantate" jdbcType="TIMESTAMP" />
+    <result column="scname" property="scname" jdbcType="VARCHAR" />
+    <result column="scid" property="scid" jdbcType="VARCHAR" />
+    <result column="moid" property="moid" jdbcType="INTEGER" />
+    <result column="stater" property="stater" jdbcType="INTEGER" />
+    <result column="creationpersonId" property="creationpersonid" jdbcType="VARCHAR" />
+    <result column="creationpersonName" property="creationpersonname" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fujianid, fujianname, fujianUrl, fujianbianhao, daxiao, fujiantate, scname, scid, 
+    moid, stater, creationpersonId, creationpersonName, creationdate, usestatus, standbyyi, 
+    standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from accessory
+    where fujianid = #{fujianid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from accessory
+    where fujianid = #{fujianid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Accessory" >
+    insert into accessory (fujianid, fujianname, fujianUrl, 
+      fujianbianhao, daxiao, fujiantate, 
+      scname, scid, moid, 
+      stater, creationpersonId, creationpersonName, 
+      creationdate, usestatus, standbyyi, 
+      standbyer, standbysan)
+    values (#{fujianid,jdbcType=INTEGER}, #{fujianname,jdbcType=VARCHAR}, #{fujianurl,jdbcType=VARCHAR}, 
+      #{fujianbianhao,jdbcType=VARCHAR}, #{daxiao,jdbcType=REAL}, #{fujiantate,jdbcType=TIMESTAMP}, 
+      #{scname,jdbcType=VARCHAR}, #{scid,jdbcType=VARCHAR}, #{moid,jdbcType=INTEGER}, 
+      #{stater,jdbcType=INTEGER}, #{creationpersonid,jdbcType=VARCHAR}, #{creationpersonname,jdbcType=VARCHAR}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{usestatus,jdbcType=VARCHAR}, #{standbyyi,jdbcType=VARCHAR}, 
+      #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Accessory" >
+    insert into accessory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fujianid != null" >
+        fujianid,
+      </if>
+      <if test="fujianname != null" >
+        fujianname,
+      </if>
+      <if test="fujianurl != null" >
+        fujianUrl,
+      </if>
+      <if test="fujianbianhao != null" >
+        fujianbianhao,
+      </if>
+      <if test="daxiao != null" >
+        daxiao,
+      </if>
+      <if test="fujiantate != null" >
+        fujiantate,
+      </if>
+      <if test="scname != null" >
+        scname,
+      </if>
+      <if test="scid != null" >
+        scid,
+      </if>
+      <if test="moid != null" >
+        moid,
+      </if>
+      <if test="stater != null" >
+        stater,
+      </if>
+      <if test="creationpersonid != null" >
+        creationpersonId,
+      </if>
+      <if test="creationpersonname != null" >
+        creationpersonName,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fujianid != null" >
+        #{fujianid,jdbcType=INTEGER},
+      </if>
+      <if test="fujianname != null" >
+        #{fujianname,jdbcType=VARCHAR},
+      </if>
+      <if test="fujianurl != null" >
+        #{fujianurl,jdbcType=VARCHAR},
+      </if>
+      <if test="fujianbianhao != null" >
+        #{fujianbianhao,jdbcType=VARCHAR},
+      </if>
+      <if test="daxiao != null" >
+        #{daxiao,jdbcType=REAL},
+      </if>
+      <if test="fujiantate != null" >
+        #{fujiantate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scname != null" >
+        #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="scid != null" >
+        #{scid,jdbcType=VARCHAR},
+      </if>
+      <if test="moid != null" >
+        #{moid,jdbcType=INTEGER},
+      </if>
+      <if test="stater != null" >
+        #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationpersonid != null" >
+        #{creationpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationpersonname != null" >
+        #{creationpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Accessory" >
+    update accessory
+    <set >
+      <if test="fujianname != null" >
+        fujianname = #{fujianname,jdbcType=VARCHAR},
+      </if>
+      <if test="fujianurl != null" >
+        fujianUrl = #{fujianurl,jdbcType=VARCHAR},
+      </if>
+      <if test="fujianbianhao != null" >
+        fujianbianhao = #{fujianbianhao,jdbcType=VARCHAR},
+      </if>
+      <if test="daxiao != null" >
+        daxiao = #{daxiao,jdbcType=REAL},
+      </if>
+      <if test="fujiantate != null" >
+        fujiantate = #{fujiantate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scname != null" >
+        scname = #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="scid != null" >
+        scid = #{scid,jdbcType=VARCHAR},
+      </if>
+      <if test="moid != null" >
+        moid = #{moid,jdbcType=INTEGER},
+      </if>
+      <if test="stater != null" >
+        stater = #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationpersonid != null" >
+        creationpersonId = #{creationpersonid,jdbcType=VARCHAR},
+      </if>
+      <if test="creationpersonname != null" >
+        creationpersonName = #{creationpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fujianid = #{fujianid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Accessory" >
+    update accessory
+    set fujianname = #{fujianname,jdbcType=VARCHAR},
+      fujianUrl = #{fujianurl,jdbcType=VARCHAR},
+      fujianbianhao = #{fujianbianhao,jdbcType=VARCHAR},
+      daxiao = #{daxiao,jdbcType=REAL},
+      fujiantate = #{fujiantate,jdbcType=TIMESTAMP},
+      scname = #{scname,jdbcType=VARCHAR},
+      scid = #{scid,jdbcType=VARCHAR},
+      moid = #{moid,jdbcType=INTEGER},
+      stater = #{stater,jdbcType=INTEGER},
+      creationpersonId = #{creationpersonid,jdbcType=VARCHAR},
+      creationpersonName = #{creationpersonname,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where fujianid = #{fujianid,jdbcType=INTEGER}
+  </update>
+</mapper>

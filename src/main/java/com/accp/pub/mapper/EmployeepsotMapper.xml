@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.EmployeepsotMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Employeepsot" >
+    <id column="epid" property="epid" jdbcType="INTEGER" />
+    <result column="epname" property="epname" jdbcType="VARCHAR" />
+    <result column="organizationid" property="organizationid" jdbcType="INTEGER" />
+    <result column="organizationname" property="organizationname" jdbcType="VARCHAR" />
+    <result column="postoperator" property="postoperator" jdbcType="VARCHAR" />
+    <result column="operatortime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    epid, epname, organizationid, organizationname, postoperator, operatortime, bz1, 
+    bz2, bz3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employeepsot
+    where epid = #{epid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employeepsot
+    where epid = #{epid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Employeepsot" >
+    insert into employeepsot (epid, epname, organizationid, 
+      organizationname, postoperator, operatortime, 
+      bz1, bz2, bz3)
+    values (#{epid,jdbcType=INTEGER}, #{epname,jdbcType=VARCHAR}, #{organizationid,jdbcType=INTEGER}, 
+      #{organizationname,jdbcType=VARCHAR}, #{postoperator,jdbcType=VARCHAR}, #{operatortime,jdbcType=TIMESTAMP}, 
+      #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Employeepsot" >
+    insert into employeepsot
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="epid != null" >
+        epid,
+      </if>
+      <if test="epname != null" >
+        epname,
+      </if>
+      <if test="organizationid != null" >
+        organizationid,
+      </if>
+      <if test="organizationname != null" >
+        organizationname,
+      </if>
+      <if test="postoperator != null" >
+        postoperator,
+      </if>
+      <if test="operatortime != null" >
+        operatortime,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="epid != null" >
+        #{epid,jdbcType=INTEGER},
+      </if>
+      <if test="epname != null" >
+        #{epname,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationid != null" >
+        #{organizationid,jdbcType=INTEGER},
+      </if>
+      <if test="organizationname != null" >
+        #{organizationname,jdbcType=VARCHAR},
+      </if>
+      <if test="postoperator != null" >
+        #{postoperator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Employeepsot" >
+    update employeepsot
+    <set >
+      <if test="epname != null" >
+        epname = #{epname,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationid != null" >
+        organizationid = #{organizationid,jdbcType=INTEGER},
+      </if>
+      <if test="organizationname != null" >
+        organizationname = #{organizationname,jdbcType=VARCHAR},
+      </if>
+      <if test="postoperator != null" >
+        postoperator = #{postoperator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatortime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where epid = #{epid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Employeepsot" >
+    update employeepsot
+    set epname = #{epname,jdbcType=VARCHAR},
+      organizationid = #{organizationid,jdbcType=INTEGER},
+      organizationname = #{organizationname,jdbcType=VARCHAR},
+      postoperator = #{postoperator,jdbcType=VARCHAR},
+      operatortime = #{operatortime,jdbcType=TIMESTAMP},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR}
+    where epid = #{epid,jdbcType=INTEGER}
+  </update>
+</mapper>

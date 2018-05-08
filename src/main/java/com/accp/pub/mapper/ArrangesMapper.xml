@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.ArrangesMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Arranges" >
+    <result column="npid" property="npid" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="percent" property="percent" jdbcType="INTEGER" />
+    <result column="percentName" property="percentname" jdbcType="VARCHAR" />
+    <result column="blank_space_two" property="blankSpaceTwo" jdbcType="VARCHAR" />
+    <result column="blank_space_three" property="blankSpaceThree" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Arranges" >
+    insert into arranges (npid, pid, percent, 
+      percentName, blank_space_two, blank_space_three
+      )
+    values (#{npid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{percent,jdbcType=INTEGER}, 
+      #{percentname,jdbcType=VARCHAR}, #{blankSpaceTwo,jdbcType=VARCHAR}, #{blankSpaceThree,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Arranges" >
+    insert into arranges
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="npid != null" >
+        npid,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="percent != null" >
+        percent,
+      </if>
+      <if test="percentname != null" >
+        percentName,
+      </if>
+      <if test="blankSpaceTwo != null" >
+        blank_space_two,
+      </if>
+      <if test="blankSpaceThree != null" >
+        blank_space_three,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="npid != null" >
+        #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="percent != null" >
+        #{percent,jdbcType=INTEGER},
+      </if>
+      <if test="percentname != null" >
+        #{percentname,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceTwo != null" >
+        #{blankSpaceTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceThree != null" >
+        #{blankSpaceThree,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

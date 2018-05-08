@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TasksMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tasks" >
+    <id column="detailed" property="detailed" jdbcType="INTEGER" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="BName" property="bname" jdbcType="VARCHAR" />
+    <result column="bzid" property="bzid" jdbcType="INTEGER" />
+    <result column="bzName" property="bzname" jdbcType="VARCHAR" />
+    <result column="SmName" property="smname" jdbcType="VARCHAR" />
+    <result column="ms" property="ms" jdbcType="VARCHAR" />
+    <result column="cjName" property="cjname" jdbcType="VARCHAR" />
+    <result column="datetime" property="datetime" jdbcType="TIMESTAMP" />
+    <result column="blank_space_one" property="blankSpaceOne" jdbcType="VARCHAR" />
+    <result column="blank_space_two" property="blankSpaceTwo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    detailed, taskid, gradeid, classid, BName, bzid, bzName, SmName, ms, cjName, datetime, 
+    blank_space_one, blank_space_two
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tasks
+    where detailed = #{detailed,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tasks
+    where detailed = #{detailed,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tasks" >
+    insert into tasks (detailed, taskid, gradeid, 
+      classid, BName, bzid, 
+      bzName, SmName, ms, 
+      cjName, datetime, blank_space_one, 
+      blank_space_two)
+    values (#{detailed,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, #{gradeid,jdbcType=INTEGER}, 
+      #{classid,jdbcType=INTEGER}, #{bname,jdbcType=VARCHAR}, #{bzid,jdbcType=INTEGER}, 
+      #{bzname,jdbcType=VARCHAR}, #{smname,jdbcType=VARCHAR}, #{ms,jdbcType=VARCHAR}, 
+      #{cjname,jdbcType=VARCHAR}, #{datetime,jdbcType=TIMESTAMP}, #{blankSpaceOne,jdbcType=VARCHAR}, 
+      #{blankSpaceTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tasks" >
+    insert into tasks
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailed != null" >
+        detailed,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="bname != null" >
+        BName,
+      </if>
+      <if test="bzid != null" >
+        bzid,
+      </if>
+      <if test="bzname != null" >
+        bzName,
+      </if>
+      <if test="smname != null" >
+        SmName,
+      </if>
+      <if test="ms != null" >
+        ms,
+      </if>
+      <if test="cjname != null" >
+        cjName,
+      </if>
+      <if test="datetime != null" >
+        datetime,
+      </if>
+      <if test="blankSpaceOne != null" >
+        blank_space_one,
+      </if>
+      <if test="blankSpaceTwo != null" >
+        blank_space_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailed != null" >
+        #{detailed,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="bzid != null" >
+        #{bzid,jdbcType=INTEGER},
+      </if>
+      <if test="bzname != null" >
+        #{bzname,jdbcType=VARCHAR},
+      </if>
+      <if test="smname != null" >
+        #{smname,jdbcType=VARCHAR},
+      </if>
+      <if test="ms != null" >
+        #{ms,jdbcType=VARCHAR},
+      </if>
+      <if test="cjname != null" >
+        #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blankSpaceOne != null" >
+        #{blankSpaceOne,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceTwo != null" >
+        #{blankSpaceTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tasks" >
+    update tasks
+    <set >
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="bname != null" >
+        BName = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="bzid != null" >
+        bzid = #{bzid,jdbcType=INTEGER},
+      </if>
+      <if test="bzname != null" >
+        bzName = #{bzname,jdbcType=VARCHAR},
+      </if>
+      <if test="smname != null" >
+        SmName = #{smname,jdbcType=VARCHAR},
+      </if>
+      <if test="ms != null" >
+        ms = #{ms,jdbcType=VARCHAR},
+      </if>
+      <if test="cjname != null" >
+        cjName = #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        datetime = #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blankSpaceOne != null" >
+        blank_space_one = #{blankSpaceOne,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceTwo != null" >
+        blank_space_two = #{blankSpaceTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where detailed = #{detailed,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tasks" >
+    update tasks
+    set taskid = #{taskid,jdbcType=INTEGER},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      BName = #{bname,jdbcType=VARCHAR},
+      bzid = #{bzid,jdbcType=INTEGER},
+      bzName = #{bzname,jdbcType=VARCHAR},
+      SmName = #{smname,jdbcType=VARCHAR},
+      ms = #{ms,jdbcType=VARCHAR},
+      cjName = #{cjname,jdbcType=VARCHAR},
+      datetime = #{datetime,jdbcType=TIMESTAMP},
+      blank_space_one = #{blankSpaceOne,jdbcType=VARCHAR},
+      blank_space_two = #{blankSpaceTwo,jdbcType=VARCHAR}
+    where detailed = #{detailed,jdbcType=INTEGER}
+  </update>
+</mapper>

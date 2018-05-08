@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.ImodeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Imode" >
+    <id column="imodeid" property="imodeid" jdbcType="INTEGER" />
+    <result column="imodename" property="imodename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    imodeid, imodename
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from imode
+    where imodeid = #{imodeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from imode
+    where imodeid = #{imodeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Imode" >
+    insert into imode (imodeid, imodename)
+    values (#{imodeid,jdbcType=INTEGER}, #{imodename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Imode" >
+    insert into imode
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imodeid != null" >
+        imodeid,
+      </if>
+      <if test="imodename != null" >
+        imodename,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imodeid != null" >
+        #{imodeid,jdbcType=INTEGER},
+      </if>
+      <if test="imodename != null" >
+        #{imodename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Imode" >
+    update imode
+    <set >
+      <if test="imodename != null" >
+        imodename = #{imodename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where imodeid = #{imodeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Imode" >
+    update imode
+    set imodename = #{imodename,jdbcType=VARCHAR}
+    where imodeid = #{imodeid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByAllImode" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from imode
+  </select>
+  
+</mapper>

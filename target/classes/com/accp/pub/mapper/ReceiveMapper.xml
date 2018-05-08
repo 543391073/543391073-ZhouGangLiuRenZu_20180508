@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.ReceiveMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Receive" >
+    <id column="srwid" property="srwid" jdbcType="INTEGER" />
+    <id column="percent" property="percent" jdbcType="DOUBLE" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="npid" property="npid" jdbcType="INTEGER" />
+    <result column="fbtaskid" property="fbtaskid" jdbcType="INTEGER" />
+    <result column="fbtaskname" property="fbtaskname" jdbcType="VARCHAR" />
+    <result column="srwuserid" property="srwuserid" jdbcType="INTEGER" />
+    <result column="srwusername" property="srwusername" jdbcType="VARCHAR" />
+    <result column="tasktitle" property="tasktitle" jdbcType="VARCHAR" />
+    <result column="taskrcentent" property="taskrcentent" jdbcType="VARCHAR" />
+    <result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="srwsatae" property="srwsatae" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+    <result column="bz4" property="bz4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    srwid, percent, taskid, npid, fbtaskid, fbtaskname, srwuserid, srwusername, tasktitle, 
+    taskrcentent, publishtime, starttime, endtime, srwsatae, remark, bz, bz1, bz2, bz3, 
+    bz4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.accp.pub.pojo.ReceiveKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from receive
+    where srwid = #{srwid,jdbcType=INTEGER}
+      and percent = #{percent,jdbcType=DOUBLE}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.accp.pub.pojo.ReceiveKey" >
+    delete from receive
+    where srwid = #{srwid,jdbcType=INTEGER}
+      and percent = #{percent,jdbcType=DOUBLE}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Receive" >
+    insert into receive (srwid, percent, taskid, 
+      npid, fbtaskid, fbtaskname, 
+      srwuserid, srwusername, tasktitle, 
+      taskrcentent, publishtime, starttime, 
+      endtime, srwsatae, remark, 
+      bz, bz1, bz2, bz3, 
+      bz4)
+    values (#{srwid,jdbcType=INTEGER}, #{percent,jdbcType=DOUBLE}, #{taskid,jdbcType=INTEGER}, 
+      #{npid,jdbcType=INTEGER}, #{fbtaskid,jdbcType=INTEGER}, #{fbtaskname,jdbcType=VARCHAR}, 
+      #{srwuserid,jdbcType=INTEGER}, #{srwusername,jdbcType=VARCHAR}, #{tasktitle,jdbcType=VARCHAR}, 
+      #{taskrcentent,jdbcType=VARCHAR}, #{publishtime,jdbcType=TIMESTAMP}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{srwsatae,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}, 
+      #{bz4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Receive" >
+    insert into receive
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="srwid != null" >
+        srwid,
+      </if>
+      <if test="percent != null" >
+        percent,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="npid != null" >
+        npid,
+      </if>
+      <if test="fbtaskid != null" >
+        fbtaskid,
+      </if>
+      <if test="fbtaskname != null" >
+        fbtaskname,
+      </if>
+      <if test="srwuserid != null" >
+        srwuserid,
+      </if>
+      <if test="srwusername != null" >
+        srwusername,
+      </if>
+      <if test="tasktitle != null" >
+        tasktitle,
+      </if>
+      <if test="taskrcentent != null" >
+        taskrcentent,
+      </if>
+      <if test="publishtime != null" >
+        publishtime,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="srwsatae != null" >
+        srwsatae,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+      <if test="bz4 != null" >
+        bz4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="srwid != null" >
+        #{srwid,jdbcType=INTEGER},
+      </if>
+      <if test="percent != null" >
+        #{percent,jdbcType=DOUBLE},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="npid != null" >
+        #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskid != null" >
+        #{fbtaskid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskname != null" >
+        #{fbtaskname,jdbcType=VARCHAR},
+      </if>
+      <if test="srwuserid != null" >
+        #{srwuserid,jdbcType=INTEGER},
+      </if>
+      <if test="srwusername != null" >
+        #{srwusername,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktitle != null" >
+        #{tasktitle,jdbcType=VARCHAR},
+      </if>
+      <if test="taskrcentent != null" >
+        #{taskrcentent,jdbcType=VARCHAR},
+      </if>
+      <if test="publishtime != null" >
+        #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srwsatae != null" >
+        #{srwsatae,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz4 != null" >
+        #{bz4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Receive" >
+    update receive
+    <set >
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="npid != null" >
+        npid = #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskid != null" >
+        fbtaskid = #{fbtaskid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskname != null" >
+        fbtaskname = #{fbtaskname,jdbcType=VARCHAR},
+      </if>
+      <if test="srwuserid != null" >
+        srwuserid = #{srwuserid,jdbcType=INTEGER},
+      </if>
+      <if test="srwusername != null" >
+        srwusername = #{srwusername,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktitle != null" >
+        tasktitle = #{tasktitle,jdbcType=VARCHAR},
+      </if>
+      <if test="taskrcentent != null" >
+        taskrcentent = #{taskrcentent,jdbcType=VARCHAR},
+      </if>
+      <if test="publishtime != null" >
+        publishtime = #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srwsatae != null" >
+        srwsatae = #{srwsatae,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bz4 != null" >
+        bz4 = #{bz4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where srwid = #{srwid,jdbcType=INTEGER}
+      and percent = #{percent,jdbcType=DOUBLE}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Receive" >
+    update receive
+    set taskid = #{taskid,jdbcType=INTEGER},
+      npid = #{npid,jdbcType=INTEGER},
+      fbtaskid = #{fbtaskid,jdbcType=INTEGER},
+      fbtaskname = #{fbtaskname,jdbcType=VARCHAR},
+      srwuserid = #{srwuserid,jdbcType=INTEGER},
+      srwusername = #{srwusername,jdbcType=VARCHAR},
+      tasktitle = #{tasktitle,jdbcType=VARCHAR},
+      taskrcentent = #{taskrcentent,jdbcType=VARCHAR},
+      publishtime = #{publishtime,jdbcType=TIMESTAMP},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      srwsatae = #{srwsatae,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR},
+      bz4 = #{bz4,jdbcType=VARCHAR}
+    where srwid = #{srwid,jdbcType=INTEGER}
+      and percent = #{percent,jdbcType=DOUBLE}
+  </update>
+</mapper>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TaskMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Task" >
+    <id column="taskid" property="taskid" jdbcType="INTEGER" />
+    <id column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="fbtaskid" property="fbtaskid" jdbcType="INTEGER" />
+    <result column="fbtaskname" property="fbtaskname" jdbcType="VARCHAR" />
+    <result column="bjid" property="bjid" jdbcType="VARCHAR" />
+    <result column="bjname" property="bjname" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="typeid" property="typeid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="titlems" property="titlems" jdbcType="VARCHAR" />
+    <result column="publishtime" property="publishtime" jdbcType="TIMESTAMP" />
+    <result column="enTime" property="entime" jdbcType="TIMESTAMP" />
+    <result column="follow" property="follow" jdbcType="VARCHAR" />
+    <result column="accessory" property="accessory" jdbcType="INTEGER" />
+    <result column="finishCount" property="finishcount" jdbcType="INTEGER" />
+    <result column="over" property="over" jdbcType="VARCHAR" />
+    <result column="finish" property="finish" jdbcType="VARCHAR" />
+    <result column="fstate" property="fstate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    taskid, starttime, fbtaskid, fbtaskname, bjid, bjname, userid, username, typeid, 
+    title, titlems, publishtime, enTime, follow, accessory, finishCount, over, finish, 
+    fstate, remark, bz, bz1, bz2, bz3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.accp.pub.pojo.TaskKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from task
+    where taskid = #{taskid,jdbcType=INTEGER}
+      and starttime = #{starttime,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.accp.pub.pojo.TaskKey" >
+    delete from task
+    where taskid = #{taskid,jdbcType=INTEGER}
+      and starttime = #{starttime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Task" >
+    insert into task (taskid, starttime, fbtaskid, 
+      fbtaskname, bjid, bjname, 
+      userid, username, typeid, 
+      title, titlems, publishtime, 
+      enTime, follow, accessory, 
+      finishCount, over, finish, 
+      fstate, remark, bz, 
+      bz1, bz2, bz3)
+    values (#{taskid,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, #{fbtaskid,jdbcType=INTEGER}, 
+      #{fbtaskname,jdbcType=VARCHAR}, #{bjid,jdbcType=VARCHAR}, #{bjname,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{typeid,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{titlems,jdbcType=VARCHAR}, #{publishtime,jdbcType=TIMESTAMP}, 
+      #{entime,jdbcType=TIMESTAMP}, #{follow,jdbcType=VARCHAR}, #{accessory,jdbcType=INTEGER}, 
+      #{finishcount,jdbcType=INTEGER}, #{over,jdbcType=VARCHAR}, #{finish,jdbcType=VARCHAR}, 
+      #{fstate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Task" >
+    insert into task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="fbtaskid != null" >
+        fbtaskid,
+      </if>
+      <if test="fbtaskname != null" >
+        fbtaskname,
+      </if>
+      <if test="bjid != null" >
+        bjid,
+      </if>
+      <if test="bjname != null" >
+        bjname,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="titlems != null" >
+        titlems,
+      </if>
+      <if test="publishtime != null" >
+        publishtime,
+      </if>
+      <if test="entime != null" >
+        enTime,
+      </if>
+      <if test="follow != null" >
+        follow,
+      </if>
+      <if test="accessory != null" >
+        accessory,
+      </if>
+      <if test="finishcount != null" >
+        finishCount,
+      </if>
+      <if test="over != null" >
+        over,
+      </if>
+      <if test="finish != null" >
+        finish,
+      </if>
+      <if test="fstate != null" >
+        fstate,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fbtaskid != null" >
+        #{fbtaskid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskname != null" >
+        #{fbtaskname,jdbcType=VARCHAR},
+      </if>
+      <if test="bjid != null" >
+        #{bjid,jdbcType=VARCHAR},
+      </if>
+      <if test="bjname != null" >
+        #{bjname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titlems != null" >
+        #{titlems,jdbcType=VARCHAR},
+      </if>
+      <if test="publishtime != null" >
+        #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entime != null" >
+        #{entime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="follow != null" >
+        #{follow,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null" >
+        #{accessory,jdbcType=INTEGER},
+      </if>
+      <if test="finishcount != null" >
+        #{finishcount,jdbcType=INTEGER},
+      </if>
+      <if test="over != null" >
+        #{over,jdbcType=VARCHAR},
+      </if>
+      <if test="finish != null" >
+        #{finish,jdbcType=VARCHAR},
+      </if>
+      <if test="fstate != null" >
+        #{fstate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Task" >
+    update task
+    <set >
+      <if test="fbtaskid != null" >
+        fbtaskid = #{fbtaskid,jdbcType=INTEGER},
+      </if>
+      <if test="fbtaskname != null" >
+        fbtaskname = #{fbtaskname,jdbcType=VARCHAR},
+      </if>
+      <if test="bjid != null" >
+        bjid = #{bjid,jdbcType=VARCHAR},
+      </if>
+      <if test="bjname != null" >
+        bjname = #{bjname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        typeid = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titlems != null" >
+        titlems = #{titlems,jdbcType=VARCHAR},
+      </if>
+      <if test="publishtime != null" >
+        publishtime = #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="entime != null" >
+        enTime = #{entime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="follow != null" >
+        follow = #{follow,jdbcType=VARCHAR},
+      </if>
+      <if test="accessory != null" >
+        accessory = #{accessory,jdbcType=INTEGER},
+      </if>
+      <if test="finishcount != null" >
+        finishCount = #{finishcount,jdbcType=INTEGER},
+      </if>
+      <if test="over != null" >
+        over = #{over,jdbcType=VARCHAR},
+      </if>
+      <if test="finish != null" >
+        finish = #{finish,jdbcType=VARCHAR},
+      </if>
+      <if test="fstate != null" >
+        fstate = #{fstate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where taskid = #{taskid,jdbcType=INTEGER}
+      and starttime = #{starttime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Task" >
+    update task
+    set fbtaskid = #{fbtaskid,jdbcType=INTEGER},
+      fbtaskname = #{fbtaskname,jdbcType=VARCHAR},
+      bjid = #{bjid,jdbcType=VARCHAR},
+      bjname = #{bjname,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      typeid = #{typeid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      titlems = #{titlems,jdbcType=VARCHAR},
+      publishtime = #{publishtime,jdbcType=TIMESTAMP},
+      enTime = #{entime,jdbcType=TIMESTAMP},
+      follow = #{follow,jdbcType=VARCHAR},
+      accessory = #{accessory,jdbcType=INTEGER},
+      finishCount = #{finishcount,jdbcType=INTEGER},
+      over = #{over,jdbcType=VARCHAR},
+      finish = #{finish,jdbcType=VARCHAR},
+      fstate = #{fstate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR}
+    where taskid = #{taskid,jdbcType=INTEGER}
+      and starttime = #{starttime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

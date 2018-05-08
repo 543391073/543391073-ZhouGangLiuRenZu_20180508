@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TaskssMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Taskss" >
+    <id column="grid" property="grid" jdbcType="INTEGER" />
+    <result column="detaiedid" property="detaiedid" jdbcType="INTEGER" />
+    <result column="grname" property="grname" jdbcType="VARCHAR" />
+    <result column="grms" property="grms" jdbcType="VARCHAR" />
+    <result column="cjName" property="cjname" jdbcType="VARCHAR" />
+    <result column="datetime" property="datetime" jdbcType="TIMESTAMP" />
+    <result column="blank_space_one" property="blankSpaceOne" jdbcType="VARCHAR" />
+    <result column="blank_space_two" property="blankSpaceTwo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    grid, detaiedid, grname, grms, cjName, datetime, blank_space_one, blank_space_two
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from taskss
+    where grid = #{grid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from taskss
+    where grid = #{grid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Taskss" >
+    insert into taskss (grid, detaiedid, grname, 
+      grms, cjName, datetime, 
+      blank_space_one, blank_space_two)
+    values (#{grid,jdbcType=INTEGER}, #{detaiedid,jdbcType=INTEGER}, #{grname,jdbcType=VARCHAR}, 
+      #{grms,jdbcType=VARCHAR}, #{cjname,jdbcType=VARCHAR}, #{datetime,jdbcType=TIMESTAMP}, 
+      #{blankSpaceOne,jdbcType=VARCHAR}, #{blankSpaceTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Taskss" >
+    insert into taskss
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="grid != null" >
+        grid,
+      </if>
+      <if test="detaiedid != null" >
+        detaiedid,
+      </if>
+      <if test="grname != null" >
+        grname,
+      </if>
+      <if test="grms != null" >
+        grms,
+      </if>
+      <if test="cjname != null" >
+        cjName,
+      </if>
+      <if test="datetime != null" >
+        datetime,
+      </if>
+      <if test="blankSpaceOne != null" >
+        blank_space_one,
+      </if>
+      <if test="blankSpaceTwo != null" >
+        blank_space_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="grid != null" >
+        #{grid,jdbcType=INTEGER},
+      </if>
+      <if test="detaiedid != null" >
+        #{detaiedid,jdbcType=INTEGER},
+      </if>
+      <if test="grname != null" >
+        #{grname,jdbcType=VARCHAR},
+      </if>
+      <if test="grms != null" >
+        #{grms,jdbcType=VARCHAR},
+      </if>
+      <if test="cjname != null" >
+        #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blankSpaceOne != null" >
+        #{blankSpaceOne,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceTwo != null" >
+        #{blankSpaceTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Taskss" >
+    update taskss
+    <set >
+      <if test="detaiedid != null" >
+        detaiedid = #{detaiedid,jdbcType=INTEGER},
+      </if>
+      <if test="grname != null" >
+        grname = #{grname,jdbcType=VARCHAR},
+      </if>
+      <if test="grms != null" >
+        grms = #{grms,jdbcType=VARCHAR},
+      </if>
+      <if test="cjname != null" >
+        cjName = #{cjname,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        datetime = #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blankSpaceOne != null" >
+        blank_space_one = #{blankSpaceOne,jdbcType=VARCHAR},
+      </if>
+      <if test="blankSpaceTwo != null" >
+        blank_space_two = #{blankSpaceTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where grid = #{grid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Taskss" >
+    update taskss
+    set detaiedid = #{detaiedid,jdbcType=INTEGER},
+      grname = #{grname,jdbcType=VARCHAR},
+      grms = #{grms,jdbcType=VARCHAR},
+      cjName = #{cjname,jdbcType=VARCHAR},
+      datetime = #{datetime,jdbcType=TIMESTAMP},
+      blank_space_one = #{blankSpaceOne,jdbcType=VARCHAR},
+      blank_space_two = #{blankSpaceTwo,jdbcType=VARCHAR}
+    where grid = #{grid,jdbcType=INTEGER}
+  </update>
+</mapper>

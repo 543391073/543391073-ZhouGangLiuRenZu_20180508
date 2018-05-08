@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.DormattendanceMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Dormattendance" >
+    <id column="daId" property="daid" jdbcType="INTEGER" />
+    <result column="domain" property="domain" jdbcType="VARCHAR" />
+    <result column="dorm" property="dorm" jdbcType="VARCHAR" />
+    <result column="Bjname" property="bjname" jdbcType="VARCHAR" />
+    <result column="stuname" property="stuname" jdbcType="VARCHAR" />
+    <result column="DaState" property="dastate" jdbcType="INTEGER" />
+    <result column="DaTime" property="datime" jdbcType="TIMESTAMP" />
+    <result column="operatorId" property="operatorid" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="beiyong1" property="beiyong1" jdbcType="INTEGER" />
+    <result column="beiyong2" property="beiyong2" jdbcType="VARCHAR" />
+    <result column="beiyong3" property="beiyong3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    daId, domain, dorm, Bjname, stuname, DaState, DaTime, operatorId, operator, operatorTime, 
+    state, beiyong1, beiyong2, beiyong3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dormattendance
+    where daId = #{daid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dormattendance
+    where daId = #{daid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Dormattendance" >
+    insert into dormattendance (daId, domain, dorm, 
+      Bjname, stuname, DaState, 
+      DaTime, operatorId, operator, 
+      operatorTime, state, beiyong1, 
+      beiyong2, beiyong3)
+    values (#{daid,jdbcType=INTEGER}, #{domain,jdbcType=VARCHAR}, #{dorm,jdbcType=VARCHAR}, 
+      #{bjname,jdbcType=VARCHAR}, #{stuname,jdbcType=VARCHAR}, #{dastate,jdbcType=INTEGER}, 
+      #{datime,jdbcType=TIMESTAMP}, #{operatorid,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, 
+      #{operatortime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{beiyong1,jdbcType=INTEGER}, 
+      #{beiyong2,jdbcType=VARCHAR}, #{beiyong3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Dormattendance" >
+    insert into dormattendance
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="daid != null" >
+        daId,
+      </if>
+      <if test="domain != null" >
+        domain,
+      </if>
+      <if test="dorm != null" >
+        dorm,
+      </if>
+      <if test="bjname != null" >
+        Bjname,
+      </if>
+      <if test="stuname != null" >
+        stuname,
+      </if>
+      <if test="dastate != null" >
+        DaState,
+      </if>
+      <if test="datime != null" >
+        DaTime,
+      </if>
+      <if test="operatorid != null" >
+        operatorId,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatorTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1,
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2,
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="daid != null" >
+        #{daid,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dorm != null" >
+        #{dorm,jdbcType=VARCHAR},
+      </if>
+      <if test="bjname != null" >
+        #{bjname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="dastate != null" >
+        #{dastate,jdbcType=INTEGER},
+      </if>
+      <if test="datime != null" >
+        #{datime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Dormattendance" >
+    update dormattendance
+    <set >
+      <if test="domain != null" >
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="dorm != null" >
+        dorm = #{dorm,jdbcType=VARCHAR},
+      </if>
+      <if test="bjname != null" >
+        Bjname = #{bjname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuname != null" >
+        stuname = #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="dastate != null" >
+        DaState = #{dastate,jdbcType=INTEGER},
+      </if>
+      <if test="datime != null" >
+        DaTime = #{datime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorid != null" >
+        operatorId = #{operatorid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong1 != null" >
+        beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      </if>
+      <if test="beiyong2 != null" >
+        beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      </if>
+      <if test="beiyong3 != null" >
+        beiyong3 = #{beiyong3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where daId = #{daid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Dormattendance" >
+    update dormattendance
+    set domain = #{domain,jdbcType=VARCHAR},
+      dorm = #{dorm,jdbcType=VARCHAR},
+      Bjname = #{bjname,jdbcType=VARCHAR},
+      stuname = #{stuname,jdbcType=VARCHAR},
+      DaState = #{dastate,jdbcType=INTEGER},
+      DaTime = #{datime,jdbcType=TIMESTAMP},
+      operatorId = #{operatorid,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      beiyong1 = #{beiyong1,jdbcType=INTEGER},
+      beiyong2 = #{beiyong2,jdbcType=VARCHAR},
+      beiyong3 = #{beiyong3,jdbcType=VARCHAR}
+    where daId = #{daid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.KsgraderegisterMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Ksgraderegister" >
+    <id column="djid" property="djid" jdbcType="INTEGER" />
+    <result column="Djname" property="djname" jdbcType="VARCHAR" />
+    <result column="djfw" property="djfw" jdbcType="VARCHAR" />
+    <result column="foundid" property="foundid" jdbcType="VARCHAR" />
+    <result column="founddate" property="founddate" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    djid, Djname, djfw, foundid, founddate, state, remark, remark1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ksgraderegister
+    where djid = #{djid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ksgraderegister
+    where djid = #{djid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Ksgraderegister" >
+    insert into ksgraderegister (djid, Djname, djfw, 
+      foundid, founddate, state, 
+      remark, remark1)
+    values (#{djid,jdbcType=INTEGER}, #{djname,jdbcType=VARCHAR}, #{djfw,jdbcType=VARCHAR}, 
+      #{foundid,jdbcType=VARCHAR}, #{founddate,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Ksgraderegister" >
+    insert into ksgraderegister
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="djid != null" >
+        djid,
+      </if>
+      <if test="djname != null" >
+        Djname,
+      </if>
+      <if test="djfw != null" >
+        djfw,
+      </if>
+      <if test="foundid != null" >
+        foundid,
+      </if>
+      <if test="founddate != null" >
+        founddate,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remark1 != null" >
+        remark1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="djid != null" >
+        #{djid,jdbcType=INTEGER},
+      </if>
+      <if test="djname != null" >
+        #{djname,jdbcType=VARCHAR},
+      </if>
+      <if test="djfw != null" >
+        #{djfw,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Ksgraderegister" >
+    update ksgraderegister
+    <set >
+      <if test="djname != null" >
+        Djname = #{djname,jdbcType=VARCHAR},
+      </if>
+      <if test="djfw != null" >
+        djfw = #{djfw,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        foundid = #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        founddate = #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where djid = #{djid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Ksgraderegister" >
+    update ksgraderegister
+    set Djname = #{djname,jdbcType=VARCHAR},
+      djfw = #{djfw,jdbcType=VARCHAR},
+      foundid = #{foundid,jdbcType=VARCHAR},
+      founddate = #{founddate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR}
+    where djid = #{djid,jdbcType=INTEGER}
+  </update>
+</mapper>

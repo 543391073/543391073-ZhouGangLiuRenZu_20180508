@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TackhuizongMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tackhuizong" >
+    <id column="huizongid" property="huizongid" jdbcType="INTEGER" />
+    <result column="mbid" property="mbid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="classsum" property="classsum" jdbcType="INTEGER" />
+    <result column="porplesum" property="porplesum" jdbcType="INTEGER" />
+    <result column="wangcheng" property="wangcheng" jdbcType="VARCHAR" />
+    <result column="wsum" property="wsum" jdbcType="INTEGER" />
+    <result column="wname" property="wname" jdbcType="VARCHAR" />
+    <result column="changshengtime" property="changshengtime" jdbcType="TIMESTAMP" />
+    <result column="dengjitime" property="dengjitime" jdbcType="TIMESTAMP" />
+    <result column="zuoyeid" property="zuoyeid" jdbcType="INTEGER" />
+    <result column="zuoyename" property="zuoyename" jdbcType="VARCHAR" />
+    <result column="stater" property="stater" jdbcType="INTEGER" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    huizongid, mbid, classid, classname, classsum, porplesum, wangcheng, wsum, wname, 
+    changshengtime, dengjitime, zuoyeid, zuoyename, stater, creationperson, creationdate, 
+    usestatus, standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tackhuizong
+    where huizongid = #{huizongid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tackhuizong
+    where huizongid = #{huizongid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tackhuizong" >
+    insert into tackhuizong (huizongid, mbid, classid, 
+      classname, classsum, porplesum, 
+      wangcheng, wsum, wname, 
+      changshengtime, dengjitime, zuoyeid, 
+      zuoyename, stater, creationperson, 
+      creationdate, usestatus, standbyyi, 
+      standbyer, standbysan)
+    values (#{huizongid,jdbcType=INTEGER}, #{mbid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{classname,jdbcType=VARCHAR}, #{classsum,jdbcType=INTEGER}, #{porplesum,jdbcType=INTEGER}, 
+      #{wangcheng,jdbcType=VARCHAR}, #{wsum,jdbcType=INTEGER}, #{wname,jdbcType=VARCHAR}, 
+      #{changshengtime,jdbcType=TIMESTAMP}, #{dengjitime,jdbcType=TIMESTAMP}, #{zuoyeid,jdbcType=INTEGER}, 
+      #{zuoyename,jdbcType=VARCHAR}, #{stater,jdbcType=INTEGER}, #{creationperson,jdbcType=VARCHAR}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{usestatus,jdbcType=VARCHAR}, #{standbyyi,jdbcType=VARCHAR}, 
+      #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tackhuizong" >
+    insert into tackhuizong
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="huizongid != null" >
+        huizongid,
+      </if>
+      <if test="mbid != null" >
+        mbid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="classsum != null" >
+        classsum,
+      </if>
+      <if test="porplesum != null" >
+        porplesum,
+      </if>
+      <if test="wangcheng != null" >
+        wangcheng,
+      </if>
+      <if test="wsum != null" >
+        wsum,
+      </if>
+      <if test="wname != null" >
+        wname,
+      </if>
+      <if test="changshengtime != null" >
+        changshengtime,
+      </if>
+      <if test="dengjitime != null" >
+        dengjitime,
+      </if>
+      <if test="zuoyeid != null" >
+        zuoyeid,
+      </if>
+      <if test="zuoyename != null" >
+        zuoyename,
+      </if>
+      <if test="stater != null" >
+        stater,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="huizongid != null" >
+        #{huizongid,jdbcType=INTEGER},
+      </if>
+      <if test="mbid != null" >
+        #{mbid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="classsum != null" >
+        #{classsum,jdbcType=INTEGER},
+      </if>
+      <if test="porplesum != null" >
+        #{porplesum,jdbcType=INTEGER},
+      </if>
+      <if test="wangcheng != null" >
+        #{wangcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="wsum != null" >
+        #{wsum,jdbcType=INTEGER},
+      </if>
+      <if test="wname != null" >
+        #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="changshengtime != null" >
+        #{changshengtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dengjitime != null" >
+        #{dengjitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zuoyeid != null" >
+        #{zuoyeid,jdbcType=INTEGER},
+      </if>
+      <if test="zuoyename != null" >
+        #{zuoyename,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tackhuizong" >
+    update tackhuizong
+    <set >
+      <if test="mbid != null" >
+        mbid = #{mbid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="classsum != null" >
+        classsum = #{classsum,jdbcType=INTEGER},
+      </if>
+      <if test="porplesum != null" >
+        porplesum = #{porplesum,jdbcType=INTEGER},
+      </if>
+      <if test="wangcheng != null" >
+        wangcheng = #{wangcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="wsum != null" >
+        wsum = #{wsum,jdbcType=INTEGER},
+      </if>
+      <if test="wname != null" >
+        wname = #{wname,jdbcType=VARCHAR},
+      </if>
+      <if test="changshengtime != null" >
+        changshengtime = #{changshengtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dengjitime != null" >
+        dengjitime = #{dengjitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zuoyeid != null" >
+        zuoyeid = #{zuoyeid,jdbcType=INTEGER},
+      </if>
+      <if test="zuoyename != null" >
+        zuoyename = #{zuoyename,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        stater = #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where huizongid = #{huizongid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tackhuizong" >
+    update tackhuizong
+    set mbid = #{mbid,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      classsum = #{classsum,jdbcType=INTEGER},
+      porplesum = #{porplesum,jdbcType=INTEGER},
+      wangcheng = #{wangcheng,jdbcType=VARCHAR},
+      wsum = #{wsum,jdbcType=INTEGER},
+      wname = #{wname,jdbcType=VARCHAR},
+      changshengtime = #{changshengtime,jdbcType=TIMESTAMP},
+      dengjitime = #{dengjitime,jdbcType=TIMESTAMP},
+      zuoyeid = #{zuoyeid,jdbcType=INTEGER},
+      zuoyename = #{zuoyename,jdbcType=VARCHAR},
+      stater = #{stater,jdbcType=INTEGER},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where huizongid = #{huizongid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.ArrangeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Arrange" >
+    <id column="npid" property="npid" jdbcType="INTEGER" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="bName" property="bname" jdbcType="VARCHAR" />
+    <result column="bzid" property="bzid" jdbcType="INTEGER" />
+    <result column="bzName" property="bzname" jdbcType="VARCHAR" />
+    <result column="stuid" property="stuid" jdbcType="INTEGER" />
+    <result column="stuName" property="stuname" jdbcType="VARCHAR" />
+    <result column="grid" property="grid" jdbcType="INTEGER" />
+    <result column="zjd" property="zjd" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    npid, taskid, classid, bName, bzid, bzName, stuid, stuName, grid, zjd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from arrange
+    where npid = #{npid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from arrange
+    where npid = #{npid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Arrange" >
+    insert into arrange (npid, taskid, classid, 
+      bName, bzid, bzName, 
+      stuid, stuName, grid, 
+      zjd)
+    values (#{npid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{bname,jdbcType=VARCHAR}, #{bzid,jdbcType=INTEGER}, #{bzname,jdbcType=VARCHAR}, 
+      #{stuid,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, #{grid,jdbcType=INTEGER}, 
+      #{zjd,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Arrange" >
+    insert into arrange
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="npid != null" >
+        npid,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="bname != null" >
+        bName,
+      </if>
+      <if test="bzid != null" >
+        bzid,
+      </if>
+      <if test="bzname != null" >
+        bzName,
+      </if>
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="stuname != null" >
+        stuName,
+      </if>
+      <if test="grid != null" >
+        grid,
+      </if>
+      <if test="zjd != null" >
+        zjd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="npid != null" >
+        #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="bzid != null" >
+        #{bzid,jdbcType=INTEGER},
+      </if>
+      <if test="bzname != null" >
+        #{bzname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null" >
+        #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="grid != null" >
+        #{grid,jdbcType=INTEGER},
+      </if>
+      <if test="zjd != null" >
+        #{zjd,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Arrange" >
+    update arrange
+    <set >
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="bname != null" >
+        bName = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="bzid != null" >
+        bzid = #{bzid,jdbcType=INTEGER},
+      </if>
+      <if test="bzname != null" >
+        bzName = #{bzname,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null" >
+        stuid = #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        stuName = #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="grid != null" >
+        grid = #{grid,jdbcType=INTEGER},
+      </if>
+      <if test="zjd != null" >
+        zjd = #{zjd,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where npid = #{npid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Arrange" >
+    update arrange
+    set taskid = #{taskid,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      bName = #{bname,jdbcType=VARCHAR},
+      bzid = #{bzid,jdbcType=INTEGER},
+      bzName = #{bzname,jdbcType=VARCHAR},
+      stuid = #{stuid,jdbcType=INTEGER},
+      stuName = #{stuname,jdbcType=VARCHAR},
+      grid = #{grid,jdbcType=INTEGER},
+      zjd = #{zjd,jdbcType=DOUBLE}
+    where npid = #{npid,jdbcType=INTEGER}
+  </update>
+</mapper>

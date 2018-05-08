@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.LogsettingjsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Logsettingjs" >
+    <id column="logsettingjsid" property="logsettingjsid" jdbcType="INTEGER" />
+    <result column="jsuserid" property="jsuserid" jdbcType="INTEGER" />
+    <result column="jsusername" property="jsusername" jdbcType="VARCHAR" />
+    <result column="logseetingid" property="logseetingid" jdbcType="INTEGER" />
+    <result column="jsdate" property="jsdate" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    logsettingjsid, jsuserid, jsusername, logseetingid, jsdate, status, bz, bz1, bz2, 
+    bz3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from logsettingjs
+    where logsettingjsid = #{logsettingjsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from logsettingjs
+    where logsettingjsid = #{logsettingjsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Logsettingjs" >
+    insert into logsettingjs (logsettingjsid, jsuserid, jsusername, 
+      logseetingid, jsdate, status, 
+      bz, bz1, bz2, bz3
+      )
+    values (#{logsettingjsid,jdbcType=INTEGER}, #{jsuserid,jdbcType=INTEGER}, #{jsusername,jdbcType=VARCHAR}, 
+      #{logseetingid,jdbcType=INTEGER}, #{jsdate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Logsettingjs" >
+    insert into logsettingjs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logsettingjsid != null" >
+        logsettingjsid,
+      </if>
+      <if test="jsuserid != null" >
+        jsuserid,
+      </if>
+      <if test="jsusername != null" >
+        jsusername,
+      </if>
+      <if test="logseetingid != null" >
+        logseetingid,
+      </if>
+      <if test="jsdate != null" >
+        jsdate,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logsettingjsid != null" >
+        #{logsettingjsid,jdbcType=INTEGER},
+      </if>
+      <if test="jsuserid != null" >
+        #{jsuserid,jdbcType=INTEGER},
+      </if>
+      <if test="jsusername != null" >
+        #{jsusername,jdbcType=VARCHAR},
+      </if>
+      <if test="logseetingid != null" >
+        #{logseetingid,jdbcType=INTEGER},
+      </if>
+      <if test="jsdate != null" >
+        #{jsdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Logsettingjs" >
+    update logsettingjs
+    <set >
+      <if test="jsuserid != null" >
+        jsuserid = #{jsuserid,jdbcType=INTEGER},
+      </if>
+      <if test="jsusername != null" >
+        jsusername = #{jsusername,jdbcType=VARCHAR},
+      </if>
+      <if test="logseetingid != null" >
+        logseetingid = #{logseetingid,jdbcType=INTEGER},
+      </if>
+      <if test="jsdate != null" >
+        jsdate = #{jsdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where logsettingjsid = #{logsettingjsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Logsettingjs" >
+    update logsettingjs
+    set jsuserid = #{jsuserid,jdbcType=INTEGER},
+      jsusername = #{jsusername,jdbcType=VARCHAR},
+      logseetingid = #{logseetingid,jdbcType=INTEGER},
+      jsdate = #{jsdate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR}
+    where logsettingjsid = #{logsettingjsid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Notice" >
+    <id column="nid" property="nid" jdbcType="VARCHAR" />
+    <result column="tid" property="tid" jdbcType="VARCHAR" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="nNames" property="nnames" jdbcType="VARCHAR" />
+    <result column="sendID" property="sendid" jdbcType="VARCHAR" />
+    <result column="nDate" property="ndate" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="adjunct" property="adjunct" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    nid, tid, tname, nNames, sendID, nDate, state, content, adjunct
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from notice
+    where nid = #{nid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from notice
+    where nid = #{nid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Notice" >
+    insert into notice (nid, tid, tname, 
+      nNames, sendID, nDate, 
+      state, content, adjunct
+      )
+    values (#{nid,jdbcType=VARCHAR}, #{tid,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, 
+      #{nnames,jdbcType=VARCHAR}, #{sendid,jdbcType=VARCHAR}, #{ndate,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{adjunct,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Notice" >
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        nid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="nnames != null" >
+        nNames,
+      </if>
+      <if test="sendid != null" >
+        sendID,
+      </if>
+      <if test="ndate != null" >
+        nDate,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="adjunct != null" >
+        adjunct,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nid != null" >
+        #{nid,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="nnames != null" >
+        #{nnames,jdbcType=VARCHAR},
+      </if>
+      <if test="sendid != null" >
+        #{sendid,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null" >
+        #{ndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="adjunct != null" >
+        #{adjunct,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Notice" >
+    update notice
+    <set >
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="nnames != null" >
+        nNames = #{nnames,jdbcType=VARCHAR},
+      </if>
+      <if test="sendid != null" >
+        sendID = #{sendid,jdbcType=VARCHAR},
+      </if>
+      <if test="ndate != null" >
+        nDate = #{ndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="adjunct != null" >
+        adjunct = #{adjunct,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nid = #{nid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Notice" >
+    update notice
+    set tid = #{tid,jdbcType=VARCHAR},
+      tname = #{tname,jdbcType=VARCHAR},
+      nNames = #{nnames,jdbcType=VARCHAR},
+      sendID = #{sendid,jdbcType=VARCHAR},
+      nDate = #{ndate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      adjunct = #{adjunct,jdbcType=VARCHAR}
+    where nid = #{nid,jdbcType=VARCHAR}
+  </update>
+</mapper>

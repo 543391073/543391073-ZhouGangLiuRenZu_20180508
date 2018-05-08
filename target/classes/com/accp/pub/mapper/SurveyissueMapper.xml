@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.SurveyissueMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Surveyissue" >
+    <id column="surveyid" property="surveyid" jdbcType="INTEGER" />
+    <result column="mbid" property="mbid" jdbcType="INTEGER" />
+    <result column="issuerid" property="issuerid" jdbcType="VARCHAR" />
+    <result column="issuername" property="issuername" jdbcType="VARCHAR" />
+    <result column="respondentname" property="respondentname" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="executorid" property="executorid" jdbcType="INTEGER" />
+    <result column="executorname" property="executorname" jdbcType="VARCHAR" />
+    <result column="participant" property="participant" jdbcType="INTEGER" />
+    <result column="tjcount" property="tjcount" jdbcType="INTEGER" />
+    <result column="wtjcount" property="wtjcount" jdbcType="INTEGER" />
+    <result column="releasetime" property="releasetime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="opened" property="opened" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="createman" property="createman" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="usestate" property="usestate" jdbcType="INTEGER" />
+    <result column="standa" property="standa" jdbcType="VARCHAR" />
+    <result column="standb" property="standb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    surveyid, mbid, issuerid, issuername, respondentname, classid, classname, executorid, 
+    executorname, participant, tjcount, wtjcount, releasetime, endtime, opened, state, 
+    remark, createman, createtime, usestate, standa, standb
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from surveyissue
+    where surveyid = #{surveyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from surveyissue
+    where surveyid = #{surveyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Surveyissue" >
+    insert into surveyissue (surveyid, mbid, issuerid, 
+      issuername, respondentname, classid, 
+      classname, executorid, executorname, 
+      participant, tjcount, wtjcount, 
+      releasetime, endtime, opened, 
+      state, remark, createman, 
+      createtime, usestate, standa, 
+      standb)
+    values (#{surveyid,jdbcType=INTEGER}, #{mbid,jdbcType=INTEGER}, #{issuerid,jdbcType=VARCHAR}, 
+      #{issuername,jdbcType=VARCHAR}, #{respondentname,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, 
+      #{classname,jdbcType=VARCHAR}, #{executorid,jdbcType=INTEGER}, #{executorname,jdbcType=VARCHAR}, 
+      #{participant,jdbcType=INTEGER}, #{tjcount,jdbcType=INTEGER}, #{wtjcount,jdbcType=INTEGER}, 
+      #{releasetime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, #{opened,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createman,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{usestate,jdbcType=INTEGER}, #{standa,jdbcType=VARCHAR}, 
+      #{standb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Surveyissue" >
+    insert into surveyissue
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="surveyid != null" >
+        surveyid,
+      </if>
+      <if test="mbid != null" >
+        mbid,
+      </if>
+      <if test="issuerid != null" >
+        issuerid,
+      </if>
+      <if test="issuername != null" >
+        issuername,
+      </if>
+      <if test="respondentname != null" >
+        respondentname,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="executorid != null" >
+        executorid,
+      </if>
+      <if test="executorname != null" >
+        executorname,
+      </if>
+      <if test="participant != null" >
+        participant,
+      </if>
+      <if test="tjcount != null" >
+        tjcount,
+      </if>
+      <if test="wtjcount != null" >
+        wtjcount,
+      </if>
+      <if test="releasetime != null" >
+        releasetime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="opened != null" >
+        opened,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createman != null" >
+        createman,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="usestate != null" >
+        usestate,
+      </if>
+      <if test="standa != null" >
+        standa,
+      </if>
+      <if test="standb != null" >
+        standb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="surveyid != null" >
+        #{surveyid,jdbcType=INTEGER},
+      </if>
+      <if test="mbid != null" >
+        #{mbid,jdbcType=INTEGER},
+      </if>
+      <if test="issuerid != null" >
+        #{issuerid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuername != null" >
+        #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentname != null" >
+        #{respondentname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="executorid != null" >
+        #{executorid,jdbcType=INTEGER},
+      </if>
+      <if test="executorname != null" >
+        #{executorname,jdbcType=VARCHAR},
+      </if>
+      <if test="participant != null" >
+        #{participant,jdbcType=INTEGER},
+      </if>
+      <if test="tjcount != null" >
+        #{tjcount,jdbcType=INTEGER},
+      </if>
+      <if test="wtjcount != null" >
+        #{wtjcount,jdbcType=INTEGER},
+      </if>
+      <if test="releasetime != null" >
+        #{releasetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opened != null" >
+        #{opened,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        #{standb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Surveyissue" >
+    update surveyissue
+    <set >
+      <if test="mbid != null" >
+        mbid = #{mbid,jdbcType=INTEGER},
+      </if>
+      <if test="issuerid != null" >
+        issuerid = #{issuerid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuername != null" >
+        issuername = #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="respondentname != null" >
+        respondentname = #{respondentname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="executorid != null" >
+        executorid = #{executorid,jdbcType=INTEGER},
+      </if>
+      <if test="executorname != null" >
+        executorname = #{executorname,jdbcType=VARCHAR},
+      </if>
+      <if test="participant != null" >
+        participant = #{participant,jdbcType=INTEGER},
+      </if>
+      <if test="tjcount != null" >
+        tjcount = #{tjcount,jdbcType=INTEGER},
+      </if>
+      <if test="wtjcount != null" >
+        wtjcount = #{wtjcount,jdbcType=INTEGER},
+      </if>
+      <if test="releasetime != null" >
+        releasetime = #{releasetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opened != null" >
+        opened = #{opened,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        createman = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        usestate = #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        standa = #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        standb = #{standb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where surveyid = #{surveyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Surveyissue" >
+    update surveyissue
+    set mbid = #{mbid,jdbcType=INTEGER},
+      issuerid = #{issuerid,jdbcType=VARCHAR},
+      issuername = #{issuername,jdbcType=VARCHAR},
+      respondentname = #{respondentname,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      executorid = #{executorid,jdbcType=INTEGER},
+      executorname = #{executorname,jdbcType=VARCHAR},
+      participant = #{participant,jdbcType=INTEGER},
+      tjcount = #{tjcount,jdbcType=INTEGER},
+      wtjcount = #{wtjcount,jdbcType=INTEGER},
+      releasetime = #{releasetime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      opened = #{opened,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      createman = #{createman,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      usestate = #{usestate,jdbcType=INTEGER},
+      standa = #{standa,jdbcType=VARCHAR},
+      standb = #{standb,jdbcType=VARCHAR}
+    where surveyid = #{surveyid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CommitteeamongMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Committeeamong" >
+    <id column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="titlename" property="titlename" jdbcType="VARCHAR" />
+    <result column="titlems" property="titlems" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatdate" property="operatdate" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bid, titlename, titlems, classid, classname, gradeid, gradename, operator, operatdate, 
+    bz, bz1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from committeeamong
+    where bid = #{bid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from committeeamong
+    where bid = #{bid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Committeeamong" >
+    insert into committeeamong (bid, titlename, titlems, 
+      classid, classname, gradeid, 
+      gradename, operator, operatdate, 
+      bz, bz1)
+    values (#{bid,jdbcType=INTEGER}, #{titlename,jdbcType=VARCHAR}, #{titlems,jdbcType=VARCHAR}, 
+      #{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, 
+      #{gradename,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{operatdate,jdbcType=TIMESTAMP}, 
+      #{bz,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Committeeamong" >
+    insert into committeeamong
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        bid,
+      </if>
+      <if test="titlename != null" >
+        titlename,
+      </if>
+      <if test="titlems != null" >
+        titlems,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatdate != null" >
+        operatdate,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="titlename != null" >
+        #{titlename,jdbcType=VARCHAR},
+      </if>
+      <if test="titlems != null" >
+        #{titlems,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatdate != null" >
+        #{operatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Committeeamong" >
+    update committeeamong
+    <set >
+      <if test="titlename != null" >
+        titlename = #{titlename,jdbcType=VARCHAR},
+      </if>
+      <if test="titlems != null" >
+        titlems = #{titlems,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatdate != null" >
+        operatdate = #{operatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Committeeamong" >
+    update committeeamong
+    set titlename = #{titlename,jdbcType=VARCHAR},
+      titlems = #{titlems,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatdate = #{operatdate,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR}
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+</mapper>

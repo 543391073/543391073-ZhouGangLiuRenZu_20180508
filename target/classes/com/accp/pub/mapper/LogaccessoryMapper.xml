@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.LogaccessoryMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Logaccessory">
+		<id column="accessoryid" property="accessoryid" jdbcType="INTEGER" />
+		<result column="fjid" property="fjid" jdbcType="INTEGER" />
+		<result column="filename" property="filename" jdbcType="VARCHAR" />
+		<result column="filesrc" property="filesrc" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+		<result column="accessorybig" property="accessorybig" jdbcType="VARCHAR" />
+		<result column="bz" property="bz" jdbcType="VARCHAR" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		accessoryid, fjid, filename, filesrc, status, addtime, accessorybig, bz, bz1, bz2,
+		bz3
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from logaccessory
+		where accessoryid = #{accessoryid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from logaccessory
+		where accessoryid = #{accessoryid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Logaccessory">
+		insert into logaccessory (accessoryid, fjid, filename,
+		filesrc, status, addtime,
+		accessorybig, bz, bz1,
+		bz2, bz3)
+		values (#{accessoryid,jdbcType=INTEGER}, #{fjid,jdbcType=INTEGER},
+		#{filename,jdbcType=VARCHAR},
+		#{filesrc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP},
+		#{accessorybig,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR},
+		#{bz1,jdbcType=VARCHAR},
+		#{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Logaccessory">
+		insert into logaccessory
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="accessoryid != null">
+				accessoryid,
+			</if>
+			<if test="fjid != null">
+				fjid,
+			</if>
+			<if test="filename != null">
+				filename,
+			</if>
+			<if test="filesrc != null">
+				filesrc,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="addtime != null">
+				addtime,
+			</if>
+			<if test="accessorybig != null">
+				accessorybig,
+			</if>
+			<if test="bz != null">
+				bz,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="accessoryid != null">
+				#{accessoryid,jdbcType=INTEGER},
+			</if>
+			<if test="fjid != null">
+				#{fjid,jdbcType=INTEGER},
+			</if>
+			<if test="filename != null">
+				#{filename,jdbcType=VARCHAR},
+			</if>
+			<if test="filesrc != null">
+				#{filesrc,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				#{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="accessorybig != null">
+				#{accessorybig,jdbcType=VARCHAR},
+			</if>
+			<if test="bz != null">
+				#{bz,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Logaccessory">
+		update logaccessory
+		<set>
+			<if test="fjid != null">
+				fjid = #{fjid,jdbcType=INTEGER},
+			</if>
+			<if test="filename != null">
+				filename = #{filename,jdbcType=VARCHAR},
+			</if>
+			<if test="filesrc != null">
+				filesrc = #{filesrc,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				addtime = #{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="accessorybig != null">
+				accessorybig = #{accessorybig,jdbcType=VARCHAR},
+			</if>
+			<if test="bz != null">
+				bz = #{bz,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where accessoryid = #{accessoryid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Logaccessory">
+		update logaccessory
+		set fjid = #{fjid,jdbcType=INTEGER},
+		filename = #{filename,jdbcType=VARCHAR},
+		filesrc = #{filesrc,jdbcType=VARCHAR},
+		status = #{status,jdbcType=VARCHAR},
+		addtime = #{addtime,jdbcType=TIMESTAMP},
+		accessorybig = #{accessorybig,jdbcType=VARCHAR},
+		bz = #{bz,jdbcType=VARCHAR},
+		bz1 = #{bz1,jdbcType=VARCHAR},
+		bz2 = #{bz2,jdbcType=VARCHAR},
+		bz3 = #{bz3,jdbcType=VARCHAR}
+		where accessoryid = #{accessoryid,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- 自定义sql -->
+	<select id="selectBylogaccessoryFidPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		SELECT * FROM `logaccessory` WHERE `fjid`=#{fjid}
+	</select>
+
+
+
+</mapper>

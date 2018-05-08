@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.JurisdictionMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Jurisdiction" >
+    <result column="zid" property="zid" jdbcType="INTEGER" />
+    <result column="qid" property="qid" jdbcType="INTEGER" />
+    <result column="timr" property="timr" jdbcType="TIMESTAMP" />
+    <result column="stater" property="stater" jdbcType="INTEGER" />
+    <result column="juname" property="juname" jdbcType="VARCHAR" />
+    <result column="juid" property="juid" jdbcType="INTEGER" />
+    <result column="jieshushistate" property="jieshushistate" jdbcType="INTEGER" />
+    <result column="jieshushijian" property="jieshushijian" jdbcType="TIMESTAMP" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Jurisdiction" >
+    insert into jurisdiction (zid, qid, timr, 
+      stater, juname, juid, 
+      jieshushistate, jieshushijian, creationperson, 
+      creationdate, usestatus, standbyyi, 
+      standbyer, standbysan)
+    values (#{zid,jdbcType=INTEGER}, #{qid,jdbcType=INTEGER}, #{timr,jdbcType=TIMESTAMP}, 
+      #{stater,jdbcType=INTEGER}, #{juname,jdbcType=VARCHAR}, #{juid,jdbcType=INTEGER}, 
+      #{jieshushistate,jdbcType=INTEGER}, #{jieshushijian,jdbcType=TIMESTAMP}, #{creationperson,jdbcType=VARCHAR}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{usestatus,jdbcType=VARCHAR}, #{standbyyi,jdbcType=VARCHAR}, 
+      #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Jurisdiction" >
+    insert into jurisdiction
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zid != null" >
+        zid,
+      </if>
+      <if test="qid != null" >
+        qid,
+      </if>
+      <if test="timr != null" >
+        timr,
+      </if>
+      <if test="stater != null" >
+        stater,
+      </if>
+      <if test="juname != null" >
+        juname,
+      </if>
+      <if test="juid != null" >
+        juid,
+      </if>
+      <if test="jieshushistate != null" >
+        jieshushistate,
+      </if>
+      <if test="jieshushijian != null" >
+        jieshushijian,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zid != null" >
+        #{zid,jdbcType=INTEGER},
+      </if>
+      <if test="qid != null" >
+        #{qid,jdbcType=INTEGER},
+      </if>
+      <if test="timr != null" >
+        #{timr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stater != null" >
+        #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="juname != null" >
+        #{juname,jdbcType=VARCHAR},
+      </if>
+      <if test="juid != null" >
+        #{juid,jdbcType=INTEGER},
+      </if>
+      <if test="jieshushistate != null" >
+        #{jieshushistate,jdbcType=INTEGER},
+      </if>
+      <if test="jieshushijian != null" >
+        #{jieshushijian,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

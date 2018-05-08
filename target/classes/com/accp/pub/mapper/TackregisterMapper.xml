@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TackregisterMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tackregister" >
+    <id column="tregisterid" property="tregisterid" jdbcType="INTEGER" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="complete" property="complete" jdbcType="INTEGER" />
+    <result column="comstate" property="comstate" jdbcType="VARCHAR" />
+    <result column="operationid" property="operationid" jdbcType="INTEGER" />
+    <result column="operationname" property="operationname" jdbcType="VARCHAR" />
+    <result column="operationtime" property="operationtime" jdbcType="TIMESTAMP" />
+    <result column="pingjia" property="pingjia" jdbcType="VARCHAR" />
+    <result column="stater" property="stater" jdbcType="INTEGER" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tregisterid, tid, classid, classname, gradeid, gradename, complete, comstate, operationid, 
+    operationname, operationtime, pingjia, stater, creationperson, creationdate, usestatus, 
+    standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tackregister
+    where tregisterid = #{tregisterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tackregister
+    where tregisterid = #{tregisterid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tackregister" >
+    insert into tackregister (tregisterid, tid, classid, 
+      classname, gradeid, gradename, 
+      complete, comstate, operationid, 
+      operationname, operationtime, pingjia, 
+      stater, creationperson, creationdate, 
+      usestatus, standbyyi, standbyer, 
+      standbysan)
+    values (#{tregisterid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{classname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, 
+      #{complete,jdbcType=INTEGER}, #{comstate,jdbcType=VARCHAR}, #{operationid,jdbcType=INTEGER}, 
+      #{operationname,jdbcType=VARCHAR}, #{operationtime,jdbcType=TIMESTAMP}, #{pingjia,jdbcType=VARCHAR}, 
+      #{stater,jdbcType=INTEGER}, #{creationperson,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, 
+      #{usestatus,jdbcType=VARCHAR}, #{standbyyi,jdbcType=VARCHAR}, #{standbyer,jdbcType=VARCHAR}, 
+      #{standbysan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tackregister" >
+    insert into tackregister
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tregisterid != null" >
+        tregisterid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="complete != null" >
+        complete,
+      </if>
+      <if test="comstate != null" >
+        comstate,
+      </if>
+      <if test="operationid != null" >
+        operationid,
+      </if>
+      <if test="operationname != null" >
+        operationname,
+      </if>
+      <if test="operationtime != null" >
+        operationtime,
+      </if>
+      <if test="pingjia != null" >
+        pingjia,
+      </if>
+      <if test="stater != null" >
+        stater,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tregisterid != null" >
+        #{tregisterid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="complete != null" >
+        #{complete,jdbcType=INTEGER},
+      </if>
+      <if test="comstate != null" >
+        #{comstate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationid != null" >
+        #{operationid,jdbcType=INTEGER},
+      </if>
+      <if test="operationname != null" >
+        #{operationname,jdbcType=VARCHAR},
+      </if>
+      <if test="operationtime != null" >
+        #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pingjia != null" >
+        #{pingjia,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tackregister" >
+    update tackregister
+    <set >
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="complete != null" >
+        complete = #{complete,jdbcType=INTEGER},
+      </if>
+      <if test="comstate != null" >
+        comstate = #{comstate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationid != null" >
+        operationid = #{operationid,jdbcType=INTEGER},
+      </if>
+      <if test="operationname != null" >
+        operationname = #{operationname,jdbcType=VARCHAR},
+      </if>
+      <if test="operationtime != null" >
+        operationtime = #{operationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pingjia != null" >
+        pingjia = #{pingjia,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        stater = #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tregisterid = #{tregisterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tackregister" >
+    update tackregister
+    set tid = #{tid,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      complete = #{complete,jdbcType=INTEGER},
+      comstate = #{comstate,jdbcType=VARCHAR},
+      operationid = #{operationid,jdbcType=INTEGER},
+      operationname = #{operationname,jdbcType=VARCHAR},
+      operationtime = #{operationtime,jdbcType=TIMESTAMP},
+      pingjia = #{pingjia,jdbcType=VARCHAR},
+      stater = #{stater,jdbcType=INTEGER},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where tregisterid = #{tregisterid,jdbcType=INTEGER}
+  </update>
+</mapper>

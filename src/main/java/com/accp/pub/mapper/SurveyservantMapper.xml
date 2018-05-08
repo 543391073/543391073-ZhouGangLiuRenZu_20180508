@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.SurveyservantMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Surveyservant" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sresultid" property="sresultid" jdbcType="INTEGER" />
+    <result column="optionid" property="optionid" jdbcType="INTEGER" />
+    <result column="optionname" property="optionname" jdbcType="VARCHAR" />
+    <result column="option" property="option" jdbcType="VARCHAR" />
+    <result column="optionvalue" property="optionvalue" jdbcType="VARCHAR" />
+    <result column="createman" property="createman" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="usestate" property="usestate" jdbcType="INTEGER" />
+    <result column="standa" property="standa" jdbcType="VARCHAR" />
+    <result column="standb" property="standb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sresultid, optionid, optionname, option, optionvalue, createman, createtime, 
+    usestate, standa, standb
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from surveyservant
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from surveyservant
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Surveyservant" >
+    insert into surveyservant (id, sresultid, optionid, 
+      optionname, option, optionvalue, 
+      createman, createtime, usestate, 
+      standa, standb)
+    values (#{id,jdbcType=INTEGER}, #{sresultid,jdbcType=INTEGER}, #{optionid,jdbcType=INTEGER}, 
+      #{optionname,jdbcType=VARCHAR}, #{option,jdbcType=VARCHAR}, #{optionvalue,jdbcType=VARCHAR}, 
+      #{createman,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{usestate,jdbcType=INTEGER}, 
+      #{standa,jdbcType=VARCHAR}, #{standb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Surveyservant" >
+    insert into surveyservant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sresultid != null" >
+        sresultid,
+      </if>
+      <if test="optionid != null" >
+        optionid,
+      </if>
+      <if test="optionname != null" >
+        optionname,
+      </if>
+      <if test="option != null" >
+        option,
+      </if>
+      <if test="optionvalue != null" >
+        optionvalue,
+      </if>
+      <if test="createman != null" >
+        createman,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="usestate != null" >
+        usestate,
+      </if>
+      <if test="standa != null" >
+        standa,
+      </if>
+      <if test="standb != null" >
+        standb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sresultid != null" >
+        #{sresultid,jdbcType=INTEGER},
+      </if>
+      <if test="optionid != null" >
+        #{optionid,jdbcType=INTEGER},
+      </if>
+      <if test="optionname != null" >
+        #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null" >
+        #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="optionvalue != null" >
+        #{optionvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        #{standb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Surveyservant" >
+    update surveyservant
+    <set >
+      <if test="sresultid != null" >
+        sresultid = #{sresultid,jdbcType=INTEGER},
+      </if>
+      <if test="optionid != null" >
+        optionid = #{optionid,jdbcType=INTEGER},
+      </if>
+      <if test="optionname != null" >
+        optionname = #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null" >
+        option = #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="optionvalue != null" >
+        optionvalue = #{optionvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        createman = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        usestate = #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        standa = #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        standb = #{standb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Surveyservant" >
+    update surveyservant
+    set sresultid = #{sresultid,jdbcType=INTEGER},
+      optionid = #{optionid,jdbcType=INTEGER},
+      optionname = #{optionname,jdbcType=VARCHAR},
+      option = #{option,jdbcType=VARCHAR},
+      optionvalue = #{optionvalue,jdbcType=VARCHAR},
+      createman = #{createman,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      usestate = #{usestate,jdbcType=INTEGER},
+      standa = #{standa,jdbcType=VARCHAR},
+      standb = #{standb,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.RiskvaluesitemsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Riskvaluesitems" >
+    <id column="riskvaluesitemsid" property="riskvaluesitemsid" jdbcType="INTEGER" />
+    <result column="riskvaluesitemsname" property="riskvaluesitemsname" jdbcType="VARCHAR" />
+    <result column="riskvaluesz" property="riskvaluesz" jdbcType="DOUBLE" />
+    <result column="riskvaluesid" property="riskvaluesid" jdbcType="INTEGER" />
+    <result column="riskvaluetype" property="riskvaluetype" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatordate" property="operatordate" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    riskvaluesitemsid, riskvaluesitemsname, riskvaluesz, riskvaluesid, riskvaluetype, 
+    operator, operatordate, bz, bz1, bz2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from riskvaluesitems
+    where riskvaluesitemsid = #{riskvaluesitemsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from riskvaluesitems
+    where riskvaluesitemsid = #{riskvaluesitemsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Riskvaluesitems" >
+    insert into riskvaluesitems (riskvaluesitemsid, riskvaluesitemsname, 
+      riskvaluesz, riskvaluesid, riskvaluetype, 
+      operator, operatordate, bz, 
+      bz1, bz2)
+    values (#{riskvaluesitemsid,jdbcType=INTEGER}, #{riskvaluesitemsname,jdbcType=VARCHAR}, 
+      #{riskvaluesz,jdbcType=DOUBLE}, #{riskvaluesid,jdbcType=INTEGER}, #{riskvaluetype,jdbcType=TIMESTAMP}, 
+      #{operator,jdbcType=VARCHAR}, #{operatordate,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Riskvaluesitems" >
+    insert into riskvaluesitems
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskvaluesitemsid != null" >
+        riskvaluesitemsid,
+      </if>
+      <if test="riskvaluesitemsname != null" >
+        riskvaluesitemsname,
+      </if>
+      <if test="riskvaluesz != null" >
+        riskvaluesz,
+      </if>
+      <if test="riskvaluesid != null" >
+        riskvaluesid,
+      </if>
+      <if test="riskvaluetype != null" >
+        riskvaluetype,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatordate != null" >
+        operatordate,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskvaluesitemsid != null" >
+        #{riskvaluesitemsid,jdbcType=INTEGER},
+      </if>
+      <if test="riskvaluesitemsname != null" >
+        #{riskvaluesitemsname,jdbcType=VARCHAR},
+      </if>
+      <if test="riskvaluesz != null" >
+        #{riskvaluesz,jdbcType=DOUBLE},
+      </if>
+      <if test="riskvaluesid != null" >
+        #{riskvaluesid,jdbcType=INTEGER},
+      </if>
+      <if test="riskvaluetype != null" >
+        #{riskvaluetype,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatordate != null" >
+        #{operatordate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Riskvaluesitems" >
+    update riskvaluesitems
+    <set >
+      <if test="riskvaluesitemsname != null" >
+        riskvaluesitemsname = #{riskvaluesitemsname,jdbcType=VARCHAR},
+      </if>
+      <if test="riskvaluesz != null" >
+        riskvaluesz = #{riskvaluesz,jdbcType=DOUBLE},
+      </if>
+      <if test="riskvaluesid != null" >
+        riskvaluesid = #{riskvaluesid,jdbcType=INTEGER},
+      </if>
+      <if test="riskvaluetype != null" >
+        riskvaluetype = #{riskvaluetype,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatordate != null" >
+        operatordate = #{operatordate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where riskvaluesitemsid = #{riskvaluesitemsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Riskvaluesitems" >
+    update riskvaluesitems
+    set riskvaluesitemsname = #{riskvaluesitemsname,jdbcType=VARCHAR},
+      riskvaluesz = #{riskvaluesz,jdbcType=DOUBLE},
+      riskvaluesid = #{riskvaluesid,jdbcType=INTEGER},
+      riskvaluetype = #{riskvaluetype,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatordate = #{operatordate,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR}
+    where riskvaluesitemsid = #{riskvaluesitemsid,jdbcType=INTEGER}
+  </update>
+</mapper>

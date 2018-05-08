@@ -1,0 +1,1321 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>班级工作平台</title>
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/build.css">
+	<link rel="stylesheet" href="/20180409XiangMuYiZuStudentManage/static/css/imghover.css">
+	<style>
+		.example-modal .modal {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			right: auto;
+			left: auto;
+			display: block;
+			z-index: 1;
+		}
+
+		.example-modal .modal {
+			background: transparent !important;
+		}
+
+		.table th,
+		.table .text-light-blue {
+			text-align: center;
+			vertical-align: middle !important;
+		}
+
+		.inpuutkey {
+			border: 0px;
+			border-radius: 4px;
+			padding: 4px;
+			margin-right: 10px;
+			color: #000000;
+		}
+	</style>
+</head>
+<body>
+	<section class="content-header">
+		<h1>班级工作平台
+			<small>Optional description</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">
+					<i class="fa fa-dashboard"></i>班级管理</a>
+			</li>
+			<li class="active">
+				<a href="javascript:;">班级工作平台</a>
+			</li>
+		</ol>
+	</section>
+	<hr style="margin-bottom: 0;">
+
+	<section class="content container-fluid">
+
+		<!-- 所有班级 -->
+		<div class="box box-primary box-solid collapsed-box">
+			<div class="box-header with-border">
+				<h3 class="box-title">所有班级</h3>
+				<div class="box-tools">
+						<input class="inpuutkey" type="text" placeholder="  搜索条件">
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">启蒙星</button>
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">S1</button>
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">S2</button>
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">Y2</button>
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">结业班级</button>
+						<button style="font-size: 16px;margin-left: 580px;" type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal-default">添加</button>
+						<button style="font-size: 16px;" type="button" class="btn btn-box-tool">结业</button>
+						<button type="button" style="margin-left: 20px;" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-plus"></i>
+						</button>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="content">
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">JAVA13</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>贺艳</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>Y2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>40</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1632</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1629</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1630</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">JAVA12</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>贺艳</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>Y2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>40</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1633</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1628</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-aqua">
+									<i style="font-size: 25px;">AT1631</i>
+								</span>
+
+								<div class="info-box-content">
+									<span class="info-box-text">班主任：
+										<span>张蓉</span>
+									</span>
+									<span class="info-box-text">所在阶段：
+										<span>S2</span>
+									</span>
+									<span class="info-box-text">班级人数：
+										<span>30</span>
+									</span>
+									<span class="info-box-text">创建时间：
+										<span>2018-04-05</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr style="margin-bottom: 0;">
+
+				<div class="pull-right">
+					<ul class="pagination" style="margin-bottom: 0px;margin-top: 10px;">
+						<li class="paginate_button previous" id="example1_previous">
+							<a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+						</li>
+						<li class="paginate_button ">
+							<a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+						</li>
+						<li class="paginate_button ">
+							<a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+						</li>
+						<li class="paginate_button ">
+							<a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
+						</li>
+						<li class="paginate_button active">
+							<a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
+						</li>
+						<li class="paginate_button ">
+							<a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
+						</li>
+						<li class="paginate_button ">
+							<a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a>
+						</li>
+						<li class="paginate_button next" id="example1_next">
+							<a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 详情及报表 -->
+		<div class="row">
+			<div class="col-md-8">
+				<!-- 班级详情信息 -->
+				<div class="box box-solid">
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab1" data-toggle="tab" aria-expanded="true">默认进入展示效果</a>
+							</li>
+							<li class="">
+								<a href="#tab2" data-toggle="tab" aria-expanded="false">点击具体班级效果</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+
+							<div class="tab-pane active" id="tab1">
+
+								<div class="btn-group pull-right" style="margin-bottom: 3px;">
+									<button type="button" class="btn btn-primary">昨天</button>
+									<button type="button" class="btn btn-primary">上一个星期</button>
+									<button type="button" class="btn btn-primary">上一个月</button>
+
+								</div>
+
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan="5">班级基本信息</th>
+											<th colspan="4">班级考勤</th>
+											<th colspan="2">宿舍考勤</th>
+											<th colspan="3">作业</th>
+											<th colspan="2">日报</th>
+										</tr>
+										<tr>
+											<th>班级名称</th>
+											<th>班主任</th>
+											<th>阶段</th>
+											<th>人数</th>
+											<th>状态</th>
+											<th>迟到</th>
+											<th>早退</th>
+											<th>旷课</th>
+											<th>事假</th>
+											<th>晚归</th>
+											<th>旷寝</th>
+											<th>未完成</th>
+											<th>迟交</th>
+											<th>未做</th>
+											<th>未交</th>
+											<th>迟交</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<td>
+												<a href="#">JAVA13</a>
+											</td>
+											<td>贺艳</td>
+											<td>Y2</td>
+											<td>40</td>
+											<td>在读</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>0</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">AT1632</a>
+											</td>
+											<td>张蓉</td>
+											<td>S2</td>
+											<td>30</td>
+											<td>在读</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>0</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">AT1631</a>
+											</td>
+											<td>贺艳</td>
+											<td>S2</td>
+											<td>30</td>
+											<td>在读</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>0</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">AT1630</a>
+											</td>
+											<td>贺艳</td>
+											<td>S2</td>
+											<td>30</td>
+											<td>在读</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>0</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">AT1629</a>
+											</td>
+											<td>贺艳</td>
+											<td>S2</td>
+											<td>30</td>
+											<td>在读</td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>0</td>
+											<td>4</td>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td>9</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="pull-right">
+									<ul class="pagination pagination-sm inline">
+										<li class="paginate_button previous" id="example1_previous">
+											<a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
+										</li>
+										<li class="paginate_button active">
+											<a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a>
+										</li>
+										<li class="paginate_button next" id="example1_next">
+											<a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a>
+										</li>
+									</ul>
+								</div>
+								<br clear="all" />
+							</div>
+
+							<div class="tab-pane" id="tab2">
+
+								<table class="table">
+									<tr>
+										<td class="text-light-blue">班级名称：</td>
+										<td>ACCP_Y2_JAVA13</td>
+										<td class="text-light-blue">班主任：</td>
+										<td>贺艳</td>
+										<td class="text-light-blue">教员：</td>
+										<td>周纲</td>
+									</tr>
+									<tr>
+										<td class="text-light-blue">开班人数：</td>
+										<td>43</td>
+										<td class="text-light-blue">实时人数：</td>
+										<td>40</td>
+										<td class="text-light-blue">开班时间：</td>
+										<td>2018-2-18</td>
+									</tr>
+									<tr>
+										<td class="text-light-blue">曾班主任记录：</td>
+										<td>无</td>
+										<td class="text-light-blue">曾教员记录：</td>
+										<td>罗江伟（2018-2-18至2018-4-18）</td>
+										<td class="text-light-blue">班级状态：</td>
+										<td>在读</td>
+									</tr>
+									<tr>
+										<td class="text-light-blue" style="border-bottom: 1px solid gainsboro;">班委成员：</td>
+										<td colspan="5" style="border-bottom: 1px solid gainsboro;">张三，李四，王五，王大锤，李大拿</td>
+									</tr>
+								</table>
+								<!-- <div class="btn-group">
+									<button type="button" class="btn btn-primary">班级作业</button>
+									<button type="button" class="btn btn-primary">班级考勤</button>
+									<button type="button" class="btn btn-primary">班级考试</button>
+									<button type="button" class="btn btn-primary">班级日志</button>
+									<button type="button" class="btn btn-primary">发布问卷</button>
+									<button type="button" class="btn btn-primary">分享</button>
+									<button type="button" class="btn btn-primary">分配</button>
+									<button type="button" class="btn btn-primary">移交</button>
+									<button type="button" class="btn btn-primary">项目组开通</button>
+									<button type="button" class="btn btn-primary">班委任免</button>
+									<button type="button" class="btn btn-primary">指派教员</button>
+								</div> -->
+								<div class="btn-group" style="width: 100%">
+									<button type="button" class="btn btn-primary" style="width:20%">班级作业</button>
+									<a href="班级考勤/班级考勤登记.html" class="btn btn-primary" style="width:20%">班级考勤</a>
+									<button type="button" class="btn btn-primary" style="width:20%">班级考试</button>
+									<button type="button" class="btn btn-primary" style="width:20%">班级日志</button>
+									<button type="button" class="btn btn-primary" style="width:20%">发布问卷</button>
+								</div>
+								<div class="btn-group" style="width: 100%">
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">分享</button>
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">分配</button>
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">移交</button>
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">项目组开通</button>
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">班委任免</button>
+									<button type="button" class="btn btn-primary col-md-2 col-xs-2">指派教员</button>
+								</div>
+
+								<br clear="all" />
+								<hr style="margin: 5px 0px;" />
+
+								<div class="container" style="width: 100%;">
+									<ul class="users-list clearfix">
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user8-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-fangtan">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-jiangchen">奖惩信息</a>
+													</p>
+													<p>
+														<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-liushi">流失信息</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="http://127.0.0.1:8080/20180409XiangMuYiZuStudentManage/studentXinXi.action?stuid=1">龙冬冬</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user6-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">黄鹏</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user1-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">万鹏</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user4-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">陈国豪</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user5-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">何玲</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user6-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">阳帆</a>
+										</li>
+
+										<li style="min-width: 142px; max-width: 150px; margin:0 4px;">
+											<div class="hovereffect">
+												<img class="img-responsive" src="/20180409XiangMuYiZuStudentManage/static/img/user7-128x128.jpg" alt="">
+												<div class="overlay">
+													<p>
+														<a href="#">学生访谈</a>
+													</p>
+													<p>
+														<a href="#">家长访谈</a>
+													</p>
+													<p>
+														<a href="#">奖惩信息</a>
+													</p>
+													<p>
+														<a href="#">风险系数</a>
+													</p>
+												</div>
+											</div>
+											<a style="font-size: 16px;" href="#">张旭</a>
+										</li>
+
+									</ul>
+								</div>
+								<hr style="margin: 0px;margin-bottom: 5px;" />
+
+								<div class="pull-right">
+									<ul class="pagination pagination-sm inline">
+										<li class="paginate_button previous" id="example1_previous">
+											<a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
+										</li>
+										<li class="paginate_button active">
+											<a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
+										</li>
+										<li class="paginate_button ">
+											<a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a>
+										</li>
+										<li class="paginate_button next" id="example1_next">
+											<a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a>
+										</li>
+									</ul>
+								</div>
+								<br clear="all" />
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 班级统计报表 -->
+			<div class="col-md-4">
+				<div class="box box-primary box-solid">
+					<div class="box-header with-border">
+						<h3 class="box-title">考情统计</h3>
+
+						<div class="box-tools btn-group pull-right">
+							<button type="button" class="btn btn-primary">昨日</button>
+							<button type="button" class="btn btn-primary">上个星期</button>
+							<button type="button" class="btn btn-primary">上个月</button>
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">考勤范围：</td>
+								<td>
+									<a href="../dormitory_management/考勤管理/考勤记录.html">ACCP_Y2_java13(点击进入详细考勤数据)</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">人数：</td>
+								<td>40</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">迟到：</td>
+								<td>2
+									<span>（5%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">早退：</td>
+								<td>4
+									<span>（10%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">旷课：</td>
+								<td>6
+									<span>（15%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">事假：</td>
+								<td>0
+									<span>（0.0%）</span>
+								</td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+
+				<div class="box box-primary box-solid collapsed-box">
+					<div class="box-header with-border">
+						<h3 class="box-title">宿舍考勤</h3>
+
+						<div class="box-tools btn-group pull-right">
+							<button type="button" class="btn btn-primary">昨日</button>
+							<button type="button" class="btn btn-primary">上个星期</button>
+							<button type="button" class="btn btn-primary">上个月</button>
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">考勤范围：</td>
+								<td>
+									<a href="../dormitory_management/考勤管理/考勤登记.html">ACCP_Y2_java13(点击进入详细考勤数据)</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">人数：</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">晚归：</td>
+								<td>2
+									<span>（5%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">旷寝：</td>
+								<td>4
+									<span>（10%）</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="box box-primary box-solid collapsed-box">
+					<div class="box-header with-border">
+						<h3 class="box-title">作业完成统计</h3>
+
+						<div class="box-tools btn-group pull-right">
+							<button type="button" class="btn btn-primary">昨日</button>
+							<button type="button" class="btn btn-primary">上个星期</button>
+							<button type="button" class="btn btn-primary">上个月</button>
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">考勤范围：</td>
+								<td>
+									<a href="#">所有班级(权限范围内且有发布作业操作)</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">人数：</td>
+								<td>1280</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">未完成：</td>
+								<td>100
+									<span>（12%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">迟交：</td>
+								<td>50
+									<span>（5%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">作业反馈：</td>
+								<td>难（4）一般（6）简单（20）未选（10）</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">描述：</td>
+								<td>具体班级才会显示作业反馈</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="box box-primary box-solid collapsed-box">
+					<div class="box-header with-border">
+						<h3 class="box-title">日报统计</h3>
+
+						<div class="box-tools btn-group pull-right">
+							<button type="button" class="btn btn-primary">昨日</button>
+							<button type="button" class="btn btn-primary">上个星期</button>
+							<button type="button" class="btn btn-primary">上个月</button>
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">考勤范围：</td>
+								<td>
+									<a href="#">ACCP_Y2_java13</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">人数：</td>
+								<td>40</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">未交：</td>
+								<td>10
+									<span>（25%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">迟交：</td>
+								<td>2
+									<span>（5%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">内容超过50字：</td>
+								<td>10
+									<span>（25%）</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">内容低于10字：</td>
+								<td>10
+									<span>（25%）</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+	<div class="modal fade" id="modal-default">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">创建班级</h4>
+				</div>
+				<div class="modal-body">
+
+					<form action="#" method="post">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">班级姓名：</td>
+								<td>
+									<input type="text" class="form-control" name="emailto">
+								</td>
+								<td class="text-light-blue">所处阶段：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+										<label for="inlineRadio1"> 启蒙星 </label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked="">
+										<label for="inlineRadio2"> S1 </label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio3" value="option3" name="radioInline">
+										<label for="inlineRadio3"> S2</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio4" value="option4" name="radioInline">
+										<label for="inlineRadio4"> Y2 </label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">创建时间：</td>
+								<td>
+									<div class="input-group date">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input type="text" class="form-control pull-right" id="datepicker">
+									</div>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">备注信息：</td>
+								<td colspan="3">
+									<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-fangtan">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">学生管理&nbsp;
+						<i class="fa fa-angle-right"></i>&nbsp;学生访谈</h4>
+				</div>
+				<div class="modal-body">
+
+					<form action="#" method="post">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">学生姓名：</td>
+								<td>龙冬冬</td>
+								<td class="text-light-blue">学生班级：</td>
+								<td>Java13</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">学生电话：</td>
+								<td>18570413456</td>
+								<td class="text-light-blue">所属学期:</td>
+								<td>Y2</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">访谈时间：</td>
+								<td>
+									<div class="input-group date">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input type="text" class="form-control pull-right" id="datepicker1" value="02/24/2018">
+									</div>
+								</td>
+								<td class="text-light-blue">访谈类型:</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInlineType">
+										<label for="inlineRadio1">学习 </label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInlineType" checked="">
+										<label for="inlineRadio2">日常</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue" style="">访谈原因：</td>
+								<td colspan="3">
+									<input type="text" class="form-control" name="emailto">
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue" style="">访谈结果：</td>
+								<td colspan="3">
+									<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+								</td>
+							</tr>
+						</table>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-jiangchen">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">学生管理&nbsp;
+						<i class="fa fa-angle-right"></i>&nbsp;奖惩信息</h4>
+				</div>
+				<div class="modal-body">
+
+					<form action="#" method="post">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">学生姓名：</td>
+								<td>龙冬冬</td>
+								<td class="text-light-blue">学生班级：</td>
+								<td>Java13</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">所属学期：</td>
+								<td>Y2</td>
+								<td class="text-light-blue">奖惩类别：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+										<label for="inlineRadio1"> 奖励 </label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked="">
+										<label for="inlineRadio2">惩罚</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">奖惩类型</td>
+								<td colspan="3">
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+										<label for="inlineRadio1">考试</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked="">
+										<label for="inlineRadio2">班级考勤</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio3" value="option1" name="radioInline">
+										<label for="inlineRadio3"> 宿舍考勤 </label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio4" value="option2" name="radioInline" checked="">
+										<label for="inlineRadio4">作业</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio5" value="option2" name="radioInline" checked="">
+										<label for="inlineRadio5">作业</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">奖惩时间：</td>
+								<td>
+									<div class="input-group date">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input type="text" class="form-control pull-right" id="datepicker1" value="02/24/2018">
+									</div>
+								</td>
+								<td class="text-light-blue">附件：</td>
+								<td>
+									<input type="file" class="form-control" name="emailto">
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue" style="">奖惩内容：</td>
+								<td colspan="3">
+									<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+								</td>
+							</tr>
+						</table>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-liushi">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">学生管理&nbsp;
+						<i class="fa fa-angle-right"></i>&nbsp;流失信息</h4>
+				</div>
+				<div class="modal-body">
+
+					<form action="#" method="post">
+						<table class="table table-bordered">
+							<tr>
+								<td class="text-light-blue">学生姓名：</td>
+								<td>小强</td>
+								<td class="text-light-blue">所处阶段：</td>
+								<td>
+									Y2
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">年龄：</td>
+								<td>
+									18
+								</td>
+								<td class="text-light-blue">性别:</td>
+								<td>男</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">家庭状况：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline1">
+										<label for="inlineRadio1">和睦</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline1" checked="">
+										<label for="inlineRadio2">不和睦</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline1">
+										<label for="inlineRadio2">单亲</label>
+									</div>
+								</td>
+								<td class="text-light-blue">学习态度：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline2">
+										<label for="inlineRadio1">好</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline2" checked="">
+										<label for="inlineRadio2">一般</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline2">
+										<label for="inlineRadio2">随波逐流</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">情商：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline3">
+										<label for="inlineRadio1">高</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline3" checked="">
+										<label for="inlineRadio2">正常</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline3">
+										<label for="inlineRadio2">低</label>
+									</div>
+								</td>
+								<td class="text-light-blue">智商：</td>
+								<td>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio1" value="option1" name="radioInline4">
+										<label for="inlineRadio1">高</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline4" checked="">
+										<label for="inlineRadio2">正常</label>
+									</div>
+									<div class="radio radio-info radio-inline">
+										<input type="radio" id="inlineRadio2" value="option2" name="radioInline4">
+										<label for="inlineRadio2">低</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">性格：</td>
+								<td>
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input id="checkbox5" type="checkbox" class="styled" checked="">
+										<label for="checkbox5">活泼</label>
+									</div>
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input id="checkbox5" type="checkbox" class="styled">
+										<label for="checkbox5">内向</label>
+									</div>
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input id="checkbox5" type="checkbox" class="styled" checked="">
+										<label for="checkbox5">傻兮兮</label>
+									</div>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-light-blue">备注信息：</td>
+								<td colspan="3">
+									<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script src="/20180409XiangMuYiZuStudentManage/static/js/jquery.min.js"></script>
+<script src="/20180409XiangMuYiZuStudentManage/static/js/bootstrap.min.js"></script>
+<script src="/20180409XiangMuYiZuStudentManage/static/js/bootstrap-datepicker.min.js"></script>
+<script src="/20180409XiangMuYiZuStudentManage/static/js/adminlte.min.js"></script>
+<script>
+	$(function () {
+
+		$('#datepicker').datepicker({
+			autoclose: true
+		});
+		$('#datepicker1').datepicker({
+			autoclose: true
+		});
+
+	});
+</script>
+
+</body>
+</html>

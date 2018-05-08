@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.SurveystatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Surveystatistics" >
+    <id column="statisid" property="statisid" jdbcType="INTEGER" />
+    <result column="schresultid" property="schresultid" jdbcType="INTEGER" />
+    <result column="issuerid" property="issuerid" jdbcType="INTEGER" />
+    <result column="issuername" property="issuername" jdbcType="VARCHAR" />
+    <result column="statiscount" property="statiscount" jdbcType="INTEGER" />
+    <result column="respondentid" property="respondentid" jdbcType="INTEGER" />
+    <result column="respname" property="respname" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="optionid" property="optionid" jdbcType="VARCHAR" />
+    <result column="optionname" property="optionname" jdbcType="VARCHAR" />
+    <result column="option" property="option" jdbcType="VARCHAR" />
+    <result column="heat" property="heat" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="statistime" property="statistime" jdbcType="TIMESTAMP" />
+    <result column="createman" property="createman" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="usestate" property="usestate" jdbcType="INTEGER" />
+    <result column="standa" property="standa" jdbcType="VARCHAR" />
+    <result column="standb" property="standb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    statisid, schresultid, issuerid, issuername, statiscount, respondentid, respname, 
+    title, optionid, optionname, option, heat, remark, statistime, createman, createtime, 
+    usestate, standa, standb
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from surveystatistics
+    where statisid = #{statisid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from surveystatistics
+    where statisid = #{statisid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Surveystatistics" >
+    insert into surveystatistics (statisid, schresultid, issuerid, 
+      issuername, statiscount, respondentid, 
+      respname, title, optionid, 
+      optionname, option, heat, 
+      remark, statistime, createman, 
+      createtime, usestate, standa, 
+      standb)
+    values (#{statisid,jdbcType=INTEGER}, #{schresultid,jdbcType=INTEGER}, #{issuerid,jdbcType=INTEGER}, 
+      #{issuername,jdbcType=VARCHAR}, #{statiscount,jdbcType=INTEGER}, #{respondentid,jdbcType=INTEGER}, 
+      #{respname,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{optionid,jdbcType=VARCHAR}, 
+      #{optionname,jdbcType=VARCHAR}, #{option,jdbcType=VARCHAR}, #{heat,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{statistime,jdbcType=TIMESTAMP}, #{createman,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{usestate,jdbcType=INTEGER}, #{standa,jdbcType=VARCHAR}, 
+      #{standb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Surveystatistics" >
+    insert into surveystatistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="statisid != null" >
+        statisid,
+      </if>
+      <if test="schresultid != null" >
+        schresultid,
+      </if>
+      <if test="issuerid != null" >
+        issuerid,
+      </if>
+      <if test="issuername != null" >
+        issuername,
+      </if>
+      <if test="statiscount != null" >
+        statiscount,
+      </if>
+      <if test="respondentid != null" >
+        respondentid,
+      </if>
+      <if test="respname != null" >
+        respname,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="optionid != null" >
+        optionid,
+      </if>
+      <if test="optionname != null" >
+        optionname,
+      </if>
+      <if test="option != null" >
+        option,
+      </if>
+      <if test="heat != null" >
+        heat,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="statistime != null" >
+        statistime,
+      </if>
+      <if test="createman != null" >
+        createman,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="usestate != null" >
+        usestate,
+      </if>
+      <if test="standa != null" >
+        standa,
+      </if>
+      <if test="standb != null" >
+        standb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="statisid != null" >
+        #{statisid,jdbcType=INTEGER},
+      </if>
+      <if test="schresultid != null" >
+        #{schresultid,jdbcType=INTEGER},
+      </if>
+      <if test="issuerid != null" >
+        #{issuerid,jdbcType=INTEGER},
+      </if>
+      <if test="issuername != null" >
+        #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="statiscount != null" >
+        #{statiscount,jdbcType=INTEGER},
+      </if>
+      <if test="respondentid != null" >
+        #{respondentid,jdbcType=INTEGER},
+      </if>
+      <if test="respname != null" >
+        #{respname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="optionid != null" >
+        #{optionid,jdbcType=VARCHAR},
+      </if>
+      <if test="optionname != null" >
+        #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null" >
+        #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null" >
+        #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="statistime != null" >
+        #{statistime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createman != null" >
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        #{standb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Surveystatistics" >
+    update surveystatistics
+    <set >
+      <if test="schresultid != null" >
+        schresultid = #{schresultid,jdbcType=INTEGER},
+      </if>
+      <if test="issuerid != null" >
+        issuerid = #{issuerid,jdbcType=INTEGER},
+      </if>
+      <if test="issuername != null" >
+        issuername = #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="statiscount != null" >
+        statiscount = #{statiscount,jdbcType=INTEGER},
+      </if>
+      <if test="respondentid != null" >
+        respondentid = #{respondentid,jdbcType=INTEGER},
+      </if>
+      <if test="respname != null" >
+        respname = #{respname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="optionid != null" >
+        optionid = #{optionid,jdbcType=VARCHAR},
+      </if>
+      <if test="optionname != null" >
+        optionname = #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null" >
+        option = #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null" >
+        heat = #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="statistime != null" >
+        statistime = #{statistime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createman != null" >
+        createman = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        usestate = #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        standa = #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        standb = #{standb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where statisid = #{statisid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Surveystatistics" >
+    update surveystatistics
+    set schresultid = #{schresultid,jdbcType=INTEGER},
+      issuerid = #{issuerid,jdbcType=INTEGER},
+      issuername = #{issuername,jdbcType=VARCHAR},
+      statiscount = #{statiscount,jdbcType=INTEGER},
+      respondentid = #{respondentid,jdbcType=INTEGER},
+      respname = #{respname,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      optionid = #{optionid,jdbcType=VARCHAR},
+      optionname = #{optionname,jdbcType=VARCHAR},
+      option = #{option,jdbcType=VARCHAR},
+      heat = #{heat,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      statistime = #{statistime,jdbcType=TIMESTAMP},
+      createman = #{createman,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      usestate = #{usestate,jdbcType=INTEGER},
+      standa = #{standa,jdbcType=VARCHAR},
+      standb = #{standb,jdbcType=VARCHAR}
+    where statisid = #{statisid,jdbcType=INTEGER}
+  </update>
+</mapper>

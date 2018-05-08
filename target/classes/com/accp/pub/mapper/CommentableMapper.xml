@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CommentableMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Commentable">
+		<id column="pid" property="pid" jdbcType="INTEGER" />
+		<result column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="puid" property="puid" jdbcType="INTEGER" />
+		<result column="puname" property="puname" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="items" property="items" jdbcType="VARCHAR" />
+		<result column="context" property="context" jdbcType="VARCHAR" />
+		<result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+		<result column="bz4" property="bz4" jdbcType="VARCHAR" />
+		<result column="bz5" property="bz5" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		pid, fid, puid, puname, title, type, items, context,
+		addtime, bz1, bz2,
+		bz3, bz4,
+		bz5
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from commentable
+		where pid = #{pid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		commentable
+		where pid = #{pid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Commentable">
+		insert into commentable (pid,
+		fid, puid,
+		puname, title, type,
+		items, context, addtime,
+		bz1, bz2, bz3,
+		bz4,
+		bz5)
+		values (#{pid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER},
+		#{puid,jdbcType=INTEGER},
+		#{puname,jdbcType=VARCHAR},
+		#{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+		#{items,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR},
+		#{addtime,jdbcType=TIMESTAMP},
+		#{bz1,jdbcType=VARCHAR},
+		#{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR},
+		#{bz4,jdbcType=VARCHAR},
+		#{bz5,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Commentable"
+		useGeneratedKeys="true" keyProperty="pid">
+		insert into commentable
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				pid,
+			</if>
+			<if test="fid != null">
+				fid,
+			</if>
+			<if test="puid != null">
+				puid,
+			</if>
+			<if test="puname != null">
+				puname,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="items != null">
+				items,
+			</if>
+			<if test="context != null">
+				context,
+			</if>
+			<if test="addtime != null">
+				addtime,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+			<if test="bz4 != null">
+				bz4,
+			</if>
+			<if test="bz5 != null">
+				bz5,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				#{pid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				#{fid,jdbcType=INTEGER},
+			</if>
+			<if test="puid != null">
+				#{puid,jdbcType=INTEGER},
+			</if>
+			<if test="puname != null">
+				#{puname,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				#{items,jdbcType=VARCHAR},
+			</if>
+			<if test="context != null">
+				#{context,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				#{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				#{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				#{bz5,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Commentable">
+		update commentable
+		<set>
+			<if test="fid != null">
+				fid = #{fid,jdbcType=INTEGER},
+			</if>
+			<if test="puid != null">
+				puid = #{puid,jdbcType=INTEGER},
+			</if>
+			<if test="puname != null">
+				puname = #{puname,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				items = #{items,jdbcType=VARCHAR},
+			</if>
+			<if test="context != null">
+				context = #{context,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				addtime = #{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				bz4 = #{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				bz5 = #{bz5,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where pid = #{pid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Commentable">
+		update commentable
+		set fid = #{fid,jdbcType=INTEGER},
+		puid = #{puid,jdbcType=INTEGER},
+		puname = #{puname,jdbcType=VARCHAR},
+		title = #{title,jdbcType=VARCHAR},
+		type = #{type,jdbcType=VARCHAR},
+		items = #{items,jdbcType=VARCHAR},
+		context = #{context,jdbcType=VARCHAR},
+		addtime =
+		#{addtime,jdbcType=TIMESTAMP},
+		bz1 = #{bz1,jdbcType=VARCHAR},
+		bz2 =
+		#{bz2,jdbcType=VARCHAR},
+		bz3 = #{bz3,jdbcType=VARCHAR},
+		bz4 =
+		#{bz4,jdbcType=VARCHAR},
+		bz5 = #{bz5,jdbcType=VARCHAR}
+		where pid =
+		#{pid,jdbcType=INTEGER}
+	</update>
+
+	<!-- 自定义sql -->
+
+	<select id="selectByUserTableCommentTableFidPrimaryKey"
+		resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		SELECT
+		c.`pid`,c.`puid`,c.`puname`,c.`context`,c.`addtime`,u.`userimg` bz1
+		FROM `commentable` c
+		INNER JOIN `usertable` u ON c.`puid`=u.`userid`
+		WHERE c.`fid`=#{fid}
+		ORDER BY c.addtime DESC
+	</select>
+
+	<select id="selectByCommentTablePid" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		SELECT
+		c.`pid`,c.`puid`,c.`puname`,c.`context`,c.`addtime`,u.`userimg` bz1
+		FROM `commentable` c
+		INNER JOIN `usertable` u ON c.`puid`=u.`userid`
+		WHERE c.`pid`=#{pid}
+	</select>
+
+
+
+</mapper>

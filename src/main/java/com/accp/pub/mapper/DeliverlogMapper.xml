@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.DeliverlogMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Deliverlog">
+		<id column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="classid" property="classid" jdbcType="INTEGER" />
+		<result column="classname" property="classname" jdbcType="VARCHAR" />
+		<result column="grderid" property="grderid" jdbcType="VARCHAR" />
+		<result column="grdername" property="grdername" jdbcType="VARCHAR" />
+		<result column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="uname" property="uname" jdbcType="VARCHAR" />
+		<result column="sid" property="sid" jdbcType="VARCHAR" />
+		<result column="sname" property="sname" jdbcType="VARCHAR" />
+		<result column="items" property="items" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="finish" property="finish" jdbcType="VARCHAR" />
+		<result column="nofinish" property="nofinish" jdbcType="VARCHAR" />
+		<result column="concert" property="concert" jdbcType="VARCHAR" />
+		<result column="summary" property="summary" jdbcType="VARCHAR" />
+		<result column="plan" property="plan" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="reamarks" property="reamarks" jdbcType="VARCHAR" />
+		<result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="addsum" property="addsum" jdbcType="INTEGER" />
+		<result column="wsum" property="wsum" jdbcType="INTEGER" />
+		<result column="ydsum" property="ydsum" jdbcType="INTEGER" />
+		<result column="filesum" property="filesum" jdbcType="INTEGER" />
+		<result column="tjsatae" property="tjsatae" jdbcType="VARCHAR" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+		<result column="bz4" property="bz4" jdbcType="VARCHAR" />
+		<result column="bz5" property="bz5" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		fid, classid, classname, grderid, grdername, uid, uname,
+		sid, sname,
+		items, type,
+		finish, nofinish, concert, summary, plan,
+		status, reamarks, addtime,
+		updatetime,
+		addsum, wsum, ydsum, filesum,
+		tjsatae, bz1, bz2, bz3, bz4, bz5
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from deliverlog
+		where fid = #{fid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		deliverlog
+		where fid = #{fid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Deliverlog">
+		insert into deliverlog (fid,
+		classid, classname,
+		grderid, grdername, uid,
+		uname, sid, sname,
+		items,
+		type, finish,
+		nofinish, concert, summary,
+		plan, status, reamarks,
+		addtime, updatetime, addsum,
+		wsum, ydsum, filesum,
+		tjsatae, bz1, bz2,
+		bz3, bz4, bz5)
+		values (#{fid,jdbcType=INTEGER},
+		#{classid,jdbcType=INTEGER},
+		#{classname,jdbcType=VARCHAR},
+		#{grderid,jdbcType=VARCHAR}, #{grdername,jdbcType=VARCHAR},
+		#{uid,jdbcType=INTEGER},
+		#{uname,jdbcType=VARCHAR},
+		#{sid,jdbcType=VARCHAR},
+		#{sname,jdbcType=VARCHAR},
+		#{items,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+		#{finish,jdbcType=VARCHAR},
+		#{nofinish,jdbcType=VARCHAR},
+		#{concert,jdbcType=VARCHAR},
+		#{summary,jdbcType=VARCHAR},
+		#{plan,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+		#{reamarks,jdbcType=VARCHAR},
+		#{addtime,jdbcType=TIMESTAMP},
+		#{updatetime,jdbcType=TIMESTAMP},
+		#{addsum,jdbcType=INTEGER},
+		#{wsum,jdbcType=INTEGER}, #{ydsum,jdbcType=INTEGER},
+		#{filesum,jdbcType=INTEGER},
+		#{tjsatae,jdbcType=VARCHAR},
+		#{bz1,jdbcType=VARCHAR},
+		#{bz2,jdbcType=VARCHAR},
+		#{bz3,jdbcType=VARCHAR}, #{bz4,jdbcType=VARCHAR},
+		#{bz5,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Deliverlog"
+		useGeneratedKeys="true" keyProperty="fid">
+		insert into deliverlog
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="fid != null">
+				fid,
+			</if>
+			<if test="classid != null">
+				classid,
+			</if>
+			<if test="classname != null">
+				classname,
+			</if>
+			<if test="grderid != null">
+				grderid,
+			</if>
+			<if test="grdername != null">
+				grdername,
+			</if>
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="uname != null">
+				uname,
+			</if>
+			<if test="sid != null">
+				sid,
+			</if>
+			<if test="sname != null">
+				sname,
+			</if>
+			<if test="items != null">
+				items,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="finish != null">
+				finish,
+			</if>
+			<if test="nofinish != null">
+				nofinish,
+			</if>
+			<if test="concert != null">
+				concert,
+			</if>
+			<if test="summary != null">
+				summary,
+			</if>
+			<if test="plan != null">
+				plan,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="reamarks != null">
+				reamarks,
+			</if>
+			<if test="addtime != null">
+				addtime,
+			</if>
+			<if test="updatetime != null">
+				updatetime,
+			</if>
+			<if test="addsum != null">
+				addsum,
+			</if>
+			<if test="wsum != null">
+				wsum,
+			</if>
+			<if test="ydsum != null">
+				ydsum,
+			</if>
+			<if test="filesum != null">
+				filesum,
+			</if>
+			<if test="tjsatae != null">
+				tjsatae,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+			<if test="bz4 != null">
+				bz4,
+			</if>
+			<if test="bz5 != null">
+				bz5,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="fid != null">
+				#{fid,jdbcType=INTEGER},
+			</if>
+			<if test="classid != null">
+				#{classid,jdbcType=INTEGER},
+			</if>
+			<if test="classname != null">
+				#{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="grderid != null">
+				#{grderid,jdbcType=VARCHAR},
+			</if>
+			<if test="grdername != null">
+				#{grdername,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				#{uid,jdbcType=INTEGER},
+			</if>
+			<if test="uname != null">
+				#{uname,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				#{sid,jdbcType=VARCHAR},
+			</if>
+			<if test="sname != null">
+				#{sname,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				#{items,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="finish != null">
+				#{finish,jdbcType=VARCHAR},
+			</if>
+			<if test="nofinish != null">
+				#{nofinish,jdbcType=VARCHAR},
+			</if>
+			<if test="concert != null">
+				#{concert,jdbcType=VARCHAR},
+			</if>
+			<if test="summary != null">
+				#{summary,jdbcType=VARCHAR},
+			</if>
+			<if test="plan != null">
+				#{plan,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="reamarks != null">
+				#{reamarks,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				#{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="addsum != null">
+				#{addsum,jdbcType=INTEGER},
+			</if>
+			<if test="wsum != null">
+				#{wsum,jdbcType=INTEGER},
+			</if>
+			<if test="ydsum != null">
+				#{ydsum,jdbcType=INTEGER},
+			</if>
+			<if test="filesum != null">
+				#{filesum,jdbcType=INTEGER},
+			</if>
+			<if test="tjsatae != null">
+				#{tjsatae,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				#{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				#{bz5,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Deliverlog">
+		update deliverlog
+		<set>
+			<if test="classid != null">
+				classid = #{classid,jdbcType=INTEGER},
+			</if>
+			<if test="classname != null">
+				classname = #{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="grderid != null">
+				grderid = #{grderid,jdbcType=VARCHAR},
+			</if>
+			<if test="grdername != null">
+				grdername = #{grdername,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				uid = #{uid,jdbcType=INTEGER},
+			</if>
+			<if test="uname != null">
+				uname = #{uname,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				sid = #{sid,jdbcType=VARCHAR},
+			</if>
+			<if test="sname != null">
+				sname = #{sname,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				items = #{items,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="finish != null">
+				finish = #{finish,jdbcType=VARCHAR},
+			</if>
+			<if test="nofinish != null">
+				nofinish = #{nofinish,jdbcType=VARCHAR},
+			</if>
+			<if test="concert != null">
+				concert = #{concert,jdbcType=VARCHAR},
+			</if>
+			<if test="summary != null">
+				summary = #{summary,jdbcType=VARCHAR},
+			</if>
+			<if test="plan != null">
+				plan = #{plan,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="reamarks != null">
+				reamarks = #{reamarks,jdbcType=VARCHAR},
+			</if>
+			<if test="addtime != null">
+				addtime = #{addtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				updatetime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="addsum != null">
+				addsum = #{addsum,jdbcType=INTEGER},
+			</if>
+			<if test="wsum != null">
+				wsum = #{wsum,jdbcType=INTEGER},
+			</if>
+			<if test="ydsum != null">
+				ydsum = #{ydsum,jdbcType=INTEGER},
+			</if>
+			<if test="filesum != null">
+				filesum = #{filesum,jdbcType=INTEGER},
+			</if>
+			<if test="tjsatae != null">
+				tjsatae = #{tjsatae,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				bz4 = #{bz4,jdbcType=VARCHAR},
+			</if>
+			<if test="bz5 != null">
+				bz5 = #{bz5,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where fid = #{fid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Deliverlog">
+		update deliverlog
+		set classid = #{classid,jdbcType=INTEGER},
+		classname =
+		#{classname,jdbcType=VARCHAR},
+		grderid = #{grderid,jdbcType=VARCHAR},
+		grdername = #{grdername,jdbcType=VARCHAR},
+		uid =
+		#{uid,jdbcType=INTEGER},
+		uname = #{uname,jdbcType=VARCHAR},
+		sid =
+		#{sid,jdbcType=VARCHAR},
+		sname = #{sname,jdbcType=VARCHAR},
+		items =
+		#{items,jdbcType=VARCHAR},
+		type = #{type,jdbcType=VARCHAR},
+		finish =
+		#{finish,jdbcType=VARCHAR},
+		nofinish = #{nofinish,jdbcType=VARCHAR},
+		concert = #{concert,jdbcType=VARCHAR},
+		summary =
+		#{summary,jdbcType=VARCHAR},
+		plan = #{plan,jdbcType=VARCHAR},
+		status =
+		#{status,jdbcType=VARCHAR},
+		reamarks = #{reamarks,jdbcType=VARCHAR},
+		addtime = #{addtime,jdbcType=TIMESTAMP},
+		updatetime =
+		#{updatetime,jdbcType=TIMESTAMP},
+		addsum = #{addsum,jdbcType=INTEGER},
+		wsum = #{wsum,jdbcType=INTEGER},
+		ydsum = #{ydsum,jdbcType=INTEGER},
+		filesum = #{filesum,jdbcType=INTEGER},
+		tjsatae =
+		#{tjsatae,jdbcType=VARCHAR},
+		bz1 = #{bz1,jdbcType=VARCHAR},
+		bz2 =
+		#{bz2,jdbcType=VARCHAR},
+		bz3 = #{bz3,jdbcType=VARCHAR},
+		bz4 =
+		#{bz4,jdbcType=VARCHAR},
+		bz5 = #{bz5,jdbcType=VARCHAR}
+		where fid =
+		#{fid,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- 自定义sql -->
+
+	<select id="selectByPrimaryUserIdKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		SELECT * FROM `deliverlog` WHERE `uid`=#{uid}
+	</select>
+
+	<update id="updateAddsumAddtimeByPrimaryKeyFid">
+		UPDATE
+		`deliverlog`
+		SET
+		`updatetime` = #{addtime},
+		`addsum`
+		= `addsum`+1
+		WHERE `fid` = #{fid};
+	</update>
+
+	<select id="selectByUSerClassDeliverlogYesStudent" resultMap="BaseResultMap">
+		SELECT * FROM
+		`deliverlog` d
+		INNER JOIN
+		(SELECT gr.`userid` FROM
+		`gradeorganizationuser` gr WHERE gr.`cmmId`IN
+		(SELECT c.`cmmId` FROM
+		`classmanagementmodel` c
+		INNER JOIN `gradeorganizationuser` g ON
+		c.`cmmId`=g.`cmmId`
+		WHERE g.`userid`=#{userid} AND c.`cmmPid`=0 AND
+		g.`jurisdiction` IN(1,2))
+		AND gr.`roleid`=3
+		<if test="cmmid!=null">
+			AND gr.cmmid=#{cmmid}
+		</if>
+		GROUP BY gr.`userid`) gra ON gra.userid=d.`uid`
+		WHERE ((TO_DAYS(NOW())
+		- TO_DAYS(d.`addtime`))) = 1
+		<if test="tjsatae!=null">
+			AND d.`tjsatae`=#{tjsatae}
+		</if>
+		GROUP BY d.`uid`
+		ORDER BY d.`addsum` DESC
+	</select>
+
+
+</mapper>

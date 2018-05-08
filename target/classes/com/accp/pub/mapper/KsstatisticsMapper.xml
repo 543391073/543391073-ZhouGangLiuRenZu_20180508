@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.KsstatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Ksstatistics" >
+    <id column="examstatisid" property="examstatisid" jdbcType="INTEGER" />
+    <result column="issuerid" property="issuerid" jdbcType="INTEGER" />
+    <result column="issuername" property="issuername" jdbcType="VARCHAR" />
+    <result column="echonumber" property="echonumber" jdbcType="INTEGER" />
+    <result column="truenumber" property="truenumber" jdbcType="INTEGER" />
+    <result column="Cknumber" property="cknumber" jdbcType="INTEGER" />
+    <result column="qkname" property="qkname" jdbcType="VARCHAR" />
+    <result column="qkid" property="qkid" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="examsection" property="examsection" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+    <result column="avgscore" property="avgscore" jdbcType="DOUBLE" />
+    <result column="Wjgsum" property="wjgsum" jdbcType="INTEGER" />
+    <result column="Wjgname" property="wjgname" jdbcType="VARCHAR" />
+    <result column="ybsum" property="ybsum" jdbcType="INTEGER" />
+    <result column="ybname" property="ybname" jdbcType="VARCHAR" />
+    <result column="lhsum" property="lhsum" jdbcType="INTEGER" />
+    <result column="lhname" property="lhname" jdbcType="VARCHAR" />
+    <result column="Yssum" property="yssum" jdbcType="INTEGER" />
+    <result column="Ysname" property="ysname" jdbcType="VARCHAR" />
+    <result column="foundid" property="foundid" jdbcType="VARCHAR" />
+    <result column="founddate" property="founddate" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    examstatisid, issuerid, issuername, echonumber, truenumber, Cknumber, qkname, qkid, 
+    classid, classname, gradeid, gradename, examsection, score, avgscore, Wjgsum, Wjgname, 
+    ybsum, ybname, lhsum, lhname, Yssum, Ysname, foundid, founddate, state, remark, remark1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ksstatistics
+    where examstatisid = #{examstatisid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ksstatistics
+    where examstatisid = #{examstatisid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Ksstatistics" >
+    insert into ksstatistics (examstatisid, issuerid, issuername, 
+      echonumber, truenumber, Cknumber, 
+      qkname, qkid, classid, 
+      classname, gradeid, gradename, 
+      examsection, score, avgscore, 
+      Wjgsum, Wjgname, ybsum, 
+      ybname, lhsum, lhname, 
+      Yssum, Ysname, foundid, 
+      founddate, state, remark, 
+      remark1)
+    values (#{examstatisid,jdbcType=INTEGER}, #{issuerid,jdbcType=INTEGER}, #{issuername,jdbcType=VARCHAR}, 
+      #{echonumber,jdbcType=INTEGER}, #{truenumber,jdbcType=INTEGER}, #{cknumber,jdbcType=INTEGER}, 
+      #{qkname,jdbcType=VARCHAR}, #{qkid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{classname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, #{gradename,jdbcType=VARCHAR}, 
+      #{examsection,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}, #{avgscore,jdbcType=DOUBLE}, 
+      #{wjgsum,jdbcType=INTEGER}, #{wjgname,jdbcType=VARCHAR}, #{ybsum,jdbcType=INTEGER}, 
+      #{ybname,jdbcType=VARCHAR}, #{lhsum,jdbcType=INTEGER}, #{lhname,jdbcType=VARCHAR}, 
+      #{yssum,jdbcType=INTEGER}, #{ysname,jdbcType=VARCHAR}, #{foundid,jdbcType=VARCHAR}, 
+      #{founddate,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{remark1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Ksstatistics" >
+    insert into ksstatistics
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="examstatisid != null" >
+        examstatisid,
+      </if>
+      <if test="issuerid != null" >
+        issuerid,
+      </if>
+      <if test="issuername != null" >
+        issuername,
+      </if>
+      <if test="echonumber != null" >
+        echonumber,
+      </if>
+      <if test="truenumber != null" >
+        truenumber,
+      </if>
+      <if test="cknumber != null" >
+        Cknumber,
+      </if>
+      <if test="qkname != null" >
+        qkname,
+      </if>
+      <if test="qkid != null" >
+        qkid,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="examsection != null" >
+        examsection,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="avgscore != null" >
+        avgscore,
+      </if>
+      <if test="wjgsum != null" >
+        Wjgsum,
+      </if>
+      <if test="wjgname != null" >
+        Wjgname,
+      </if>
+      <if test="ybsum != null" >
+        ybsum,
+      </if>
+      <if test="ybname != null" >
+        ybname,
+      </if>
+      <if test="lhsum != null" >
+        lhsum,
+      </if>
+      <if test="lhname != null" >
+        lhname,
+      </if>
+      <if test="yssum != null" >
+        Yssum,
+      </if>
+      <if test="ysname != null" >
+        Ysname,
+      </if>
+      <if test="foundid != null" >
+        foundid,
+      </if>
+      <if test="founddate != null" >
+        founddate,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remark1 != null" >
+        remark1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="examstatisid != null" >
+        #{examstatisid,jdbcType=INTEGER},
+      </if>
+      <if test="issuerid != null" >
+        #{issuerid,jdbcType=INTEGER},
+      </if>
+      <if test="issuername != null" >
+        #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="echonumber != null" >
+        #{echonumber,jdbcType=INTEGER},
+      </if>
+      <if test="truenumber != null" >
+        #{truenumber,jdbcType=INTEGER},
+      </if>
+      <if test="cknumber != null" >
+        #{cknumber,jdbcType=INTEGER},
+      </if>
+      <if test="qkname != null" >
+        #{qkname,jdbcType=VARCHAR},
+      </if>
+      <if test="qkid != null" >
+        #{qkid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="examsection != null" >
+        #{examsection,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="avgscore != null" >
+        #{avgscore,jdbcType=DOUBLE},
+      </if>
+      <if test="wjgsum != null" >
+        #{wjgsum,jdbcType=INTEGER},
+      </if>
+      <if test="wjgname != null" >
+        #{wjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="ybsum != null" >
+        #{ybsum,jdbcType=INTEGER},
+      </if>
+      <if test="ybname != null" >
+        #{ybname,jdbcType=VARCHAR},
+      </if>
+      <if test="lhsum != null" >
+        #{lhsum,jdbcType=INTEGER},
+      </if>
+      <if test="lhname != null" >
+        #{lhname,jdbcType=VARCHAR},
+      </if>
+      <if test="yssum != null" >
+        #{yssum,jdbcType=INTEGER},
+      </if>
+      <if test="ysname != null" >
+        #{ysname,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Ksstatistics" >
+    update ksstatistics
+    <set >
+      <if test="issuerid != null" >
+        issuerid = #{issuerid,jdbcType=INTEGER},
+      </if>
+      <if test="issuername != null" >
+        issuername = #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="echonumber != null" >
+        echonumber = #{echonumber,jdbcType=INTEGER},
+      </if>
+      <if test="truenumber != null" >
+        truenumber = #{truenumber,jdbcType=INTEGER},
+      </if>
+      <if test="cknumber != null" >
+        Cknumber = #{cknumber,jdbcType=INTEGER},
+      </if>
+      <if test="qkname != null" >
+        qkname = #{qkname,jdbcType=VARCHAR},
+      </if>
+      <if test="qkid != null" >
+        qkid = #{qkid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="examsection != null" >
+        examsection = #{examsection,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="avgscore != null" >
+        avgscore = #{avgscore,jdbcType=DOUBLE},
+      </if>
+      <if test="wjgsum != null" >
+        Wjgsum = #{wjgsum,jdbcType=INTEGER},
+      </if>
+      <if test="wjgname != null" >
+        Wjgname = #{wjgname,jdbcType=VARCHAR},
+      </if>
+      <if test="ybsum != null" >
+        ybsum = #{ybsum,jdbcType=INTEGER},
+      </if>
+      <if test="ybname != null" >
+        ybname = #{ybname,jdbcType=VARCHAR},
+      </if>
+      <if test="lhsum != null" >
+        lhsum = #{lhsum,jdbcType=INTEGER},
+      </if>
+      <if test="lhname != null" >
+        lhname = #{lhname,jdbcType=VARCHAR},
+      </if>
+      <if test="yssum != null" >
+        Yssum = #{yssum,jdbcType=INTEGER},
+      </if>
+      <if test="ysname != null" >
+        Ysname = #{ysname,jdbcType=VARCHAR},
+      </if>
+      <if test="foundid != null" >
+        foundid = #{foundid,jdbcType=VARCHAR},
+      </if>
+      <if test="founddate != null" >
+        founddate = #{founddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where examstatisid = #{examstatisid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Ksstatistics" >
+    update ksstatistics
+    set issuerid = #{issuerid,jdbcType=INTEGER},
+      issuername = #{issuername,jdbcType=VARCHAR},
+      echonumber = #{echonumber,jdbcType=INTEGER},
+      truenumber = #{truenumber,jdbcType=INTEGER},
+      Cknumber = #{cknumber,jdbcType=INTEGER},
+      qkname = #{qkname,jdbcType=VARCHAR},
+      qkid = #{qkid,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      examsection = #{examsection,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DOUBLE},
+      avgscore = #{avgscore,jdbcType=DOUBLE},
+      Wjgsum = #{wjgsum,jdbcType=INTEGER},
+      Wjgname = #{wjgname,jdbcType=VARCHAR},
+      ybsum = #{ybsum,jdbcType=INTEGER},
+      ybname = #{ybname,jdbcType=VARCHAR},
+      lhsum = #{lhsum,jdbcType=INTEGER},
+      lhname = #{lhname,jdbcType=VARCHAR},
+      Yssum = #{yssum,jdbcType=INTEGER},
+      Ysname = #{ysname,jdbcType=VARCHAR},
+      foundid = #{foundid,jdbcType=VARCHAR},
+      founddate = #{founddate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR}
+    where examstatisid = #{examstatisid,jdbcType=INTEGER}
+  </update>
+</mapper>

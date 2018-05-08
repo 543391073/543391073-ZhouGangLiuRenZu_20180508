@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CoursesectionMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Coursesection" >
+    <id column="sectionid" property="sectionid" jdbcType="INTEGER" />
+    <result column="Sectionname" property="sectionname" jdbcType="VARCHAR" />
+    <result column="courseid" property="courseid" jdbcType="INTEGER" />
+    <result column="coursename" property="coursename" jdbcType="VARCHAR" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="DATE" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sectionid, Sectionname, courseid, coursename, creationperson, creationdate, usestatus, 
+    standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from coursesection
+    where sectionid = #{sectionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from coursesection
+    where sectionid = #{sectionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Coursesection" >
+    insert into coursesection (sectionid, Sectionname, courseid, 
+      coursename, creationperson, creationdate, 
+      usestatus, standbyyi, standbyer, 
+      standbysan)
+    values (#{sectionid,jdbcType=INTEGER}, #{sectionname,jdbcType=VARCHAR}, #{courseid,jdbcType=INTEGER}, 
+      #{coursename,jdbcType=VARCHAR}, #{creationperson,jdbcType=VARCHAR}, #{creationdate,jdbcType=DATE}, 
+      #{usestatus,jdbcType=VARCHAR}, #{standbyyi,jdbcType=VARCHAR}, #{standbyer,jdbcType=VARCHAR}, 
+      #{standbysan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Coursesection" >
+    insert into coursesection
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sectionid != null" >
+        sectionid,
+      </if>
+      <if test="sectionname != null" >
+        Sectionname,
+      </if>
+      <if test="courseid != null" >
+        courseid,
+      </if>
+      <if test="coursename != null" >
+        coursename,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="sectionname != null" >
+        #{sectionname,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null" >
+        #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="coursename != null" >
+        #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=DATE},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Coursesection" >
+    update coursesection
+    <set >
+      <if test="sectionname != null" >
+        Sectionname = #{sectionname,jdbcType=VARCHAR},
+      </if>
+      <if test="courseid != null" >
+        courseid = #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="coursename != null" >
+        coursename = #{coursename,jdbcType=VARCHAR},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=DATE},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sectionid = #{sectionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Coursesection" >
+    update coursesection
+    set Sectionname = #{sectionname,jdbcType=VARCHAR},
+      courseid = #{courseid,jdbcType=INTEGER},
+      coursename = #{coursename,jdbcType=VARCHAR},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=DATE},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where sectionid = #{sectionid,jdbcType=INTEGER}
+  </update>
+</mapper>

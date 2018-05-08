@@ -1,0 +1,92 @@
+10
+
+dir
+27
+http://192.168.1.107/svn/manage/20180409XiangMuYiZuStudentManage/src/main/webapp/WEB-INF/view
+http://192.168.1.107/svn/manage
+
+
+
+2018-04-11T01:50:05.840044Z
+25
+ya
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8deaf165-77d2-cd48-a8ae-e2cc99619c8d
+
+class__management
+dir
+
+daily_management
+dir
+
+data_summarize
+dir
+
+dormitory_management
+dir
+
+message_notification
+dir
+
+notice_management
+dir
+
+setting
+dir
+
+shouye.jsp
+file
+30
+
+
+
+2018-04-11T06:17:16.964000Z
+8afb2e27649d17fa7702619dd6ec9526
+2018-04-11T06:13:13.703469Z
+29
+fei
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28571
+
+student_management
+dir
+
+task_management
+dir
+
+teaching__management
+dir
+

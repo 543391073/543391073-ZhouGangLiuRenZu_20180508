@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.LeaveMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Leave" >
+    <id column="LeaveId" property="leaveid" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="ClassId" property="classid" jdbcType="INTEGER" />
+    <result column="GradeId" property="gradeid" jdbcType="INTEGER" />
+    <result column="LeaveMessage" property="leavemessage" jdbcType="VARCHAR" />
+    <result column="StartTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="EndTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="GuiShu" property="guishu" jdbcType="INTEGER" />
+    <result column="auditingState" property="auditingstate" jdbcType="INTEGER" />
+    <result column="GroundsDismissal" property="groundsdismissal" jdbcType="VARCHAR" />
+    <result column="SendTime" property="sendtime" jdbcType="TIMESTAMP" />
+    <result column="MakeProple" property="makeprople" jdbcType="VARCHAR" />
+    <result column="MakeId" property="makeid" jdbcType="INTEGER" />
+    <result column="MakeTime" property="maketime" jdbcType="TIMESTAMP" />
+    <result column="b1" property="b1" jdbcType="INTEGER" />
+    <result column="b2" property="b2" jdbcType="VARCHAR" />
+    <result column="b3" property="b3" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LeaveId, UserId, ClassId, GradeId, LeaveMessage, StartTime, EndTime, GuiShu, auditingState, 
+    GroundsDismissal, SendTime, MakeProple, MakeId, MakeTime, b1, b2, b3, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from leave
+    where LeaveId = #{leaveid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from leave
+    where LeaveId = #{leaveid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Leave" >
+    insert into leave (LeaveId, UserId, ClassId, 
+      GradeId, LeaveMessage, StartTime, 
+      EndTime, GuiShu, auditingState, 
+      GroundsDismissal, SendTime, MakeProple, 
+      MakeId, MakeTime, b1, 
+      b2, b3, state)
+    values (#{leaveid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{gradeid,jdbcType=INTEGER}, #{leavemessage,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{guishu,jdbcType=INTEGER}, #{auditingstate,jdbcType=INTEGER}, 
+      #{groundsdismissal,jdbcType=VARCHAR}, #{sendtime,jdbcType=TIMESTAMP}, #{makeprople,jdbcType=VARCHAR}, 
+      #{makeid,jdbcType=INTEGER}, #{maketime,jdbcType=TIMESTAMP}, #{b1,jdbcType=INTEGER}, 
+      #{b2,jdbcType=VARCHAR}, #{b3,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Leave" >
+    insert into leave
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="leaveid != null" >
+        LeaveId,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="classid != null" >
+        ClassId,
+      </if>
+      <if test="gradeid != null" >
+        GradeId,
+      </if>
+      <if test="leavemessage != null" >
+        LeaveMessage,
+      </if>
+      <if test="starttime != null" >
+        StartTime,
+      </if>
+      <if test="endtime != null" >
+        EndTime,
+      </if>
+      <if test="guishu != null" >
+        GuiShu,
+      </if>
+      <if test="auditingstate != null" >
+        auditingState,
+      </if>
+      <if test="groundsdismissal != null" >
+        GroundsDismissal,
+      </if>
+      <if test="sendtime != null" >
+        SendTime,
+      </if>
+      <if test="makeprople != null" >
+        MakeProple,
+      </if>
+      <if test="makeid != null" >
+        MakeId,
+      </if>
+      <if test="maketime != null" >
+        MakeTime,
+      </if>
+      <if test="b1 != null" >
+        b1,
+      </if>
+      <if test="b2 != null" >
+        b2,
+      </if>
+      <if test="b3 != null" >
+        b3,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="leaveid != null" >
+        #{leaveid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="leavemessage != null" >
+        #{leavemessage,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="guishu != null" >
+        #{guishu,jdbcType=INTEGER},
+      </if>
+      <if test="auditingstate != null" >
+        #{auditingstate,jdbcType=INTEGER},
+      </if>
+      <if test="groundsdismissal != null" >
+        #{groundsdismissal,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="makeprople != null" >
+        #{makeprople,jdbcType=VARCHAR},
+      </if>
+      <if test="makeid != null" >
+        #{makeid,jdbcType=INTEGER},
+      </if>
+      <if test="maketime != null" >
+        #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="b1 != null" >
+        #{b1,jdbcType=INTEGER},
+      </if>
+      <if test="b2 != null" >
+        #{b2,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null" >
+        #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Leave" >
+    update leave
+    <set >
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        ClassId = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        GradeId = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="leavemessage != null" >
+        LeaveMessage = #{leavemessage,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        StartTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        EndTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="guishu != null" >
+        GuiShu = #{guishu,jdbcType=INTEGER},
+      </if>
+      <if test="auditingstate != null" >
+        auditingState = #{auditingstate,jdbcType=INTEGER},
+      </if>
+      <if test="groundsdismissal != null" >
+        GroundsDismissal = #{groundsdismissal,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        SendTime = #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="makeprople != null" >
+        MakeProple = #{makeprople,jdbcType=VARCHAR},
+      </if>
+      <if test="makeid != null" >
+        MakeId = #{makeid,jdbcType=INTEGER},
+      </if>
+      <if test="maketime != null" >
+        MakeTime = #{maketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="b1 != null" >
+        b1 = #{b1,jdbcType=INTEGER},
+      </if>
+      <if test="b2 != null" >
+        b2 = #{b2,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null" >
+        b3 = #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where LeaveId = #{leaveid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Leave" >
+    update leave
+    set UserId = #{userid,jdbcType=INTEGER},
+      ClassId = #{classid,jdbcType=INTEGER},
+      GradeId = #{gradeid,jdbcType=INTEGER},
+      LeaveMessage = #{leavemessage,jdbcType=VARCHAR},
+      StartTime = #{starttime,jdbcType=TIMESTAMP},
+      EndTime = #{endtime,jdbcType=TIMESTAMP},
+      GuiShu = #{guishu,jdbcType=INTEGER},
+      auditingState = #{auditingstate,jdbcType=INTEGER},
+      GroundsDismissal = #{groundsdismissal,jdbcType=VARCHAR},
+      SendTime = #{sendtime,jdbcType=TIMESTAMP},
+      MakeProple = #{makeprople,jdbcType=VARCHAR},
+      MakeId = #{makeid,jdbcType=INTEGER},
+      MakeTime = #{maketime,jdbcType=TIMESTAMP},
+      b1 = #{b1,jdbcType=INTEGER},
+      b2 = #{b2,jdbcType=VARCHAR},
+      b3 = #{b3,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where LeaveId = #{leaveid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.InterviewTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.InterviewType" >
+    <id column="interviewTypeid" property="interviewtypeid" jdbcType="INTEGER" />
+    <result column="interviewTypeName" property="interviewtypename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    interviewTypeid, interviewTypeName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from interviewtype
+    where interviewTypeid = #{interviewtypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from interviewtype
+    where interviewTypeid = #{interviewtypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.InterviewType" >
+    insert into interviewtype (interviewTypeid, interviewTypeName
+      )
+    values (#{interviewtypeid,jdbcType=INTEGER}, #{interviewtypename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.InterviewType" >
+    insert into interviewtype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="interviewtypeid != null" >
+        interviewTypeid,
+      </if>
+      <if test="interviewtypename != null" >
+        interviewTypeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="interviewtypeid != null" >
+        #{interviewtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="interviewtypename != null" >
+        #{interviewtypename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.InterviewType" >
+    update interviewtype
+    <set >
+      <if test="interviewtypename != null" >
+        interviewTypeName = #{interviewtypename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where interviewTypeid = #{interviewtypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.InterviewType" >
+    update interviewtype
+    set interviewTypeName = #{interviewtypename,jdbcType=VARCHAR}
+    where interviewTypeid = #{interviewtypeid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByAllType" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from interviewtype
+  </select>
+  
+</mapper>

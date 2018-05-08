@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.RiskMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Risk" >
+    <id column="riskid" property="riskid" jdbcType="INTEGER" />
+    <result column="riskname" property="riskname" jdbcType="VARCHAR" />
+    <result column="satae" property="satae" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatortiem" property="operatortiem" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    riskid, riskname, satae, operator, operatortiem, bz, bz2, bz3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from risk
+    where riskid = #{riskid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from risk
+    where riskid = #{riskid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Risk" >
+    insert into risk (riskid, riskname, satae, 
+      operator, operatortiem, bz, 
+      bz2, bz3)
+    values (#{riskid,jdbcType=INTEGER}, #{riskname,jdbcType=VARCHAR}, #{satae,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{operatortiem,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR}, 
+      #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Risk" >
+    insert into risk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="riskid != null" >
+        riskid,
+      </if>
+      <if test="riskname != null" >
+        riskname,
+      </if>
+      <if test="satae != null" >
+        satae,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortiem != null" >
+        operatortiem,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="riskid != null" >
+        #{riskid,jdbcType=INTEGER},
+      </if>
+      <if test="riskname != null" >
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="satae != null" >
+        #{satae,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortiem != null" >
+        #{operatortiem,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Risk" >
+    update risk
+    <set >
+      <if test="riskname != null" >
+        riskname = #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="satae != null" >
+        satae = #{satae,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortiem != null" >
+        operatortiem = #{operatortiem,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where riskid = #{riskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Risk" >
+    update risk
+    set riskname = #{riskname,jdbcType=VARCHAR},
+      satae = #{satae,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      operatortiem = #{operatortiem,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR}
+    where riskid = #{riskid,jdbcType=INTEGER}
+  </update>
+  
+  
+  <!-- 自定义sql -->
+  
+  <select id="selectByQuery" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from risk
+  </select>
+  
+  
+  <select id="selectByRisknameInfo" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from risk 
+	WHERE `riskname`=#{riskname}
+  </select>
+  
+  <select id="selectByRiskSatae" resultMap="BaseResultMap">
+    SELECT * FROM `risk` WHERE `satae`=1
+  </select>
+  
+  
+</mapper>

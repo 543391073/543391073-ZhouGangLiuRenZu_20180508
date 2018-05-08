@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.CollectableMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Collectable">
+		<id column="sjid" property="sjid" jdbcType="INTEGER" />
+		<result column="sjuserid" property="sjuserid" jdbcType="VARCHAR" />
+		<result column="sjusername" property="sjusername" jdbcType="VARCHAR" />
+		<result column="fjid" property="fjid" jdbcType="INTEGER" />
+		<result column="fjuserid" property="fjuserid" jdbcType="INTEGER" />
+		<result column="fjusername" property="fjusername" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="items" property="items" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="sjtime" property="sjtime" jdbcType="TIMESTAMP" />
+		<result column="sfyd" property="sfyd" jdbcType="VARCHAR" />
+		<result column="sfdz" property="sfdz" jdbcType="VARCHAR" />
+		<result column="fjtime" property="fjtime" jdbcType="TIMESTAMP" />
+		<result column="bz" property="bz" jdbcType="VARCHAR" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+		<result column="bz4" property="bz4" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		sjid, sjuserid, sjusername, fjid, fjuserid, fjusername,
+		title, items, type,
+		status,
+		sjtime, sfyd, sfdz, fjtime, bz, bz1, bz2,
+		bz3, bz4
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from collectable
+		where sjid = #{sjid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		collectable
+		where sjid = #{sjid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Collectable">
+		insert into collectable (sjid,
+		sjuserid, sjusername,
+		fjid, fjuserid, fjusername,
+		title, items, type,
+		status, sjtime, sfyd,
+		sfdz, fjtime, bz,
+		bz1, bz2, bz3, bz4
+		)
+		values
+		(#{sjid,jdbcType=INTEGER}, #{sjuserid,jdbcType=VARCHAR},
+		#{sjusername,jdbcType=VARCHAR},
+		#{fjid,jdbcType=INTEGER},
+		#{fjuserid,jdbcType=INTEGER}, #{fjusername,jdbcType=VARCHAR},
+		#{title,jdbcType=VARCHAR}, #{items,jdbcType=VARCHAR},
+		#{type,jdbcType=VARCHAR},
+		#{status,jdbcType=VARCHAR},
+		#{sjtime,jdbcType=TIMESTAMP}, #{sfyd,jdbcType=VARCHAR},
+		#{sfdz,jdbcType=VARCHAR}, #{fjtime,jdbcType=TIMESTAMP},
+		#{bz,jdbcType=VARCHAR},
+		#{bz1,jdbcType=VARCHAR},
+		#{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR},
+		#{bz4,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Collectable">
+		insert into collectable
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="sjid != null">
+				sjid,
+			</if>
+			<if test="sjuserid != null">
+				sjuserid,
+			</if>
+			<if test="sjusername != null">
+				sjusername,
+			</if>
+			<if test="fjid != null">
+				fjid,
+			</if>
+			<if test="fjuserid != null">
+				fjuserid,
+			</if>
+			<if test="fjusername != null">
+				fjusername,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="items != null">
+				items,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sjtime != null">
+				sjtime,
+			</if>
+			<if test="sfyd != null">
+				sfyd,
+			</if>
+			<if test="sfdz != null">
+				sfdz,
+			</if>
+			<if test="fjtime != null">
+				fjtime,
+			</if>
+			<if test="bz != null">
+				bz,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+			<if test="bz4 != null">
+				bz4,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="sjid != null">
+				#{sjid,jdbcType=INTEGER},
+			</if>
+			<if test="sjuserid != null">
+				#{sjuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="sjusername != null">
+				#{sjusername,jdbcType=VARCHAR},
+			</if>
+			<if test="fjid != null">
+				#{fjid,jdbcType=INTEGER},
+			</if>
+			<if test="fjuserid != null">
+				#{fjuserid,jdbcType=INTEGER},
+			</if>
+			<if test="fjusername != null">
+				#{fjusername,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				#{items,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="sjtime != null">
+				#{sjtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sfyd != null">
+				#{sfyd,jdbcType=VARCHAR},
+			</if>
+			<if test="sfdz != null">
+				#{sfdz,jdbcType=VARCHAR},
+			</if>
+			<if test="fjtime != null">
+				#{fjtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz != null">
+				#{bz,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				#{bz4,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Collectable">
+		update collectable
+		<set>
+			<if test="sjuserid != null">
+				sjuserid = #{sjuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="sjusername != null">
+				sjusername = #{sjusername,jdbcType=VARCHAR},
+			</if>
+			<if test="fjid != null">
+				fjid = #{fjid,jdbcType=INTEGER},
+			</if>
+			<if test="fjuserid != null">
+				fjuserid = #{fjuserid,jdbcType=INTEGER},
+			</if>
+			<if test="fjusername != null">
+				fjusername = #{fjusername,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="items != null">
+				items = #{items,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="sjtime != null">
+				sjtime = #{sjtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sfyd != null">
+				sfyd = #{sfyd,jdbcType=VARCHAR},
+			</if>
+			<if test="sfdz != null">
+				sfdz = #{sfdz,jdbcType=VARCHAR},
+			</if>
+			<if test="fjtime != null">
+				fjtime = #{fjtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz != null">
+				bz = #{bz,jdbcType=VARCHAR},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+			<if test="bz4 != null">
+				bz4 = #{bz4,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where sjid = #{sjid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Collectable">
+		update collectable
+		set sjuserid = #{sjuserid,jdbcType=VARCHAR},
+		sjusername =
+		#{sjusername,jdbcType=VARCHAR},
+		fjid = #{fjid,jdbcType=INTEGER},
+		fjuserid = #{fjuserid,jdbcType=INTEGER},
+		fjusername =
+		#{fjusername,jdbcType=VARCHAR},
+		title = #{title,jdbcType=VARCHAR},
+		items = #{items,jdbcType=VARCHAR},
+		type = #{type,jdbcType=VARCHAR},
+		status = #{status,jdbcType=VARCHAR},
+		sjtime =
+		#{sjtime,jdbcType=TIMESTAMP},
+		sfyd = #{sfyd,jdbcType=VARCHAR},
+		sfdz =
+		#{sfdz,jdbcType=VARCHAR},
+		fjtime = #{fjtime,jdbcType=TIMESTAMP},
+		bz =
+		#{bz,jdbcType=VARCHAR},
+		bz1 = #{bz1,jdbcType=VARCHAR},
+		bz2 =
+		#{bz2,jdbcType=VARCHAR},
+		bz3 = #{bz3,jdbcType=VARCHAR},
+		bz4 =
+		#{bz4,jdbcType=VARCHAR}
+		where sjid = #{sjid,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- 自定义sql -->
+
+	<select id="selectByPrimarySjuserIdFjIdKey" resultMap="BaseResultMap">
+		SELECT *
+		FROM `collectable` WHERE `sjuserid`=#{sjuserid} AND `fjid`=#{fjid}
+	</select>
+
+	<update id="updateSfdzByPrimaryKey">
+		UPDATE
+		`collectable`
+		SET
+		`sfdz` = '是'
+		WHERE `sjid` =
+		#{sjid}
+	</update>
+
+	<select id="selectByUserCollectableAll" resultMap="BaseResultMap">
+		SELECT * FROM `collectable` co
+		WHERE co.`sjuserid`=#{userid} AND co.`status`='正常' AND `fjuserid` IN(
+		SELECT gr.userid FROM `gradeorganizationuser` gr WHERE gr.`cmmId`IN
+		(SELECT c.`cmmId` FROM `classmanagementmodel` c
+		INNER JOIN `gradeorganizationuser` g ON c.`cmmId`=g.`cmmId`
+		WHERE g.`userid`=#{userid} AND c.`cmmPid`=0 AND g.`jurisdiction` IN(1,2))
+		AND gr.`roleid`=3
+		<if test="cmmid!=null">
+			AND gr.cmmid=#{cmmid}
+		</if>
+		GROUP BY gr.`userid`)
+		AND co.`fjusername` LIKE '%${fjusername}%'
+		ORDER BY co.`fjtime` DESC
+	</select>
+
+</mapper>

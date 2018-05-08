@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.AwardandpunishmentaccessoryMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Awardandpunishmentaccessory" >
+    <id column="accessoryId" property="accessoryid" jdbcType="INTEGER" />
+    <result column="aid" property="aid" jdbcType="VARCHAR" />
+    <result column="accessoryName" property="accessoryname" jdbcType="VARCHAR" />
+    <result column="accessorySize" property="accessorysize" jdbcType="VARCHAR" />
+    <result column="accessoryUrl" property="accessoryurl" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    accessoryId, aid, accessoryName, accessorySize, accessoryUrl, bz1, bz2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishmentaccessory
+    where accessoryId = #{accessoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from awardandpunishmentaccessory
+    where accessoryId = #{accessoryid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Awardandpunishmentaccessory" >
+    insert into awardandpunishmentaccessory (accessoryId, aid, accessoryName, 
+      accessorySize, accessoryUrl, bz1, 
+      bz2)
+    values (#{accessoryid,jdbcType=INTEGER}, #{aid,jdbcType=VARCHAR}, #{accessoryname,jdbcType=VARCHAR}, 
+      #{accessorysize,jdbcType=VARCHAR}, #{accessoryurl,jdbcType=VARCHAR}, #{bz1,jdbcType=VARCHAR}, 
+      #{bz2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Awardandpunishmentaccessory" >
+    insert into awardandpunishmentaccessory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accessoryid != null" >
+        accessoryId,
+      </if>
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="accessoryname != null" >
+        accessoryName,
+      </if>
+      <if test="accessorysize != null" >
+        accessorySize,
+      </if>
+      <if test="accessoryurl != null" >
+        accessoryUrl,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accessoryid != null" >
+        #{accessoryid,jdbcType=INTEGER},
+      </if>
+      <if test="aid != null" >
+        #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryname != null" >
+        #{accessoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="accessorysize != null" >
+        #{accessorysize,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryurl != null" >
+        #{accessoryurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Awardandpunishmentaccessory" >
+    update awardandpunishmentaccessory
+    <set >
+      <if test="aid != null" >
+        aid = #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryname != null" >
+        accessoryName = #{accessoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="accessorysize != null" >
+        accessorySize = #{accessorysize,jdbcType=VARCHAR},
+      </if>
+      <if test="accessoryurl != null" >
+        accessoryUrl = #{accessoryurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where accessoryId = #{accessoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Awardandpunishmentaccessory" >
+    update awardandpunishmentaccessory
+    set aid = #{aid,jdbcType=VARCHAR},
+      accessoryName = #{accessoryname,jdbcType=VARCHAR},
+      accessorySize = #{accessorysize,jdbcType=VARCHAR},
+      accessoryUrl = #{accessoryurl,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR}
+    where accessoryId = #{accessoryid,jdbcType=INTEGER}
+  </update>
+  
+   <!-- 自定义sql -->
+  
+  <select id="selectAwardandpunishmentIdAccessory" resultMap="BaseResultMap">
+  	 SELECT * FROM `awardandpunishmentaccessory` WHERE aid=#{aid}
+  	
+  </select>
+  
+  <delete id="deleteByPrantId">
+    delete from awardandpunishmentaccessory
+   WHERE aid= #{aid}
+  </delete>
+  
+  
+</mapper>

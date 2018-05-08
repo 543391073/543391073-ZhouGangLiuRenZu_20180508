@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.TackreleaseMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Tackrelease" >
+    <id column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="gradeid" property="gradeid" jdbcType="INTEGER" />
+    <result column="gradename" property="gradename" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="classname" property="classname" jdbcType="VARCHAR" />
+    <result column="startdate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="enddate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="releaseid" property="releaseid" jdbcType="INTEGER" />
+    <result column="releasename" property="releasename" jdbcType="VARCHAR" />
+    <result column="djname" property="djname" jdbcType="VARCHAR" />
+    <result column="curriculumid" property="curriculumid" jdbcType="INTEGER" />
+    <result column="curriculumname" property="curriculumname" jdbcType="VARCHAR" />
+    <result column="chapterid" property="chapterid" jdbcType="INTEGER" />
+    <result column="chaptername" property="chaptername" jdbcType="VARCHAR" />
+    <result column="terminate" property="terminate" jdbcType="VARCHAR" />
+    <result column="tasktype" property="tasktype" jdbcType="INTEGER" />
+    <result column="taskmiaoshu" property="taskmiaoshu" jdbcType="VARCHAR" />
+    <result column="zuoyemokuai" property="zuoyemokuai" jdbcType="VARCHAR" />
+    <result column="zuoyemokuaiid" property="zuoyemokuaiid" jdbcType="VARCHAR" />
+    <result column="stater" property="stater" jdbcType="INTEGER" />
+    <result column="creationperson" property="creationperson" jdbcType="VARCHAR" />
+    <result column="creationdate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="usestatus" property="usestatus" jdbcType="VARCHAR" />
+    <result column="standbyyi" property="standbyyi" jdbcType="VARCHAR" />
+    <result column="standbyer" property="standbyer" jdbcType="VARCHAR" />
+    <result column="standbysan" property="standbysan" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, tname, gradeid, gradename, classid, classname, startdate, enddate, releaseid, 
+    releasename, djname, curriculumid, curriculumname, chapterid, chaptername, terminate, 
+    tasktype, taskmiaoshu, zuoyemokuai, zuoyemokuaiid, stater, creationperson, creationdate, 
+    usestatus, standbyyi, standbyer, standbysan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tackrelease
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tackrelease
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Tackrelease" >
+    insert into tackrelease (tid, tname, gradeid, 
+      gradename, classid, classname, 
+      startdate, enddate, releaseid, 
+      releasename, djname, curriculumid, 
+      curriculumname, chapterid, chaptername, 
+      terminate, tasktype, taskmiaoshu, 
+      zuoyemokuai, zuoyemokuaiid, stater, 
+      creationperson, creationdate, usestatus, 
+      standbyyi, standbyer, standbysan
+      )
+    values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, 
+      #{gradename,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, #{releaseid,jdbcType=INTEGER}, 
+      #{releasename,jdbcType=VARCHAR}, #{djname,jdbcType=VARCHAR}, #{curriculumid,jdbcType=INTEGER}, 
+      #{curriculumname,jdbcType=VARCHAR}, #{chapterid,jdbcType=INTEGER}, #{chaptername,jdbcType=VARCHAR}, 
+      #{terminate,jdbcType=VARCHAR}, #{tasktype,jdbcType=INTEGER}, #{taskmiaoshu,jdbcType=VARCHAR}, 
+      #{zuoyemokuai,jdbcType=VARCHAR}, #{zuoyemokuaiid,jdbcType=VARCHAR}, #{stater,jdbcType=INTEGER}, 
+      #{creationperson,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{usestatus,jdbcType=VARCHAR}, 
+      #{standbyyi,jdbcType=VARCHAR}, #{standbyer,jdbcType=VARCHAR}, #{standbysan,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Tackrelease" >
+    insert into tackrelease
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="gradeid != null" >
+        gradeid,
+      </if>
+      <if test="gradename != null" >
+        gradename,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="classname != null" >
+        classname,
+      </if>
+      <if test="startdate != null" >
+        startdate,
+      </if>
+      <if test="enddate != null" >
+        enddate,
+      </if>
+      <if test="releaseid != null" >
+        releaseid,
+      </if>
+      <if test="releasename != null" >
+        releasename,
+      </if>
+      <if test="djname != null" >
+        djname,
+      </if>
+      <if test="curriculumid != null" >
+        curriculumid,
+      </if>
+      <if test="curriculumname != null" >
+        curriculumname,
+      </if>
+      <if test="chapterid != null" >
+        chapterid,
+      </if>
+      <if test="chaptername != null" >
+        chaptername,
+      </if>
+      <if test="terminate != null" >
+        terminate,
+      </if>
+      <if test="tasktype != null" >
+        tasktype,
+      </if>
+      <if test="taskmiaoshu != null" >
+        taskmiaoshu,
+      </if>
+      <if test="zuoyemokuai != null" >
+        zuoyemokuai,
+      </if>
+      <if test="zuoyemokuaiid != null" >
+        zuoyemokuaiid,
+      </if>
+      <if test="stater != null" >
+        stater,
+      </if>
+      <if test="creationperson != null" >
+        creationperson,
+      </if>
+      <if test="creationdate != null" >
+        creationdate,
+      </if>
+      <if test="usestatus != null" >
+        usestatus,
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi,
+      </if>
+      <if test="standbyer != null" >
+        standbyer,
+      </if>
+      <if test="standbysan != null" >
+        standbysan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseid != null" >
+        #{releaseid,jdbcType=INTEGER},
+      </if>
+      <if test="releasename != null" >
+        #{releasename,jdbcType=VARCHAR},
+      </if>
+      <if test="djname != null" >
+        #{djname,jdbcType=VARCHAR},
+      </if>
+      <if test="curriculumid != null" >
+        #{curriculumid,jdbcType=INTEGER},
+      </if>
+      <if test="curriculumname != null" >
+        #{curriculumname,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterid != null" >
+        #{chapterid,jdbcType=INTEGER},
+      </if>
+      <if test="chaptername != null" >
+        #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="terminate != null" >
+        #{terminate,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="taskmiaoshu != null" >
+        #{taskmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zuoyemokuai != null" >
+        #{zuoyemokuai,jdbcType=VARCHAR},
+      </if>
+      <if test="zuoyemokuaiid != null" >
+        #{zuoyemokuaiid,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Tackrelease" >
+    update tackrelease
+    <set >
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null" >
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="gradename != null" >
+        gradename = #{gradename,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null" >
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        startdate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        enddate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseid != null" >
+        releaseid = #{releaseid,jdbcType=INTEGER},
+      </if>
+      <if test="releasename != null" >
+        releasename = #{releasename,jdbcType=VARCHAR},
+      </if>
+      <if test="djname != null" >
+        djname = #{djname,jdbcType=VARCHAR},
+      </if>
+      <if test="curriculumid != null" >
+        curriculumid = #{curriculumid,jdbcType=INTEGER},
+      </if>
+      <if test="curriculumname != null" >
+        curriculumname = #{curriculumname,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterid != null" >
+        chapterid = #{chapterid,jdbcType=INTEGER},
+      </if>
+      <if test="chaptername != null" >
+        chaptername = #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="terminate != null" >
+        terminate = #{terminate,jdbcType=VARCHAR},
+      </if>
+      <if test="tasktype != null" >
+        tasktype = #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="taskmiaoshu != null" >
+        taskmiaoshu = #{taskmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="zuoyemokuai != null" >
+        zuoyemokuai = #{zuoyemokuai,jdbcType=VARCHAR},
+      </if>
+      <if test="zuoyemokuaiid != null" >
+        zuoyemokuaiid = #{zuoyemokuaiid,jdbcType=VARCHAR},
+      </if>
+      <if test="stater != null" >
+        stater = #{stater,jdbcType=INTEGER},
+      </if>
+      <if test="creationperson != null" >
+        creationperson = #{creationperson,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null" >
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestatus != null" >
+        usestatus = #{usestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyyi != null" >
+        standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyer != null" >
+        standbyer = #{standbyer,jdbcType=VARCHAR},
+      </if>
+      <if test="standbysan != null" >
+        standbysan = #{standbysan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Tackrelease" >
+    update tackrelease
+    set tname = #{tname,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      gradename = #{gradename,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=INTEGER},
+      classname = #{classname,jdbcType=VARCHAR},
+      startdate = #{startdate,jdbcType=TIMESTAMP},
+      enddate = #{enddate,jdbcType=TIMESTAMP},
+      releaseid = #{releaseid,jdbcType=INTEGER},
+      releasename = #{releasename,jdbcType=VARCHAR},
+      djname = #{djname,jdbcType=VARCHAR},
+      curriculumid = #{curriculumid,jdbcType=INTEGER},
+      curriculumname = #{curriculumname,jdbcType=VARCHAR},
+      chapterid = #{chapterid,jdbcType=INTEGER},
+      chaptername = #{chaptername,jdbcType=VARCHAR},
+      terminate = #{terminate,jdbcType=VARCHAR},
+      tasktype = #{tasktype,jdbcType=INTEGER},
+      taskmiaoshu = #{taskmiaoshu,jdbcType=VARCHAR},
+      zuoyemokuai = #{zuoyemokuai,jdbcType=VARCHAR},
+      zuoyemokuaiid = #{zuoyemokuaiid,jdbcType=VARCHAR},
+      stater = #{stater,jdbcType=INTEGER},
+      creationperson = #{creationperson,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      usestatus = #{usestatus,jdbcType=VARCHAR},
+      standbyyi = #{standbyyi,jdbcType=VARCHAR},
+      standbyer = #{standbyer,jdbcType=VARCHAR},
+      standbysan = #{standbysan,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>

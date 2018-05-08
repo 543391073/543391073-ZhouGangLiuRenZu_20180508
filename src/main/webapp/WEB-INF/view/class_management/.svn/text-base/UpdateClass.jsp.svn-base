@@ -1,0 +1,375 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>标题</title>
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="css/build.css">
+	<style>
+		.example-modal .modal {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			right: auto;
+			left: auto;
+			display: block;
+			z-index: 1;
+		}
+		
+		.example-modal .modal {
+			background: transparent !important;
+		}
+		
+		.table th,
+		.table .text-light-blue {
+			text-align: center;
+			vertical-align: middle!important;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                Launch Default Modal
+    </button>
+
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-fangtan">
+                Launch Default Modal
+    </button>
+
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-jiangchen">
+                Launch Default Modal
+    </button>
+
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-liushi">
+                Launch Default Modal
+    </button>
+
+		<div class="modal fade" id="modal-default">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">班级管理&nbsp;<i class="fa fa-angle-right"></i>&nbsp;创建</h4>
+					</div>
+					<div class="modal-body">
+
+						<form action="#" method="post">
+							<table class="table table-bordered">
+								<tr>
+									<td class="text-light-blue">班级姓名：</td>
+									<td><input type="text" class="form-control" name="emailto"></td>
+									<td class="text-light-blue">所处阶段：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+											<label for="inlineRadio1"> 启蒙星 </label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked="">
+											<label for="inlineRadio2"> S1 </label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio3" value="option3" name="radioInline">
+											<label for="inlineRadio3"> S2</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio4" value="option4" name="radioInline">
+											<label for="inlineRadio4"> Y2 </label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">创建时间：</td>
+									<td>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" class="form-control pull-right" id="datepicker">
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">备注信息：</td>
+									<td colspan="3">
+										<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modal-fangtan">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">学生管理&nbsp;<i class="fa fa-angle-right"></i>&nbsp;学生访谈</h4>
+					</div>
+					<div class="modal-body">
+
+						<form action="#" method="post">
+							<table class="table table-bordered">
+								<tr>
+									<td class="text-light-blue">学生姓名：</td>
+									<td>龙冬冬</td>
+									<td class="text-light-blue">学生班级：</td>
+									<td>Java13</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">学生电话：</td>
+									<td>18570413456</td>
+									<td class="text-light-blue">所属学期</td>
+									<td>Y2</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">访谈时间：</td>
+									<td>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" class="form-control pull-right" id="datepicker1" value="02/24/2018">
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="text-light-blue" style="">访谈内容：</td>
+									<td colspan="3">
+										<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</td>
+								</tr>
+							</table>
+						</form>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modal-jiangchen">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">学生管理&nbsp;<i class="fa fa-angle-right"></i>&nbsp;奖惩信息</h4>
+					</div>
+					<div class="modal-body">
+
+						<form action="#" method="post">
+							<table class="table table-bordered">
+								<tr>
+									<td class="text-light-blue">学生姓名：</td>
+									<td>龙冬冬</td>
+									<td class="text-light-blue">学生班级：</td>
+									<td>Java13</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">所属学期</td>
+									<td>Y2</td>
+									<td class="text-light-blue">奖惩类型：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline">
+											<label for="inlineRadio1"> 奖励 </label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline" checked="">
+											<label for="inlineRadio2">惩罚</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">奖惩时间：</td>
+									<td>
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" class="form-control pull-right" id="datepicker1" value="02/24/2018">
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="text-light-blue" style="">访谈内容：</td>
+									<td colspan="3">
+										<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</td>
+								</tr>
+							</table>
+						</form>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modal-liushi">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" style="font-size: 26px;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">学生管理&nbsp;<i class="fa fa-angle-right"></i>&nbsp;流失信息</h4>
+					</div>
+					<div class="modal-body">
+
+						<form action="#" method="post">
+							<table class="table table-bordered">
+								<tr>
+									<td class="text-light-blue">学生姓名：</td>
+									<td>小强</td>
+									<td class="text-light-blue">所处阶段：</td>
+									<td>
+										Y2
+									</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">年龄：</td>
+									<td>
+										18
+									</td>
+									<td class="text-light-blue">性别:</td>
+									<td>男</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">家庭状况：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline1">
+											<label for="inlineRadio1">和睦</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline1" checked="">
+											<label for="inlineRadio2">不和睦</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline1" >
+											<label for="inlineRadio2">单亲</label>
+										</div>
+									</td>
+									<td class="text-light-blue">学习态度：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline2">
+											<label for="inlineRadio1">好</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline2" checked="">
+											<label for="inlineRadio2">一般</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline2" >
+											<label for="inlineRadio2">随波逐流</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">情商：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline3">
+											<label for="inlineRadio1">高</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline3" checked="">
+											<label for="inlineRadio2">正常</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline3" >
+											<label for="inlineRadio2">低</label>
+										</div>
+									</td>
+									<td class="text-light-blue">智商：</td>
+									<td>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio1" value="option1" name="radioInline4">
+											<label for="inlineRadio1">高</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline4" checked="">
+											<label for="inlineRadio2">正常</label>
+										</div>
+										<div class="radio radio-info radio-inline">
+											<input type="radio" id="inlineRadio2" value="option2" name="radioInline4" >
+											<label for="inlineRadio2">低</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">性格：</td>
+									<td>
+										<div class="checkbox checkbox-warning checkbox-inline">
+											<input id="checkbox5" type="checkbox" class="styled" checked="">
+											<label for="checkbox5">活泼</label>
+										</div>
+										<div class="checkbox checkbox-warning checkbox-inline">
+											<input id="checkbox5" type="checkbox" class="styled" >
+											<label for="checkbox5">内向</label>
+										</div>
+										<div class="checkbox checkbox-warning checkbox-inline">
+											<input id="checkbox5" type="checkbox" class="styled" checked="">
+											<label for="checkbox5">傻兮兮</label>
+										</div>
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="text-light-blue">备注信息：</td>
+									<td colspan="3">
+										<textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+		<script>
+			$(function() {
+
+				$('#datepicker').datepicker({
+					autoclose: true
+				});
+				$('#datepicker1').datepicker({
+					autoclose: true
+				});
+
+			});
+		</script>
+</body>
+</html>

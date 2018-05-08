@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.GradeMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Grade">
+		<id column="gradeid" property="gradeid" jdbcType="VARCHAR" />
+		<result column="gradename" property="gradename" jdbcType="VARCHAR" />
+		<result column="classid" property="classid" jdbcType="INTEGER" />
+		<result column="classname" property="classname" jdbcType="VARCHAR" />
+		<result column="bdate" property="bdate" jdbcType="TIMESTAMP" />
+		<result column="odate" property="odate" jdbcType="TIMESTAMP" />
+		<result column="predictdate" property="predictdate" jdbcType="DATE" />
+		<result column="operator" property="operator" jdbcType="VARCHAR" />
+		<result column="operatortime" property="operatortime" jdbcType="TIMESTAMP" />
+		<result column="bz1" property="bz1" jdbcType="VARCHAR" />
+		<result column="bz2" property="bz2" jdbcType="VARCHAR" />
+		<result column="bz3" property="bz3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		gradeid, gradename, classid, classname, bdate, odate, predictdate, operator,
+		operatortime,
+		bz1, bz2, bz3
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from grade
+		where gradeid = #{gradeid,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from grade
+		where gradeid = #{gradeid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Grade">
+		insert into grade (gradeid, gradename, classid,
+		classname, bdate, odate,
+		predictdate, operator, operatortime,
+		bz1, bz2, bz3)
+		values (#{gradeid,jdbcType=VARCHAR}, #{gradename,jdbcType=VARCHAR},
+		#{classid,jdbcType=INTEGER},
+		#{classname,jdbcType=VARCHAR}, #{bdate,jdbcType=TIMESTAMP}, #{odate,jdbcType=TIMESTAMP},
+		#{predictdate,jdbcType=DATE}, #{operator,jdbcType=VARCHAR},
+		#{operatortime,jdbcType=TIMESTAMP},
+		#{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Grade">
+		insert into grade
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="gradeid != null">
+				gradeid,
+			</if>
+			<if test="gradename != null">
+				gradename,
+			</if>
+			<if test="classid != null">
+				classid,
+			</if>
+			<if test="classname != null">
+				classname,
+			</if>
+			<if test="bdate != null">
+				bdate,
+			</if>
+			<if test="odate != null">
+				odate,
+			</if>
+			<if test="predictdate != null">
+				predictdate,
+			</if>
+			<if test="operator != null">
+				operator,
+			</if>
+			<if test="operatortime != null">
+				operatortime,
+			</if>
+			<if test="bz1 != null">
+				bz1,
+			</if>
+			<if test="bz2 != null">
+				bz2,
+			</if>
+			<if test="bz3 != null">
+				bz3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="gradeid != null">
+				#{gradeid,jdbcType=VARCHAR},
+			</if>
+			<if test="gradename != null">
+				#{gradename,jdbcType=VARCHAR},
+			</if>
+			<if test="classid != null">
+				#{classid,jdbcType=INTEGER},
+			</if>
+			<if test="classname != null">
+				#{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="bdate != null">
+				#{bdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="odate != null">
+				#{odate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="predictdate != null">
+				#{predictdate,jdbcType=DATE},
+			</if>
+			<if test="operator != null">
+				#{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				#{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				#{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				#{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				#{bz3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Grade">
+		update grade
+		<set>
+			<if test="gradename != null">
+				gradename = #{gradename,jdbcType=VARCHAR},
+			</if>
+			<if test="classid != null">
+				classid = #{classid,jdbcType=INTEGER},
+			</if>
+			<if test="classname != null">
+				classname = #{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="bdate != null">
+				bdate = #{bdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="odate != null">
+				odate = #{odate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="predictdate != null">
+				predictdate = #{predictdate,jdbcType=DATE},
+			</if>
+			<if test="operator != null">
+				operator = #{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				operatortime = #{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bz1 != null">
+				bz1 = #{bz1,jdbcType=VARCHAR},
+			</if>
+			<if test="bz2 != null">
+				bz2 = #{bz2,jdbcType=VARCHAR},
+			</if>
+			<if test="bz3 != null">
+				bz3 = #{bz3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where gradeid = #{gradeid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Grade">
+		update grade
+		set gradename = #{gradename,jdbcType=VARCHAR},
+		classid = #{classid,jdbcType=INTEGER},
+		classname = #{classname,jdbcType=VARCHAR},
+		bdate = #{bdate,jdbcType=TIMESTAMP},
+		odate = #{odate,jdbcType=TIMESTAMP},
+		predictdate = #{predictdate,jdbcType=DATE},
+		operator = #{operator,jdbcType=VARCHAR},
+		operatortime = #{operatortime,jdbcType=TIMESTAMP},
+		bz1 = #{bz1,jdbcType=VARCHAR},
+		bz2 = #{bz2,jdbcType=VARCHAR},
+		bz3 = #{bz3,jdbcType=VARCHAR}
+		where gradeid = #{gradeid,jdbcType=VARCHAR}
+	</update>
+
+
+	<!-- 自定义sql -->
+
+	<select id="selectByGradeQuery" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from grade
+		<where>
+			<if test="_gradeName !=null">
+				and gradename like '%${_gradeName}%'
+			</if>
+			<if test="_classid!=null">
+				and classid=#{_classid}
+			</if>
+			and bz2=#{_gradeType} ORDER BY `operatortime` DESC
+		</where>
+	</select>
+</mapper>

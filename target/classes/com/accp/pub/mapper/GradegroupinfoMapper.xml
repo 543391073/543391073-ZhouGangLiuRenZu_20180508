@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.GradegroupinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Gradegroupinfo" >
+    <result column="graderroupid" property="graderroupid" jdbcType="INTEGER" />
+    <result column="grapdername" property="grapdername" jdbcType="VARCHAR" />
+    <result column="stuid" property="stuid" jdbcType="INTEGER" />
+    <result column="stuname" property="stuname" jdbcType="VARCHAR" />
+    <result column="ismanage" property="ismanage" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="operatortime" property="operatortime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Gradegroupinfo" >
+    insert into gradegroupinfo (graderroupid, grapdername, stuid, 
+      stuname, ismanage, operator, 
+      operatortime)
+    values (#{graderroupid,jdbcType=INTEGER}, #{grapdername,jdbcType=VARCHAR}, #{stuid,jdbcType=INTEGER}, 
+      #{stuname,jdbcType=VARCHAR}, #{ismanage,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, 
+      #{operatortime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Gradegroupinfo" >
+    insert into gradegroupinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="graderroupid != null" >
+        graderroupid,
+      </if>
+      <if test="grapdername != null" >
+        grapdername,
+      </if>
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="stuname != null" >
+        stuname,
+      </if>
+      <if test="ismanage != null" >
+        ismanage,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="operatortime != null" >
+        operatortime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="graderroupid != null" >
+        #{graderroupid,jdbcType=INTEGER},
+      </if>
+      <if test="grapdername != null" >
+        #{grapdername,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null" >
+        #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="ismanage != null" >
+        #{ismanage,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatortime != null" >
+        #{operatortime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

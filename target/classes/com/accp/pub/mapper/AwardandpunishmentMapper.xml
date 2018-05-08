@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.AwardandpunishmentMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Awardandpunishment" >
+    <id column="aid" property="aid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="VARCHAR" />
+    <result column="stuname" property="stuname" jdbcType="VARCHAR" />
+    <result column="aclassgrade" property="aclassgrade" jdbcType="VARCHAR" />
+    <result column="atypeId" property="atypeid" jdbcType="INTEGER" />
+    <result column="atypeName" property="atypename" jdbcType="VARCHAR" />
+    <result column="asortId" property="asortid" jdbcType="INTEGER" />
+    <result column="asortName" property="asortname" jdbcType="VARCHAR" />
+    <result column="iftime" property="iftime" jdbcType="DATE" />
+    <result column="acontent" property="acontent" jdbcType="VARCHAR" />
+    <result column="aoperatDate" property="aoperatdate" jdbcType="TIMESTAMP" />
+    <result column="ioperator" property="ioperator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aid, sid, stuname, aclassgrade, atypeId, atypeName, asortId, asortName, iftime, acontent, 
+    aoperatDate, ioperator
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from awardandpunishment
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from awardandpunishment
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Awardandpunishment" >
+    insert into awardandpunishment (aid, sid, stuname, 
+      aclassgrade, atypeId, atypeName, 
+      asortId, asortName, iftime, 
+      acontent, aoperatDate, ioperator
+      )
+    values (#{aid,jdbcType=VARCHAR}, #{sid,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, 
+      #{aclassgrade,jdbcType=VARCHAR}, #{atypeid,jdbcType=INTEGER}, #{atypename,jdbcType=VARCHAR}, 
+      #{asortid,jdbcType=INTEGER}, #{asortname,jdbcType=VARCHAR}, #{iftime,jdbcType=DATE}, 
+      #{acontent,jdbcType=VARCHAR}, #{aoperatdate,jdbcType=TIMESTAMP}, #{ioperator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Awardandpunishment" >
+    insert into awardandpunishment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="stuname != null" >
+        stuname,
+      </if>
+      <if test="aclassgrade != null" >
+        aclassgrade,
+      </if>
+      <if test="atypeid != null" >
+        atypeId,
+      </if>
+      <if test="atypename != null" >
+        atypeName,
+      </if>
+      <if test="asortid != null" >
+        asortId,
+      </if>
+      <if test="asortname != null" >
+        asortName,
+      </if>
+      <if test="iftime != null" >
+        iftime,
+      </if>
+      <if test="acontent != null" >
+        acontent,
+      </if>
+      <if test="aoperatdate != null" >
+        aoperatDate,
+      </if>
+      <if test="ioperator != null" >
+        ioperator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="aclassgrade != null" >
+        #{aclassgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="atypeid != null" >
+        #{atypeid,jdbcType=INTEGER},
+      </if>
+      <if test="atypename != null" >
+        #{atypename,jdbcType=VARCHAR},
+      </if>
+      <if test="asortid != null" >
+        #{asortid,jdbcType=INTEGER},
+      </if>
+      <if test="asortname != null" >
+        #{asortname,jdbcType=VARCHAR},
+      </if>
+      <if test="iftime != null" >
+        #{iftime,jdbcType=DATE},
+      </if>
+      <if test="acontent != null" >
+        #{acontent,jdbcType=VARCHAR},
+      </if>
+      <if test="aoperatdate != null" >
+        #{aoperatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperator != null" >
+        #{ioperator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Awardandpunishment" >
+    update awardandpunishment
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        stuname = #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="aclassgrade != null" >
+        aclassgrade = #{aclassgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="atypeid != null" >
+        atypeId = #{atypeid,jdbcType=INTEGER},
+      </if>
+      <if test="atypename != null" >
+        atypeName = #{atypename,jdbcType=VARCHAR},
+      </if>
+      <if test="asortid != null" >
+        asortId = #{asortid,jdbcType=INTEGER},
+      </if>
+      <if test="asortname != null" >
+        asortName = #{asortname,jdbcType=VARCHAR},
+      </if>
+      <if test="iftime != null" >
+        iftime = #{iftime,jdbcType=DATE},
+      </if>
+      <if test="acontent != null" >
+        acontent = #{acontent,jdbcType=VARCHAR},
+      </if>
+      <if test="aoperatdate != null" >
+        aoperatDate = #{aoperatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ioperator != null" >
+        ioperator = #{ioperator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Awardandpunishment" >
+    update awardandpunishment
+    set sid = #{sid,jdbcType=INTEGER},
+      stuname = #{stuname,jdbcType=VARCHAR},
+      aclassgrade = #{aclassgrade,jdbcType=VARCHAR},
+      atypeId = #{atypeid,jdbcType=INTEGER},
+      atypeName = #{atypename,jdbcType=VARCHAR},
+      asortId = #{asortid,jdbcType=INTEGER},
+      asortName = #{asortname,jdbcType=VARCHAR},
+      iftime = #{iftime,jdbcType=DATE},
+      acontent = #{acontent,jdbcType=VARCHAR},
+      aoperatDate = #{aoperatdate,jdbcType=TIMESTAMP},
+      ioperator = #{ioperator,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 自定义sql -->
+  
+  <select id="selectStudentIdAwardandpunishment" resultMap="BaseResultMap">
+  	  SELECT * FROM `awardandpunishment` WHERE sid=#{sid} ORDER BY `aoperatDate` DESC
+  </select>
+  
+</mapper>

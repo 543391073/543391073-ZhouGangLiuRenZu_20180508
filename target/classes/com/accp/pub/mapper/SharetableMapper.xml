@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.SharetableMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Sharetable" >
+    <id column="fxid" property="fxid" jdbcType="INTEGER" />
+    <result column="suid" property="suid" jdbcType="INTEGER" />
+    <result column="suname" property="suname" jdbcType="VARCHAR" />
+    <result column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="fuid" property="fuid" jdbcType="VARCHAR" />
+    <result column="funame" property="funame" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="items" property="items" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="VARCHAR" />
+    <result column="bz2" property="bz2" jdbcType="VARCHAR" />
+    <result column="bz3" property="bz3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fxid, suid, suname, fid, fuid, funame, title, items, type, status, addtime, bz, bz1, 
+    bz2, bz3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sharetable
+    where fxid = #{fxid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sharetable
+    where fxid = #{fxid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Sharetable" >
+    insert into sharetable (fxid, suid, suname, 
+      fid, fuid, funame, 
+      title, items, type, 
+      status, addtime, bz, 
+      bz1, bz2, bz3)
+    values (#{fxid,jdbcType=INTEGER}, #{suid,jdbcType=INTEGER}, #{suname,jdbcType=VARCHAR}, 
+      #{fid,jdbcType=INTEGER}, #{fuid,jdbcType=VARCHAR}, #{funame,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{items,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR}, 
+      #{bz1,jdbcType=VARCHAR}, #{bz2,jdbcType=VARCHAR}, #{bz3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Sharetable" >
+    insert into sharetable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fxid != null" >
+        fxid,
+      </if>
+      <if test="suid != null" >
+        suid,
+      </if>
+      <if test="suname != null" >
+        suname,
+      </if>
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="fuid != null" >
+        fuid,
+      </if>
+      <if test="funame != null" >
+        funame,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="items != null" >
+        items,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="bz1 != null" >
+        bz1,
+      </if>
+      <if test="bz2 != null" >
+        bz2,
+      </if>
+      <if test="bz3 != null" >
+        bz3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fxid != null" >
+        #{fxid,jdbcType=INTEGER},
+      </if>
+      <if test="suid != null" >
+        #{suid,jdbcType=INTEGER},
+      </if>
+      <if test="suname != null" >
+        #{suname,jdbcType=VARCHAR},
+      </if>
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="fuid != null" >
+        #{fuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funame != null" >
+        #{funame,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="items != null" >
+        #{items,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        #{bz3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Sharetable" >
+    update sharetable
+    <set >
+      <if test="suid != null" >
+        suid = #{suid,jdbcType=INTEGER},
+      </if>
+      <if test="suname != null" >
+        suname = #{suname,jdbcType=VARCHAR},
+      </if>
+      <if test="fid != null" >
+        fid = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="fuid != null" >
+        fuid = #{fuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funame != null" >
+        funame = #{funame,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="items != null" >
+        items = #{items,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="bz1 != null" >
+        bz1 = #{bz1,jdbcType=VARCHAR},
+      </if>
+      <if test="bz2 != null" >
+        bz2 = #{bz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bz3 != null" >
+        bz3 = #{bz3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fxid = #{fxid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Sharetable" >
+    update sharetable
+    set suid = #{suid,jdbcType=INTEGER},
+      suname = #{suname,jdbcType=VARCHAR},
+      fid = #{fid,jdbcType=INTEGER},
+      fuid = #{fuid,jdbcType=VARCHAR},
+      funame = #{funame,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      items = #{items,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=TIMESTAMP},
+      bz = #{bz,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=VARCHAR},
+      bz2 = #{bz2,jdbcType=VARCHAR},
+      bz3 = #{bz3,jdbcType=VARCHAR}
+    where fxid = #{fxid,jdbcType=INTEGER}
+  </update>
+</mapper>

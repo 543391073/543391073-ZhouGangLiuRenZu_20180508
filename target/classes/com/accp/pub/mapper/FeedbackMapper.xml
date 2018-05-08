@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.FeedbackMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Feedback" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="npid" property="npid" jdbcType="INTEGER" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="fcontent" property="fcontent" jdbcType="VARCHAR" />
+    <result column="frid" property="frid" jdbcType="INTEGER" />
+    <result column="funame" property="funame" jdbcType="VARCHAR" />
+    <result column="fuTime" property="futime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fid, taskid, npid, tname, uid, uname, fcontent, frid, funame, fuTime, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from feedback
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from feedback
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Feedback" >
+    insert into feedback (fid, taskid, npid, 
+      tname, uid, uname, 
+      fcontent, frid, funame, 
+      fuTime, remark)
+    values (#{fid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, #{npid,jdbcType=INTEGER}, 
+      #{tname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, 
+      #{fcontent,jdbcType=VARCHAR}, #{frid,jdbcType=INTEGER}, #{funame,jdbcType=VARCHAR}, 
+      #{futime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Feedback" >
+    insert into feedback
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="npid != null" >
+        npid,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="fcontent != null" >
+        fcontent,
+      </if>
+      <if test="frid != null" >
+        frid,
+      </if>
+      <if test="funame != null" >
+        funame,
+      </if>
+      <if test="futime != null" >
+        fuTime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="npid != null" >
+        #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null" >
+        #{fcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="frid != null" >
+        #{frid,jdbcType=INTEGER},
+      </if>
+      <if test="funame != null" >
+        #{funame,jdbcType=VARCHAR},
+      </if>
+      <if test="futime != null" >
+        #{futime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Feedback" >
+    update feedback
+    <set >
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="npid != null" >
+        npid = #{npid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null" >
+        fcontent = #{fcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="frid != null" >
+        frid = #{frid,jdbcType=INTEGER},
+      </if>
+      <if test="funame != null" >
+        funame = #{funame,jdbcType=VARCHAR},
+      </if>
+      <if test="futime != null" >
+        fuTime = #{futime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Feedback" >
+    update feedback
+    set taskid = #{taskid,jdbcType=INTEGER},
+      npid = #{npid,jdbcType=INTEGER},
+      tname = #{tname,jdbcType=VARCHAR},
+      uid = #{uid,jdbcType=INTEGER},
+      uname = #{uname,jdbcType=VARCHAR},
+      fcontent = #{fcontent,jdbcType=VARCHAR},
+      frid = #{frid,jdbcType=INTEGER},
+      funame = #{funame,jdbcType=VARCHAR},
+      fuTime = #{futime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.ClassmanagementmodelMapper">
+	<resultMap id="BaseResultMap" type="com.accp.pub.pojo.Classmanagementmodel">
+		<id column="cmmId" property="cmmid" jdbcType="INTEGER" />
+		<result column="cmmName" property="cmmname" jdbcType="VARCHAR" />
+		<result column="cmmPid" property="cmmpid" jdbcType="INTEGER" />
+		<result column="cmmState" property="cmmstate" jdbcType="INTEGER" />
+		<result column="operator" property="operator" jdbcType="VARCHAR" />
+		<result column="operatorId" property="operatorid" jdbcType="VARCHAR" />
+		<result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+		<result column="classId" property="classid" jdbcType="VARCHAR" />
+		<result column="className" property="classname" jdbcType="VARCHAR" />
+		<result column="gradeId" property="gradeid" jdbcType="INTEGER" />
+		<result column="gradeName" property="gradename" jdbcType="VARCHAR" />
+		<result column="emmheadCount" property="emmheadcount" jdbcType="INTEGER" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		cmmId, cmmName, cmmPid, cmmState, operator, operatorId,
+		operatorTime,
+		classId, className,
+		gradeId, gradeName, emmheadCount,
+		reserved1, reserved2, reserved3
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from classmanagementmodel
+		where cmmId = #{cmmid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		classmanagementmodel
+		where cmmId = #{cmmid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.accp.pub.pojo.Classmanagementmodel">
+		insert into
+		classmanagementmodel (cmmId, cmmName, cmmPid,
+		cmmState, operator,
+		operatorId,
+		operatorTime, classId, className,
+		gradeId, gradeName,
+		emmheadCount,
+		reserved1, reserved2, reserved3
+		)
+		values
+		(#{cmmid,jdbcType=INTEGER}, #{cmmname,jdbcType=VARCHAR},
+		#{cmmpid,jdbcType=INTEGER},
+		#{cmmstate,jdbcType=INTEGER},
+		#{operator,jdbcType=VARCHAR}, #{operatorid,jdbcType=VARCHAR},
+		#{operatortime,jdbcType=TIMESTAMP}, #{classid,jdbcType=VARCHAR},
+		#{classname,jdbcType=VARCHAR},
+		#{gradeid,jdbcType=INTEGER},
+		#{gradename,jdbcType=VARCHAR}, #{emmheadcount,jdbcType=INTEGER},
+		#{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR},
+		#{reserved3,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.accp.pub.pojo.Classmanagementmodel"
+		useGeneratedKeys="true" keyProperty="cmmid">
+		insert into classmanagementmodel
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cmmid != null">
+				cmmId,
+			</if>
+			<if test="cmmname != null">
+				cmmName,
+			</if>
+			<if test="cmmpid != null">
+				cmmPid,
+			</if>
+			<if test="cmmstate != null">
+				cmmState,
+			</if>
+			<if test="operator != null">
+				operator,
+			</if>
+			<if test="operatorid != null">
+				operatorId,
+			</if>
+			<if test="operatortime != null">
+				operatorTime,
+			</if>
+			<if test="classid != null">
+				classId,
+			</if>
+			<if test="classname != null">
+				className,
+			</if>
+			<if test="gradeid != null">
+				gradeId,
+			</if>
+			<if test="gradename != null">
+				gradeName,
+			</if>
+			<if test="emmheadcount != null">
+				emmheadCount,
+			</if>
+			<if test="reserved1 != null">
+				reserved1,
+			</if>
+			<if test="reserved2 != null">
+				reserved2,
+			</if>
+			<if test="reserved3 != null">
+				reserved3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cmmid != null">
+				#{cmmid,jdbcType=INTEGER},
+			</if>
+			<if test="cmmname != null">
+				#{cmmname,jdbcType=VARCHAR},
+			</if>
+			<if test="cmmpid != null">
+				#{cmmpid,jdbcType=INTEGER},
+			</if>
+			<if test="cmmstate != null">
+				#{cmmstate,jdbcType=INTEGER},
+			</if>
+			<if test="operator != null">
+				#{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatorid != null">
+				#{operatorid,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				#{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="classid != null">
+				#{classid,jdbcType=VARCHAR},
+			</if>
+			<if test="classname != null">
+				#{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="gradeid != null">
+				#{gradeid,jdbcType=INTEGER},
+			</if>
+			<if test="gradename != null">
+				#{gradename,jdbcType=VARCHAR},
+			</if>
+			<if test="emmheadcount != null">
+				#{emmheadcount,jdbcType=INTEGER},
+			</if>
+			<if test="reserved1 != null">
+				#{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				#{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				#{reserved3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Classmanagementmodel">
+		update classmanagementmodel
+		<set>
+			<if test="cmmname != null">
+				cmmName = #{cmmname,jdbcType=VARCHAR},
+			</if>
+			<if test="cmmpid != null">
+				cmmPid = #{cmmpid,jdbcType=INTEGER},
+			</if>
+			<if test="cmmstate != null">
+				cmmState = #{cmmstate,jdbcType=INTEGER},
+			</if>
+			<if test="operator != null">
+				operator = #{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="operatorid != null">
+				operatorId = #{operatorid,jdbcType=VARCHAR},
+			</if>
+			<if test="operatortime != null">
+				operatorTime = #{operatortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="classid != null">
+				classId = #{classid,jdbcType=VARCHAR},
+			</if>
+			<if test="classname != null">
+				className = #{classname,jdbcType=VARCHAR},
+			</if>
+			<if test="gradeid != null">
+				gradeId = #{gradeid,jdbcType=INTEGER},
+			</if>
+			<if test="gradename != null">
+				gradeName = #{gradename,jdbcType=VARCHAR},
+			</if>
+			<if test="emmheadcount != null">
+				emmheadCount = #{emmheadcount,jdbcType=INTEGER},
+			</if>
+			<if test="reserved1 != null">
+				reserved1 = #{reserved1,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved2 != null">
+				reserved2 = #{reserved2,jdbcType=VARCHAR},
+			</if>
+			<if test="reserved3 != null">
+				reserved3 = #{reserved3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where cmmId = #{cmmid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Classmanagementmodel">
+		update
+		classmanagementmodel
+		set cmmName = #{cmmname,jdbcType=VARCHAR},
+		cmmPid =
+		#{cmmpid,jdbcType=INTEGER},
+		cmmState = #{cmmstate,jdbcType=INTEGER},
+		operator = #{operator,jdbcType=VARCHAR},
+		operatorId =
+		#{operatorid,jdbcType=VARCHAR},
+		operatorTime =
+		#{operatortime,jdbcType=TIMESTAMP},
+		classId =
+		#{classid,jdbcType=VARCHAR},
+		className = #{classname,jdbcType=VARCHAR},
+		gradeId = #{gradeid,jdbcType=INTEGER},
+		gradeName =
+		#{gradename,jdbcType=VARCHAR},
+		emmheadCount =
+		#{emmheadcount,jdbcType=INTEGER},
+		reserved1 =
+		#{reserved1,jdbcType=VARCHAR},
+		reserved2 =
+		#{reserved2,jdbcType=VARCHAR},
+		reserved3 =
+		#{reserved3,jdbcType=VARCHAR}
+		where cmmId = #{cmmid,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- 自定义sql -->
+	<resultMap id="BaseResultMapDongPid" type="com.accp.pub.pojo.Classmanagementmodel">
+		<id column="cmmId" property="cmmid" jdbcType="INTEGER" />
+		<result column="cmmName" property="cmmname" jdbcType="VARCHAR" />
+		<result column="cmmPid" property="cmmpid" jdbcType="INTEGER" />
+		<result column="cmmState" property="cmmstate" jdbcType="INTEGER" />
+		<result column="operator" property="operator" jdbcType="VARCHAR" />
+		<result column="operatorId" property="operatorid" jdbcType="VARCHAR" />
+		<result column="operatorTime" property="operatortime" jdbcType="TIMESTAMP" />
+		<result column="classId" property="classid" jdbcType="VARCHAR" />
+		<result column="className" property="classname" jdbcType="VARCHAR" />
+		<result column="gradeId" property="gradeid" jdbcType="INTEGER" />
+		<result column="gradeName" property="gradename" jdbcType="VARCHAR" />
+		<result column="emmheadCount" property="emmheadcount" jdbcType="INTEGER" />
+		<result column="reserved1" property="reserved1" jdbcType="VARCHAR" />
+		<result column="reserved2" property="reserved2" jdbcType="VARCHAR" />
+		<result column="reserved3" property="reserved3" jdbcType="VARCHAR" />
+		<collection property="childList" select="selectByCmmPidXiangMuZuKaiTong"
+			column="{cmmpid=cmmId,classid=classId}"></collection>
+	</resultMap>
+
+	<select id="selectByCmmPidXiangMuZuKaiTong" resultMap="BaseResultMapDongPid">
+		SELECT *
+		FROM `classmanagementmodel` WHERE `cmmState`=1 AND `cmmPid`=
+		#{cmmpid,jdbcType=INTEGER} AND `classId`=#{classid,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateByemmheadCountKey">
+		update classmanagementmodel
+		set
+		emmheadCount =
+		#{emmheadcount,jdbcType=INTEGER}
+		where cmmId
+		#{cmmid,jdbcType=INTEGER}
+	</update>
+
+
+	<select id="selectByUserYesNoClassGuanLiZhe" resultMap="BaseResultMap">
+		SELECT
+		c.* FROM `classmanagementmodel` c
+		INNER JOIN `gradeorganizationuser` g ON c.`cmmId`=g.`cmmId`
+		WHERE g.`userid`=#{userid} AND c.`cmmPid`=0 AND g.`jurisdiction` IN(1,2)
+	</select>
+
+</mapper>

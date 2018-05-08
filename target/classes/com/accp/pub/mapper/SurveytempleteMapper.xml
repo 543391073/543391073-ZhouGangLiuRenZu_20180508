@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.pub.mapper.SurveytempleteMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.pub.pojo.Surveytemplete" >
+    <id column="templateid" property="templateid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="issuerid" property="issuerid" jdbcType="VARCHAR" />
+    <result column="issuername" property="issuername" jdbcType="VARCHAR" />
+    <result column="isstype" property="isstype" jdbcType="INTEGER" />
+    <result column="issname" property="issname" jdbcType="VARCHAR" />
+    <result column="opened" property="opened" jdbcType="INTEGER" />
+    <result column="miaoshu" property="miaoshu" jdbcType="VARCHAR" />
+    <result column="itemstype" property="itemstype" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="createman" property="createman" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="usestate" property="usestate" jdbcType="INTEGER" />
+    <result column="standa" property="standa" jdbcType="VARCHAR" />
+    <result column="standb" property="standb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    templateid, title, issuerid, issuername, isstype, issname, opened, miaoshu, itemstype, 
+    remark, createman, createtime, usestate, standa, standb
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from surveytemplete
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from surveytemplete
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.accp.pub.pojo.Surveytemplete" >
+    insert into surveytemplete (templateid, title, issuerid, 
+      issuername, isstype, issname, 
+      opened, miaoshu, itemstype, 
+      remark, createman, createtime, 
+      usestate, standa, standb
+      )
+    values (#{templateid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{issuerid,jdbcType=VARCHAR}, 
+      #{issuername,jdbcType=VARCHAR}, #{isstype,jdbcType=INTEGER}, #{issname,jdbcType=VARCHAR}, 
+      #{opened,jdbcType=INTEGER}, #{miaoshu,jdbcType=VARCHAR}, #{itemstype,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createman,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{usestate,jdbcType=INTEGER}, #{standa,jdbcType=VARCHAR}, #{standb,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.pub.pojo.Surveytemplete" >
+    insert into surveytemplete
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        templateid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="issuerid != null" >
+        issuerid,
+      </if>
+      <if test="issuername != null" >
+        issuername,
+      </if>
+      <if test="isstype != null" >
+        isstype,
+      </if>
+      <if test="issname != null" >
+        issname,
+      </if>
+      <if test="opened != null" >
+        opened,
+      </if>
+      <if test="miaoshu != null" >
+        miaoshu,
+      </if>
+      <if test="itemstype != null" >
+        itemstype,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createman != null" >
+        createman,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="usestate != null" >
+        usestate,
+      </if>
+      <if test="standa != null" >
+        standa,
+      </if>
+      <if test="standb != null" >
+        standb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        #{templateid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="issuerid != null" >
+        #{issuerid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuername != null" >
+        #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="isstype != null" >
+        #{isstype,jdbcType=INTEGER},
+      </if>
+      <if test="issname != null" >
+        #{issname,jdbcType=VARCHAR},
+      </if>
+      <if test="opened != null" >
+        #{opened,jdbcType=INTEGER},
+      </if>
+      <if test="miaoshu != null" >
+        #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="itemstype != null" >
+        #{itemstype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        #{standb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.pub.pojo.Surveytemplete" >
+    update surveytemplete
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="issuerid != null" >
+        issuerid = #{issuerid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuername != null" >
+        issuername = #{issuername,jdbcType=VARCHAR},
+      </if>
+      <if test="isstype != null" >
+        isstype = #{isstype,jdbcType=INTEGER},
+      </if>
+      <if test="issname != null" >
+        issname = #{issname,jdbcType=VARCHAR},
+      </if>
+      <if test="opened != null" >
+        opened = #{opened,jdbcType=INTEGER},
+      </if>
+      <if test="miaoshu != null" >
+        miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="itemstype != null" >
+        itemstype = #{itemstype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        createman = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usestate != null" >
+        usestate = #{usestate,jdbcType=INTEGER},
+      </if>
+      <if test="standa != null" >
+        standa = #{standa,jdbcType=VARCHAR},
+      </if>
+      <if test="standb != null" >
+        standb = #{standb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.pub.pojo.Surveytemplete" >
+    update surveytemplete
+    set title = #{title,jdbcType=VARCHAR},
+      issuerid = #{issuerid,jdbcType=VARCHAR},
+      issuername = #{issuername,jdbcType=VARCHAR},
+      isstype = #{isstype,jdbcType=INTEGER},
+      issname = #{issname,jdbcType=VARCHAR},
+      opened = #{opened,jdbcType=INTEGER},
+      miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      itemstype = #{itemstype,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      createman = #{createman,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      usestate = #{usestate,jdbcType=INTEGER},
+      standa = #{standa,jdbcType=VARCHAR},
+      standb = #{standb,jdbcType=VARCHAR}
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </update>
+</mapper>
